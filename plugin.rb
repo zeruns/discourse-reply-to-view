@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # name: discourse-reply-to-view
-# version: 1.1.2
+# version: 1.1.3
 # authors: zeruns
 # url: https://github.com/zeruns/discourse-reply-to-view
 # about: 回帖可见 / 登录可见内容保护插件（[reply] 与 [login] BBCode 标记，

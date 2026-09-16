@@ -34,21 +34,27 @@ module ReplyToView
   # 核心内容本地化（content_localization_enabled）会把 post_localizations 表中的
   # 翻译 cooked 提供给非默认语言用户（BasicPostSerializer#cooked、PostItemExcerpt、
   # 话题摘要等多个出口共用 ContentLocalization.translated_post_cooked）。
-  # 翻译产物往往丢失 [reply]/[login] 的占位容器结构,导致已翻译的隐藏内容
-  # 对未满足条件的用户直接可见 —— 这正是"切换到其他语言后无需回复即可见"的根因。
   #
-  # 修法:帖子含隐藏标记且当前用户不满足"全部块可见"时,translated_post_cooked
-  # 返回 nil,令所有核心出口回退到受保护的默认 cooked / 摘要（占位符版本）。
-  # 特权与已解锁用户不受影响,仍可查看本地化变体。
+  # 处理策略:
+  #   1. 翻译产物容器结构完好（AI 翻译保留了 [reply]/[login] 标记）:
+  #      直接放行 —— 注入器会按当前用户权限逐块锁定/解锁,
+  #      未满足条件的用户看到本语言占位框,已解锁用户看到本语言翻译内容;
+  #   2. 翻译产物丢失容器结构（LLM 偶发未保留标记,翻译后的隐藏内容
+  #      以明文暴露在 cooked 中）:仅对满足"全部块可见"的用户放行,
+  #      其他用户回退到受保护的默认 cooked。
   module ContentLocalizationExtension
     def translated_post_cooked(post, scope)
-      if SiteSetting.enable_rtv &&
-         post.present? &&
-         ::ReplyToView::Engine.contains_marks?(post.raw.to_s) &&
-         !::ReplyToView::Guard.new(scope&.user, post).all_blocks_visible?
-        return nil
-      end
-      super
+      result = super
+      return result if result.nil? || result.blank? || !SiteSetting.enable_rtv
+      return result if post.blank? || !::ReplyToView::Engine.contains_marks?(post.raw.to_s)
+
+      # 容器结构完好:注入器负责按权限处理
+      return result if result.include?("rtv-block")
+
+      # 结构已破坏（翻译内容明文暴露）:仅放行可查看全部隐藏块的用户
+      return result if ::ReplyToView::Guard.new(scope&.user, post).all_blocks_visible?
+
+      nil
     end
   end
 

@@ -49,17 +49,38 @@ module ReplyToView
 
       private
 
-      def rebuild(doc, post, user, all_visible:, inert:)
-        containers = doc.css(CONTAINER_SELECTOR)
-        blocks = Engine.extract(post.raw)
-
-        # —— 对齐校验（见模块注释第 3 条）——
-        aligned = blocks.size == containers.size && containers.each_with_index.all? do |el, i|
+      # 对齐校验:容器序列（类型 / 计数 / 指纹）与某个 raw 的提取结果是否逐块一致
+      def aligned?(containers, blocks)
+        blocks.size == containers.size && containers.each_with_index.all? do |el, i|
           block = blocks[i]
           el["data-rtv-type"] == block.type.to_s &&
             el["data-rtv-checksum"] == block.checksum.to_s(16) &&
             (el["data-rtv-count"] || "") == (block.count ? block.count.to_s : "")
         end
+      end
+
+      # 找到与容器对齐的块序列:优先帖子原文 raw;
+      # 不一致时依次尝试各语言本地化的 raw（本地化 cooked 的容器指纹
+      # 对应的是翻译后内容 —— 内容本地化站点的多语言变体走此处对齐）。
+      # 全部无法对齐时返回 nil,由调用方整帖降级为占位符。
+      def resolve_blocks(post, containers)
+        blocks = Engine.extract(post.raw.to_s)
+        return blocks if aligned?(containers, blocks)
+
+        post.localizations.find_each do |loc|
+          candidate = Engine.extract(loc.raw.to_s)
+          return candidate if aligned?(containers, candidate)
+        end
+
+        nil
+      end
+
+      def rebuild(doc, post, user, all_visible:, inert:)
+        containers = doc.css(CONTAINER_SELECTOR)
+
+        # —— 对齐校验（见模块注释第 3 条）——
+        blocks = resolve_blocks(post, containers)
+        aligned = !blocks.nil?
 
         guard = Guard.new(user, post)
 

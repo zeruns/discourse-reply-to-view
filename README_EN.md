@@ -13,6 +13,11 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 - Demo forum: <https://bbs.eeclub.top/>
 - This project was developed by AI
 
+## Related Tutorials
+
+- Discourse setup guide — deploy an open-source community forum from scratch (Chinese): <https://blog.zeruns.com/archives/919.html>
+- Discourse AI configuration guide — enable AI features for free with SiliconFlow API (Chinese): <https://blog.zeruns.com/archives/917.html>
+
 ## Requirements
 
 - Verified against Discourse **v2026.9.0-latest** (master branch, built 2026-09-16)
@@ -26,7 +31,22 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 
 ## Changelog
 
-### v1.1.2 (current)
+### v1.1.3 (current)
+
+- **Fixed: after replying in a non-default language UI, all hidden blocks turned locked**.
+  The localized cooked's container checksums correspond to the translated content and failed
+  alignment against the original raw, so the anti-misalignment mechanism degraded everything
+  to placeholders. The injector now tries each localization's raw for alignment and then
+  processes blocks per user: locked users see placeholders in their language, unlocked users
+  see the translated content.
+- **Fixed: localized variants were blocked indiscriminately**. v1.1.2 refused localized
+  variants for marked posts entirely (non-default-language users fell back to the Chinese
+  default). Now variants are refused only when the translation lost its container structure
+  (translated hidden content exposed as plain text); well-formed variants pass through,
+  so normal translation functionality is unaffected.
+- Tutorial links added; tests 79 → 81
+
+### v1.1.2
 
 - **Fixed: hidden content directly visible in non-default languages**. When content
   localization is enabled, translations can lose the [reply]/[login] container structure,
