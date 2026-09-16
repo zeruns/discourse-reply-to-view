@@ -1,0 +1,11 @@
+zh_CN:
+  reply_to_view:
+    reply:
+      placeholder: "本内容回复主题后可见"
+      count_placeholder: "本内容需在本主题下发布至少 %{count} 条有效回复后可见"
+    login:
+      placeholder: "登录后即可查看本内容"
+    # raw 出口脱敏占位（/posts/:id/raw 等接口）
+    sanitized_placeholder: "【内容已隐藏】"
+    # 搜索索引脱敏占位
+    search_placeholder: "【受保护内容】"

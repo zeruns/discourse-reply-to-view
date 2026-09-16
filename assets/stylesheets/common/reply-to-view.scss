@@ -1,0 +1,79 @@
+// discourse-reply-to-view —— 样式
+//
+// 视觉规范：
+//   - [reply] 占位框：蓝色系主题
+//   - [login] 占位框：绿色系主题
+//   - 作者本人 / 预览视角：虚线边框 + 淡色提示条
+// 全部使用 Discourse 主题 CSS 变量，自动适配浅色 / 深色主题。
+
+// ============ 未解锁占位框 ============
+.rtv-block[data-rtv-state="locked"] {
+  margin: 0.75em 0;
+  padding: 0.9em 1em;
+  border-radius: var(--d-border-radius);
+  border: 1px solid transparent;
+
+  .rtv-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--font-down-1);
+    color: var(--primary-medium);
+  }
+
+  .rtv-actions {
+    margin-top: 0.6em;
+  }
+
+  .rtv-action-btn {
+    margin: 0;
+  }
+}
+
+// [reply] 蓝色系主题
+.rtv-block.rtv-reply[data-rtv-state="locked"] {
+  border-color: var(--tertiary-low);
+  background: var(--tertiary-very-low);
+}
+
+// [login] 绿色系主题
+.rtv-block.rtv-login[data-rtv-state="locked"] {
+  border-color: var(--success-low);
+  background: color-mix(in srgb, var(--success) 6%, var(--secondary));
+
+  .rtv-action-btn {
+    background: var(--success);
+  }
+}
+
+// ============ 作者 / 预览视角：虚线边框 + 淡色提示条 ============
+.rtv-block[data-rtv-state="owner"],
+.rtv-block.rtv-preview {
+  margin: 0.75em 0;
+  padding: 0.75em 1em 0.75em 1em;
+  border: 1px dashed var(--primary-low-mid);
+  border-radius: var(--d-border-radius);
+}
+
+.rtv-notice {
+  margin: -0.25em 0 0.5em;
+  padding: 0.25em 0.6em;
+  border-radius: calc(var(--d-border-radius) / 2);
+  font-size: var(--font-down-2);
+  background: var(--primary-very-low);
+  color: var(--primary-medium);
+}
+
+// [reply] 作者视角提示条（蓝色系淡条）
+.rtv-block.rtv-reply[data-rtv-state="owner"] .rtv-notice,
+.rtv-block.rtv-reply.rtv-preview .rtv-notice {
+  background: var(--tertiary-very-low);
+  color: var(--tertiary);
+}
+
+// [login] 作者视角提示条（绿色系淡条）
+.rtv-block.rtv-login[data-rtv-state="owner"] .rtv-notice,
+.rtv-block.rtv-login.rtv-preview .rtv-notice {
+  background: color-mix(in srgb, var(--success) 10%, var(--secondary));
+  color: var(--success);
+}

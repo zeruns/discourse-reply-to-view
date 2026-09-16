@@ -1,0 +1,13 @@
+en:
+  js:
+    reply_to_view:
+      composer:
+        reply_button_title: "Wrap selection as reply-to-view content"
+        reply_surround_example: "hidden content"
+        login_button_title: "Wrap selection as login-to-view content"
+        login_surround_example: "hidden content"
+      block:
+        login_button: "Sign in to view"
+        reply_button: "Reply to view"
+        owner_notice: "This content is hidden from users who haven't met the requirements"
+        preview_notice: "This content will be hidden from users who haven't met the requirements"

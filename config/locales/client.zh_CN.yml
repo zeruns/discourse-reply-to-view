@@ -1,0 +1,13 @@
+zh_CN:
+  js:
+    reply_to_view:
+      composer:
+        reply_button_title: "包裹为回帖可见内容"
+        reply_surround_example: "隐藏内容"
+        login_button_title: "包裹为登录可见内容"
+        login_surround_example: "隐藏内容"
+      block:
+        login_button: "登录后可见"
+        reply_button: "回复后可见"
+        owner_notice: "此内容对未满足条件的用户隐藏"
+        preview_notice: "此内容对未满足条件的用户隐藏"

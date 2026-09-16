@@ -1,0 +1,11 @@
+en:
+  reply_to_view:
+    reply:
+      placeholder: "This content is only visible after you reply to this topic"
+      count_placeholder: "This content is visible after posting at least %{count} valid replies in this topic"
+    login:
+      placeholder: "Please sign in to view this content"
+    # raw 出口脱敏占位（/posts/:id/raw 等接口）
+    sanitized_placeholder: "[hidden content]"
+    # 搜索索引脱敏占位
+    search_placeholder: "[protected content]"
