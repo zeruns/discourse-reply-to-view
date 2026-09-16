@@ -11,7 +11,7 @@
     search_placeholder: "[kaitstud sisu]"
     revision_placeholder: "Selle kaitstud postituse sisumuudatused on peidetud"
   site_settings:
-    enable_rtv: "Lubab reply-to-view pistikprogrammi ([reply] ja [login] sisukaitse sildid). Välja lülitatud kuvatakse varem märgitud sisu lihttekstina."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Lubab reply-to-view pistikprogrammi ([reply] ja [login] sisukaitse sildid). Välja lülitatud kuvatakse varem märgitud sisu lihttekstina."
     reply_to_view_mode: "Kuidas [reply] sisu avatakse. any_reply: iga kehtiv vastus teemas avab kõik. exact_post: ainus otsene vastus sisu sisaldavale postitusele avab selle (esimese postituse puhul arvestatakse ka vastust teemas)."
     reply_to_view_allow_count: "Lubab [reply=N] loendisüntaksi: sisu muutub nähtavaks pärast vähemalt N kehtivat vastust teemas. Välja lülitatud käitub [reply=N] nagu tavaline [reply]."
     min_trust_level_to_bypass: "Selles usaldustasemes või kõrgemad kasutajad näevad kogu reply-to-view sisu vastamata. 0 keelab vabastuse."

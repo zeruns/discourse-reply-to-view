@@ -11,7 +11,7 @@
     search_placeholder: "【보호되는 콘텐츠】"
     revision_placeholder: "이 보호된 게시물의 변경 내용은 숨겨집니다"
   site_settings:
-    enable_rtv: "답글 보기 플러그인을 사용합니다([reply], [login] 콘텐츠 보호 태그). 비활성화하면 기존에 표시된 콘텐츠가 일반 텍스트로 표시됩니다."
+    enable_rtv: "작성자 블로그: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>.  답글 보기 플러그인을 사용합니다([reply], [login] 콘텐츠 보호 태그). 비활성화하면 기존에 표시된 콘텐츠가 일반 텍스트로 표시됩니다."
     reply_to_view_mode: "[reply] 콘텐츠 잠금 해제 방식. any_reply: 주제 내 유효한 답글 하나로 모두 해제. exact_post: 해당 게시물에 직접 답글을 달 때만 해제(첫 게시물은 주제 답글도 인정)."
     reply_to_view_allow_count: "[reply=N] 개수 구문을 사용합니다: 주제 내 유효한 답글이 N개 이상이면 표시. 비활성화 시 일반 [reply]로 동작합니다."
     min_trust_level_to_bypass: "이 신뢰 레벨 이상 사용자는 답글 없이 모든 답글 보기 콘텐츠를 볼 수 있습니다. 0으로 설정하면 면제가 비활성화됩니다."

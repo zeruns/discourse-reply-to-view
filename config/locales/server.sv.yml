@@ -11,7 +11,7 @@
     search_placeholder: "[skyddat innehåll]"
     revision_placeholder: "Innehållsändringarna för detta skyddade inlägg är dolda"
   site_settings:
-    enable_rtv: "Aktiverar reply-to-view-insticksprogrammet ([reply]- och [login]-innehållskyddstaggar). Inaktiverat visas tidigare markerat innehåll som vanlig text."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Aktiverar reply-to-view-insticksprogrammet ([reply]- och [login]-innehållskyddstaggar). Inaktiverat visas tidigare markerat innehåll som vanlig text."
     reply_to_view_mode: "Hur [reply]-innehåll låses upp. any_reply: ett giltigt svar i ämnet låser upp allt. exact_post: endast ett direkt svar på inlägget med innehållet låser upp det (för första inlägget räknas även svar i ämnet)."
     reply_to_view_allow_count: "Aktiverar [reply=N]-räknesyntaxen: innehåll blir synligt efter minst N giltiga svar i ämnet. Inaktiverad fungerar [reply=N] som ett vanligt [reply]."
     min_trust_level_to_bypass: "Användare på denna förtroendenivå eller högre kan se allt reply-to-view-innehåll utan att svara. 0 inaktiverar undantaget."

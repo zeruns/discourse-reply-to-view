@@ -11,7 +11,7 @@
     search_placeholder: "[zaščitena vsebina]"
     revision_placeholder: "Spremembe vsebine tega zaščitenega prispevka so skrite"
   site_settings:
-    enable_rtv: "Omogoči vstavek reply-to-view (oznake zaščite vsebine [reply] in [login]). Izklopljeno se prej označena vsebina prikaže kot običajno besedilo."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Omogoči vstavek reply-to-view (oznake zaščite vsebine [reply] in [login]). Izklopljeno se prej označena vsebina prikaže kot običajno besedilo."
     reply_to_view_mode: "Kako se odklene vsebina [reply]. any_reply: kateri koli veljaven odgovor v temi odklene vse. exact_post: samo neposreden odgovor na prispevek z vsebino ga odklene (za prvi prispevek šteje tudi odgovor v temi)."
     reply_to_view_allow_count: "Omogoči sintakso števca [reply=N]: vsebina postane vidna po najmanj N veljavnih odgovorih v temi. Izklopljeno se [reply=N] obnaša kot običajen [reply]."
     min_trust_level_to_bypass: "Uporabniki na tej ali višji ravni zaupanja vidijo vso vsebino reply-to-view brez odgovarjanja. 0 izklopi oprostitev."

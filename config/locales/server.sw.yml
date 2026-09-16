@@ -11,7 +11,7 @@
     search_placeholder: "[maudhui yaliyolindwa]"
     revision_placeholder: "Mabadiliko ya maudhui ya chapisho hili lililolindwa yamefichwa"
   site_settings:
-    enable_rtv: "Huwezesha programu-jalizi ya reply-to-view (lebo za ulinzi wa maudhui [reply] na [login]). Ikiwa imezimwa, maudhui yaliyoonyeshwa awali huchapishwa kama maandishi wazi."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Huwezesha programu-jalizi ya reply-to-view (lebo za ulinzi wa maudhui [reply] na [login]). Ikiwa imezimwa, maudhui yaliyoonyeshwa awali huchapishwa kama maandishi wazi."
     reply_to_view_mode: "Jinsi maudhui ya [reply] yanavyofunguliwa. any_reply: jibu lolote sahihi kwenye mada hufungua yote. exact_post: ni jibu la moja kwa moja kwenye chapisho lenye maudhui tu linalofungua (kwa chapisho la kwanza, kujibu mada pia huhesabiwa)."
     reply_to_view_allow_count: "Huwezesha sintaksia ya kuhesabu [reply=N]: maudhui huonekana baada ya majibu %{count} sahihi angalau. Ikiwa imezimwa, [reply=N] hufanya kama [reply] ya kawaida."
     min_trust_level_to_bypass: "Watumiaji katika kiwango hiki cha kuaminika au juu yake wanaona maudhui yote ya reply-to-view bila kujibu. 0 inazima uondoaji."

@@ -11,7 +11,7 @@
     search_placeholder: "[nội dung được bảo vệ]"
     revision_placeholder: "Các thay đổi nội dung của bài đăng được bảo vệ này đã bị ẩn"
   site_settings:
-    enable_rtv: "Bật plugin reply-to-view (thẻ bảo vệ nội dung [reply] và [login]). Khi tắt, nội dung đã đánh dấu trước đó hiển thị dưới dạng văn bản thường."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Bật plugin reply-to-view (thẻ bảo vệ nội dung [reply] và [login]). Khi tắt, nội dung đã đánh dấu trước đó hiển thị dưới dạng văn bản thường."
     reply_to_view_mode: "Cách mở khóa nội dung [reply]. any_reply: bất kỳ câu trả lời hợp lệ nào trong chủ đề đều mở khóa tất cả. exact_post: chỉ câu trả lời trực tiếp cho bài đăng chứa nội dung mới mở khóa (với bài đầu tiên, trả lời trong chủ đề cũng được tính)."
     reply_to_view_allow_count: "Bật cú pháp đếm [reply=N]: nội dung hiển thị sau ít nhất N câu trả lời hợp lệ trong chủ đề. Khi tắt, [reply=N] hoạt động như [reply] thường."
     min_trust_level_to_bypass: "Người dùng ở mức tin cậy này trở lên có thể xem toàn bộ nội dung reply-to-view mà không cần trả lời. 0 để tắt miễn trừ."

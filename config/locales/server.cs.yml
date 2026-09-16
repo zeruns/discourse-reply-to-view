@@ -11,7 +11,7 @@
     search_placeholder: "[chráněný obsah]"
     revision_placeholder: "Změny obsahu tohoto chráněného příspěvku jsou skryty"
   site_settings:
-    enable_rtv: "Povoluje plugin reply-to-view (značky ochrany obsahu [reply] a [login]). Při vypnutí se dříve označený obsah zobrazí jako prostý text."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Povoluje plugin reply-to-view (značky ochrany obsahu [reply] a [login]). Při vypnutí se dříve označený obsah zobrazí jako prostý text."
     reply_to_view_mode: "Způsob odemčení obsahu [reply]. any_reply: jakákoli platná odpověď v tématu vše odemkne. exact_post: pouze přímá odpověď na příspěvek s obsahem jej odemkne (u prvního příspěvku stačí i odpověď v tématu)."
     reply_to_view_allow_count: "Povoluje syntaxi počítadla [reply=N]: obsah se zobrazí po alespoň N platných odpovědích v tématu. Vypnuto se [reply=N] chová jako běžné [reply]."
     min_trust_level_to_bypass: "Uživatelé na této úrovni důvěry nebo vyšší vidí veškerý obsah reply-to-view bez odpovědi. 0 vypne osvobození."

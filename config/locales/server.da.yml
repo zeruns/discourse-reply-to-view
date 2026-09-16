@@ -11,7 +11,7 @@
     search_placeholder: "[beskyttet indhold]"
     revision_placeholder: "Indholdsændringerne for dette beskyttede indlæg er skjult"
   site_settings:
-    enable_rtv: "Aktiverer reply-to-view-pluginet ([reply]- og [login]-indholdsbeskyttelsestags). Deaktiveret vises tidligere markeret indhold som almindelig tekst."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Aktiverer reply-to-view-pluginet ([reply]- og [login]-indholdsbeskyttelsestags). Deaktiveret vises tidligere markeret indhold som almindelig tekst."
     reply_to_view_mode: "Hvordan [reply]-indhold låses op. any_reply: ethvert gyldigt svar i emnet låser alt op. exact_post: kun et direkte svar på indlægget med indholdet låser det op (ved det første indlæg tæller et svar i emnet også)."
     reply_to_view_allow_count: "Aktiverer [reply=N]-tællesyntaksen: indhold bliver synligt efter mindst N gyldige svar i emnet. Deaktiveret opfører [reply=N] sig som et almindeligt [reply]."
     min_trust_level_to_bypass: "Brugere på dette tillidsniveau eller højere kan se alt reply-to-view-indhold uden at svare. 0 deaktiverer fritagelsen."

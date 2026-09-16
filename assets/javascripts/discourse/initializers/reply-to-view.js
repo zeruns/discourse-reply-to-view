@@ -13,6 +13,7 @@ import { apiInitializer } from "discourse/lib/api";
 import { ajax } from "discourse/lib/ajax";
 import { i18n } from "discourse-i18n";
 import RtvBlock from "../components/rtv-block";
+import { openReplyComposer } from "../lib/rtv-composer";
 
 export default apiInitializer("1.34.0", (api) => {
   const siteSettings = api.container.lookup("service:site-settings");
@@ -149,19 +150,7 @@ export default apiInitializer("1.34.0", (api) => {
       );
       return;
     }
-    openReplyComposer(post);
-  }
-
-  function openReplyComposer(post) {
-    const composer = api.container.lookup("service:composer");
-    if (composer && post && post.topic) {
-      composer.open({ action: "reply", topic: post.topic, post });
-    } else {
-      // 兜底：滚动至页面底部回复区
-      document
-        .getElementById("reply-control")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }
+    openReplyComposer(api.container, post);
   }
 
   // 登录跳转基址（避免在插件初始化顶层引入额外依赖时的轻量封装）
