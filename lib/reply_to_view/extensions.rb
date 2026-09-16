@@ -29,6 +29,29 @@ module ReplyToView
     end
   end
 
+  # ============ ContentLocalization 扩展（本地化 cooked 变体防线） ============
+  # 【安全优先级：最高】
+  # 核心内容本地化（content_localization_enabled）会把 post_localizations 表中的
+  # 翻译 cooked 提供给非默认语言用户（BasicPostSerializer#cooked、PostItemExcerpt、
+  # 话题摘要等多个出口共用 ContentLocalization.translated_post_cooked）。
+  # 翻译产物往往丢失 [reply]/[login] 的占位容器结构,导致已翻译的隐藏内容
+  # 对未满足条件的用户直接可见 —— 这正是"切换到其他语言后无需回复即可见"的根因。
+  #
+  # 修法:帖子含隐藏标记且当前用户不满足"全部块可见"时,translated_post_cooked
+  # 返回 nil,令所有核心出口回退到受保护的默认 cooked / 摘要（占位符版本）。
+  # 特权与已解锁用户不受影响,仍可查看本地化变体。
+  module ContentLocalizationExtension
+    def translated_post_cooked(post, scope)
+      if SiteSetting.enable_rtv &&
+         post.present? &&
+         ::ReplyToView::Engine.contains_marks?(post.raw.to_s) &&
+         !::ReplyToView::Guard.new(scope&.user, post).all_blocks_visible?
+        return nil
+      end
+      super
+    end
+  end
+
   # ============ PostRevisionSerializer 扩展（修订历史 diff 脱敏） ============
   # 【安全优先级：最高】
   # 核心修订历史的 body_changes.side_by_side_markdown 输出 raw 的词级 diff,

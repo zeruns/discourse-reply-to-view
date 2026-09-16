@@ -26,7 +26,24 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 
 ## Changelog
 
-### v1.1.0 (current)
+### v1.1.2 (current)
+
+- **Fixed: hidden content directly visible in non-default languages**. When content
+  localization is enabled, translations can lose the [reply]/[login] container structure,
+  and the translated hidden content was served to non-default-language users via
+  `ContentLocalization.translated_post_cooked`. Now, if a post contains hidden marks and
+  the requesting user cannot view all blocks, the localized cooked variant is refused
+  (falling back to the protected default cooked). Privileged and unlocked users are unaffected.
+- Author blog link added to the top of the `enable_rtv` setting description (all 49 languages)
+- 6 new localization-leak tests; 79 examples passing in total
+
+### v1.1.1
+
+- Fixed the "reply to view" button not opening the composer (composer.open draftKey contract)
+- The two composer insert buttons moved into the "+" options menu; fixed the inserted example
+  text showing an untranslated key
+
+### v1.1.0
 
 - `min_trust_level_to_bypass` default changed to **0** (strict reply-to-view; the v1.0.0 default of 1 let TL1+ users see content without replying)
 - The two composer insert buttons moved from the toolbar into the "**+**" options menu (alongside "insert table" / "hidden details"); fixed the inserted example text showing an untranslated key

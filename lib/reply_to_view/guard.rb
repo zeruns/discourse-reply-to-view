@@ -72,6 +72,14 @@ module ReplyToView
       !@user.nil? && @user.id == @post.user_id
     end
 
+    # 当前用户是否可查看该帖的全部隐藏块
+    # （特权,或满足所有块的解锁条件）。用于本地化变体的放行判定。
+    def all_blocks_visible?
+      blocks = Engine.extract(@post.raw.to_s)
+      return true if blocks.empty?
+      privileged? || blocks.all? { |b| can_view?(b) }
+    end
+
     # 信任等级豁免（仅 [reply]）：0 表示不启用豁免
     def bypass_trust_level?
       min = SiteSetting.min_trust_level_to_bypass.to_i
