@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"bg":
+  js:
+    composer:
+      rtv_reply_option: "Вмъкване на съдържание, видимо след отговор"
+      rtv_login_option: "Вмъкване на съдържание, видимо след влизане"
+      rtv_reply_surround_example: "скрито съдържание"
+      rtv_login_surround_example: "скрито съдържание"
+    reply_to_view:
+      block:
+        login_button: "Влезте за преглед"
+        reply_button: "Отговорете за преглед"
+        owner_notice: "Това съдържание е скрито от потребители, които не отговарят на условията"
+        preview_notice: "Това съдържание ще бъде скрито от потребители, които не отговарят на условията"

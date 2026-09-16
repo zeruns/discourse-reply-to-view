@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"hr":
+  js:
+    composer:
+      rtv_reply_option: "Umetni sadržaj vidljiv nakon odgovora"
+      rtv_login_option: "Umetni sadržaj vidljiv nakon prijave"
+      rtv_reply_surround_example: "skriveni sadržaj"
+      rtv_login_surround_example: "skriveni sadržaj"
+    reply_to_view:
+      block:
+        login_button: "Prijavite se za pregled"
+        reply_button: "Odgovorite za pregled"
+        owner_notice: "Ovaj sadržaj skriven je od korisnika koji nisu ispunili uvjete"
+        preview_notice: "Ovaj sadržaj bit će skriven od korisnika koji ne ispunjavaju uvjete"

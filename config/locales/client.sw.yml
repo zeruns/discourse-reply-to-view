@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"sw":
+  js:
+    composer:
+      rtv_reply_option: "Weka maudhui yanayoonekana baada ya kujibu"
+      rtv_login_option: "Weka maudhui yanayoonekana baada ya kuingia"
+      rtv_reply_surround_example: "maudhui yaliyofichwa"
+      rtv_login_surround_example: "maudhui yaliyofichwa"
+    reply_to_view:
+      block:
+        login_button: "Ingia kuona"
+        reply_button: "Jibu kuona"
+        owner_notice: "Maudhui haya yamefichwa kwa watumiaji ambao hawajatimiza masharti"
+        preview_notice: "Maudhui haya yatafichwa kwa watumiaji ambao hawajatimiza masharti"

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # name: discourse-reply-to-view
-# version: 1.0.0
-# authors: Discourse Plugins Engineering
-# url: https://github.com/your-org/discourse-reply-to-view
+# version: 1.1.0
+# authors: zeruns
+# url: https://github.com/zeruns/discourse-reply-to-view
 # about: 回帖可见 / 登录可见内容保护插件（[reply] 与 [login] BBCode 标记，
 #   服务端权限判定 + cooked 零原文存储，全场景防泄露）
 
@@ -31,13 +31,15 @@ require_relative "lib/reply_to_view/extensions"
 # （见核心 lib/pretty_text.rb 中插件规则 glob），前端构建管线亦自动纳入。
 
 # ============ 核心类 prepend 注册 ============
-# PostSerializer（内容注入点）与 PostsController（raw 出口封堵）。
+# PostSerializer（内容注入点）、PostsController（raw 出口封堵）、
+# PostRevisionSerializer（修订历史 diff 脱敏）。
 # 挂载在 Rails to_prepare 阶段执行:插件 activate! 发生在 Rails 启动早期
 # （Zeitwerk 自动加载尚未就绪）,to_prepare 在应用初始化完成后执行 ——
 # 此时核心类可安全引用,且开发环境代码重载后自动重新应用补丁。
 Rails.application.config.to_prepare do
   ::PostSerializer.prepend(::ReplyToView::PostSerializerExtension)
   ::PostsController.prepend(::ReplyToView::PostsControllerExtension)
+  ::PostRevisionSerializer.prepend(::ReplyToView::PostRevisionSerializerExtension)
 end
 
 # ============ 搜索索引脱敏（官方 :post_search_index_text 修改器） ============

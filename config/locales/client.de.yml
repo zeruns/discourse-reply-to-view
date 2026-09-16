@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"de":
+  js:
+    composer:
+      rtv_reply_option: "Inhalt einfügen, der nach Antwort sichtbar ist"
+      rtv_login_option: "Inhalt einfügen, der nach Anmeldung sichtbar ist"
+      rtv_reply_surround_example: "ausgeblendeter Inhalt"
+      rtv_login_surround_example: "ausgeblendeter Inhalt"
+    reply_to_view:
+      block:
+        login_button: "Anmelden zum Ansehen"
+        reply_button: "Antworten zum Ansehen"
+        owner_notice: "Dieser Inhalt ist für Benutzer verborgen, die die Bedingungen nicht erfüllt haben"
+        preview_notice: "Dieser Inhalt wird für Benutzer verborgen sein, die die Bedingungen nicht erfüllt haben"

@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"sl":
+  js:
+    composer:
+      rtv_reply_option: "Vstavi vsebino, vidno po odgovoru"
+      rtv_login_option: "Vstavi vsebino, vidno po prijavi"
+      rtv_reply_surround_example: "skrita vsebina"
+      rtv_login_surround_example: "skrita vsebina"
+    reply_to_view:
+      block:
+        login_button: "Prijavite se za ogled"
+        reply_button: "Odgovorite za ogled"
+        owner_notice: "Ta vsebina je skrita uporabnikom, ki ne izpolnjujejo pogojev"
+        preview_notice: "Ta vsebina bo skrita uporabnikom, ki ne izpolnjujejo pogojev"

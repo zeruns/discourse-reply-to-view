@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"gl":
+  js:
+    composer:
+      rtv_reply_option: "Inserir contido visible despois de responder"
+      rtv_login_option: "Inserir contido visible despois de iniciar sesión"
+      rtv_reply_surround_example: "contido oculto"
+      rtv_login_surround_example: "contido oculto"
+    reply_to_view:
+      block:
+        login_button: "Inicia sesión para ver"
+        reply_button: "Responde para ver"
+        owner_notice: "Este contido está oculto para os usuarios que non cumpren os requisitos"
+        preview_notice: "Este contido estará oculto para os usuarios que non cumpran os requisitos"

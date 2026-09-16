@@ -28,13 +28,12 @@ plugins:
     client: true
 
   # 信任等级豁免:TL >= 该值的用户无需回复即可见全部 [reply] 内容（仅对 reply 标记生效）
-  # 0 = 不启用豁免。注意:默认值 1 意味着 TL1+ 用户免回复,
-  # 若希望严格的“回帖可见”体验,建议设为 0 或更高
+  # 0 = 不启用豁免（严格“回帖可见”体验,默认）
   min_trust_level_to_bypass:
     type: integer
     min: 0
     max: 4
-    default: 1
+    default: 0
     client: true
 
   # 使用权限:仅 TL >= 该值的用户可使用隐藏标记

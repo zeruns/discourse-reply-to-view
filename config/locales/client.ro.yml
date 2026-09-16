@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"ro":
+  js:
+    composer:
+      rtv_reply_option: "Inserează conținut vizibil după răspuns"
+      rtv_login_option: "Inserează conținut vizibil după autentificare"
+      rtv_reply_surround_example: "conținut ascuns"
+      rtv_login_surround_example: "conținut ascuns"
+    reply_to_view:
+      block:
+        login_button: "Autentifică-te pentru a vedea"
+        reply_button: "Răspunde pentru a vedea"
+        owner_notice: "Acest conținut este ascuns utilizatorilor care nu îndeplinesc condițiile"
+        preview_notice: "Acest conținut va fi ascuns utilizatorilor care nu îndeplinesc condițiile"

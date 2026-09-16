@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"zh_TW":
+  js:
+    composer:
+      rtv_reply_option: "插入回覆可見內容"
+      rtv_login_option: "插入登入可見內容"
+      rtv_reply_surround_example: "隱藏內容"
+      rtv_login_surround_example: "隱藏內容"
+    reply_to_view:
+      block:
+        login_button: "登入後可見"
+        reply_button: "回覆後可見"
+        owner_notice: "此內容對未符合條件的使用者隱藏"
+        preview_notice: "此內容對未符合條件的使用者隱藏"

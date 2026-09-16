@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"sl":
+  reply_to_view:
+    reply:
+      placeholder: "Ta vsebina je skrita, dokler ne odgovorite v tej temi"
+      count_placeholder: "Ta vsebina postane vidna po objavi najmanj %{count} veljavnih odgovorov v tej temi"
+    login:
+      placeholder: "Za ogled te vsebine se prijavite"
+    sanitized_placeholder: "[skrita vsebina]"
+    search_placeholder: "[zaščitena vsebina]"
+    revision_placeholder: "Spremembe vsebine tega zaščitenega prispevka so skrite"
+  site_settings:
+    enable_rtv: "Omogoči vstavek reply-to-view (oznake zaščite vsebine [reply] in [login]). Izklopljeno se prej označena vsebina prikaže kot običajno besedilo."
+    reply_to_view_mode: "Kako se odklene vsebina [reply]. any_reply: kateri koli veljaven odgovor v temi odklene vse. exact_post: samo neposreden odgovor na prispevek z vsebino ga odklene (za prvi prispevek šteje tudi odgovor v temi)."
+    reply_to_view_allow_count: "Omogoči sintakso števca [reply=N]: vsebina postane vidna po najmanj N veljavnih odgovorih v temi. Izklopljeno se [reply=N] obnaša kot običajen [reply]."
+    min_trust_level_to_bypass: "Uporabniki na tej ali višji ravni zaupanja vidijo vso vsebino reply-to-view brez odgovarjanja. 0 izklopi oprostitev."
+    min_trust_level_to_use: "Najnižja raven zaupanja za uporabo oznak skrite vsebine. Oznake uporabnikov pod to raven nimajo učinka, njihova vsebina pa je vidna vsem."
+    keywords:
+      enable_rtv: "rtv, odgovori za ogled, skrita vsebina, prijava za ogled"
+      reply_to_view_mode: "način odgovorov, kateri koli odgovor, točen prispevek"
+      reply_to_view_allow_count: "število odgovorov, reply=N"
+      min_trust_level_to_bypass: "raven zaupanja, oprostitev"
+      min_trust_level_to_use: "raven zaupanja, uporaba oznak"

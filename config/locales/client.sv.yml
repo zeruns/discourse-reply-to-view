@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"sv":
+  js:
+    composer:
+      rtv_reply_option: "Infoga innehåll som syns efter svar"
+      rtv_login_option: "Infoga innehåll som syns efter inloggning"
+      rtv_reply_surround_example: "dolt innehåll"
+      rtv_login_surround_example: "dolt innehåll"
+    reply_to_view:
+      block:
+        login_button: "Logga in för att se"
+        reply_button: "Svara för att se"
+        owner_notice: "Detta innehåll är dolt för användare som inte uppfyller kraven"
+        preview_notice: "Detta innehåll kommer att vara dolt för användare som inte uppfyller kraven"

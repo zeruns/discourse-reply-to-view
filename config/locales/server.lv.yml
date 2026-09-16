@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"lv":
+  reply_to_view:
+    reply:
+      placeholder: "Šis saturs ir paslēpts, līdz atbildēsit šajā tēmā"
+      count_placeholder: "Šis saturs kļūst redzams pēc vismaz %{count} derīgu atbilžu publicēšanas šajā tēmā"
+    login:
+      placeholder: "Pieslēdzieties, lai skatītos šo saturu"
+    sanitized_placeholder: "[paslēpts saturs]"
+    search_placeholder: "[aizsargāts saturs]"
+    revision_placeholder: "Šī aizsargātā ieraksta satura izmaiņas ir paslēptas"
+  site_settings:
+    enable_rtv: "Ieslēdz reply-to-view spraudni ([reply] un [login] satura aizsardzības marķierus). Izslēgts, iepriekš atzīmētais saturs tiek rādīts kā vienkāršs teksts."
+    reply_to_view_mode: "Kā tiek atbloķēts [reply] saturs. any_reply: jebkura derīga atbilde tēmā atbloķē visu. exact_post: tikai tieša atbilde ierakstam ar saturu to atbloķē (pirmajam ierakstam skaitās arī atbilde tēmā)."
+    reply_to_view_allow_count: "Ieslēdz [reply=N] skaitītāja sintaksi: saturs kļūst redzams pēc vismaz N derīgām atbildēm tēmā. Izslēgta, [reply=N] darbojas kā parasts [reply]."
+    min_trust_level_to_bypass: "Lietotāji šajā uzticības līmenī vai augstāk redz visu reply-to-view saturu bez atbildēm. 0 izslēdz atbrīvojumu."
+    min_trust_level_to_use: "Minimālais uzticības līmenis slēpto satura marķieru lietošanai. Zemāka līmeņa lietotāju marķieri nedarbojas, un to saturs ir redzams visiem."
+    keywords:
+      enable_rtv: "rtv, atbildi lai redzētu, paslēpts saturs, pieslēdzies lai redzētu"
+      reply_to_view_mode: "atbilžu režīms, jebkura atbilde, precīzs ieraksts"
+      reply_to_view_allow_count: "atbilžu skaits, reply=N"
+      min_trust_level_to_bypass: "uzticības līmenis, atbrīvojums"
+      min_trust_level_to_use: "uzticības līmenis, marķieru lietošana"

@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"hu":
+  reply_to_view:
+    reply:
+      placeholder: "Ez a tartalom addig rejtett, amíg nem válaszolsz ebben a témában"
+      count_placeholder: "Ez a tartalom legalább %{count} érvényes válasz közzététele után válik láthatóvá ebben a témában"
+    login:
+      placeholder: "Jelentkezz be a tartalom megtekintéséhez"
+    sanitized_placeholder: "[rejtett tartalom]"
+    search_placeholder: "[védett tartalom]"
+    revision_placeholder: "A védett hozzászólás tartalomváltozásai rejtve vannak"
+  site_settings:
+    enable_rtv: "Engedélyezi a reply-to-view bővítményt ([reply] és [login] tartalomvédelmi címkék). Kikapcsolva a korábban megjelölt tartalom egyszerű szövegként jelenik meg."
+    reply_to_view_mode: "Hogyan nyílik meg a [reply] tartalom. any_reply: a témában bármely érvényes válasz mindent megnyit. exact_post: csak a tartalmat tartalmazó hozzászólásra adott közvetlen válasz nyitja meg (az első hozzászólásnál a témára adott válasz is számít)."
+    reply_to_view_allow_count: "Engedélyezi a [reply=N] számláló szintaxist: a tartalom legalább N érvényes válasz után válik láthatóvá a témában. Kikapcsolva a [reply=N] úgy viselkedik, mint egy normál [reply]."
+    min_trust_level_to_bypass: "Ezen vagy magasabb bizalmi szintű felhasználók válasz nélkül láthatják az összes reply-to-view tartalmat. A 0 kikapcsolja a mentességet."
+    min_trust_level_to_use: "Legalacsonyabb bizalmi szint a rejtett tartalom címkéinek használatához. Az alacsonyabb szintű felhasználók címkéi nem hatnak, tartalmuk mindenki számára látható."
+    keywords:
+      enable_rtv: "rtv, válasz a megtekintéshez, rejtett tartalom, bejelentkezés a megtekintéshez"
+      reply_to_view_mode: "válaszmód, bármely válasz, pontos hozzászólás"
+      reply_to_view_allow_count: "válaszszám, reply=N"
+      min_trust_level_to_bypass: "bizalmi szint, mentesség"
+      min_trust_level_to_use: "bizalmi szint, címkék használata"

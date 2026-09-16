@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"de":
+  reply_to_view:
+    reply:
+      placeholder: "Dieser Inhalt wird sichtbar, sobald du auf dieses Thema antwortest"
+      count_placeholder: "Dieser Inhalt wird sichtbar, nachdem du mindestens %{count} gültige Antworten in diesem Thema geschrieben hast"
+    login:
+      placeholder: "Melde dich an, um diesen Inhalt zu sehen"
+    sanitized_placeholder: "[ausgeblendeter Inhalt]"
+    search_placeholder: "[geschützter Inhalt]"
+    revision_placeholder: "Die Inhaltsänderungen dieses geschützten Beitrags sind ausgeblendet"
+  site_settings:
+    enable_rtv: "Aktiviert das Reply-to-View-Plugin ([reply]- und [login]-Inhaltsschutz-Tags). Bei Deaktivierung wird zuvor markierter Inhalt als Klartext angezeigt."
+    reply_to_view_mode: "Wie [reply]-Inhalte freigeschaltet werden. any_reply: Eine gültige Antwort im Thema schaltet alles frei. exact_post: Nur eine direkte Antwort auf den Beitrag mit dem Inhalt schaltet ihn frei (beim ersten Beitrag zählt auch eine Antwort aufs Thema)."
+    reply_to_view_allow_count: "Aktiviert die [reply=N]-Zählsyntax: Inhalt wird nach mindestens N gültigen Antworten im Thema sichtbar. Deaktiviert verhält sich [reply=N] wie ein normales [reply]."
+    min_trust_level_to_bypass: "Benutzer ab dieser Vertrauensstufe können alle Reply-to-View-Inhalte ohne Antwort sehen. 0 deaktiviert die Ausnahme."
+    min_trust_level_to_use: "Mindestens erforderliche Vertrauensstufe zur Verwendung der Ausblend-Tags. Tags von Benutzern unterhalb dieser Stufe haben keine Wirkung, ihr Inhalt ist für alle sichtbar."
+    keywords:
+      enable_rtv: "rtv, Antwort zum Ansehen, versteckter Inhalt, Anmeldung zum Ansehen"
+      reply_to_view_mode: "Antwortmodus, beliebige Antwort, exakter Beitrag"
+      reply_to_view_allow_count: "Antwortanzahl, reply=N"
+      min_trust_level_to_bypass: "Vertrauensstufe, Ausnahme"
+      min_trust_level_to_use: "Vertrauensstufe, Tags verwenden"

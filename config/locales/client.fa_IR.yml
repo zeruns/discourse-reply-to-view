@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"fa_IR":
+  js:
+    composer:
+      rtv_reply_option: "درج محتوای قابل مشاهده پس از پاسخ"
+      rtv_login_option: "درج محتوای قابل مشاهده پس از ورود"
+      rtv_reply_surround_example: "محتوای پنهان"
+      rtv_login_surround_example: "محتوای پنهان"
+    reply_to_view:
+      block:
+        login_button: "برای مشاهده وارد شوید"
+        reply_button: "برای مشاهده پاسخ دهید"
+        owner_notice: "این محتوا برای کاربرانی که شرایط را برآورده نکرده‌اند پنهان است"
+        preview_notice: "این محتوا برای کاربرانی که شرایط را برآورده نکرده‌اند پنهان خواهد بود"

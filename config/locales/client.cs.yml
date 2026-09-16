@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"cs":
+  js:
+    composer:
+      rtv_reply_option: "Vložit obsah viditelný po odpovědi"
+      rtv_login_option: "Vložit obsah viditelný po přihlášení"
+      rtv_reply_surround_example: "skrytý obsah"
+      rtv_login_surround_example: "skrytý obsah"
+    reply_to_view:
+      block:
+        login_button: "Přihlaste se k zobrazení"
+        reply_button: "Odpovězte k zobrazení"
+        owner_notice: "Tento obsah je skryt pro uživatele, kteří nesplnili podmínky"
+        preview_notice: "Tento obsah bude skryt pro uživatele, kteří nesplní podmínky"

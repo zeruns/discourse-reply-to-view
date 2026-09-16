@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"uk":
+  js:
+    composer:
+      rtv_reply_option: "Вставити вміст, видимий після відповіді"
+      rtv_login_option: "Вставити вміст, видимий після входу"
+      rtv_reply_surround_example: "прихований вміст"
+      rtv_login_surround_example: "прихований вміст"
+    reply_to_view:
+      block:
+        login_button: "Увійти, щоб переглянути"
+        reply_button: "Відповісти, щоб переглянути"
+        owner_notice: "Цей вміст приховано від користувачів, які не виконали умови"
+        preview_notice: "Цей вміст буде приховано від користувачів, які не виконають умови"

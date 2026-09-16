@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"id":
+  reply_to_view:
+    reply:
+      placeholder: "Konten ini tersembunyi sampai Anda membalas di topik ini"
+      count_placeholder: "Konten ini terlihat setelah memposting setidaknya %{count} balasan valid di topik ini"
+    login:
+      placeholder: "Masuk untuk melihat konten ini"
+    sanitized_placeholder: "[konten tersembunyi]"
+    search_placeholder: "[konten yang dilindungi]"
+    revision_placeholder: "Perubahan konten kiriman yang dilindungi ini disembunyikan"
+  site_settings:
+    enable_rtv: "Mengaktifkan plugin reply-to-view (tag perlindungan konten [reply] dan [login]). Saat nonaktif, konten yang sebelumnya ditandai ditampilkan sebagai teks biasa."
+    reply_to_view_mode: "Cara konten [reply] dibuka. any_reply: balasan valid apa pun di topik membuka semuanya. exact_post: hanya balasan langsung ke kiriman yang memuat konten yang membukanya (untuk kiriman pertama, membalas di topik juga dihitung)."
+    reply_to_view_allow_count: "Mengaktifkan sintaks penghitung [reply=N]: konten terlihat setelah setidaknya N balasan valid di topik. Saat nonaktif, [reply=N] berperilaku seperti [reply] biasa."
+    min_trust_level_to_bypass: "Pengguna pada tingkat kepercayaan ini atau lebih tinggi dapat melihat semua konten reply-to-view tanpa membalas. 0 menonaktifkan pengecualian."
+    min_trust_level_to_use: "Tingkat kepercayaan minimum untuk menggunakan tag konten tersembunyi. Tag dari pengguna di bawah tingkat ini tidak berpengaruh dan kontennya terlihat oleh semua orang."
+    keywords:
+      enable_rtv: "rtv, balas untuk melihat, konten tersembunyi, masuk untuk melihat"
+      reply_to_view_mode: "mode balasan, balasan apa pun, kiriman tertentu"
+      reply_to_view_allow_count: "jumlah balasan, reply=N"
+      min_trust_level_to_bypass: "tingkat kepercayaan, pengecualian"
+      min_trust_level_to_use: "tingkat kepercayaan, penggunaan tag"

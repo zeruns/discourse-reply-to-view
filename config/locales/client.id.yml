@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"id":
+  js:
+    composer:
+      rtv_reply_option: "Sisipkan konten yang terlihat setelah membalas"
+      rtv_login_option: "Sisipkan konten yang terlihat setelah masuk"
+      rtv_reply_surround_example: "konten tersembunyi"
+      rtv_login_surround_example: "konten tersembunyi"
+    reply_to_view:
+      block:
+        login_button: "Masuk untuk melihat"
+        reply_button: "Balas untuk melihat"
+        owner_notice: "Konten ini disembunyikan dari pengguna yang belum memenuhi persyaratan"
+        preview_notice: "Konten ini akan disembunyikan dari pengguna yang belum memenuhi persyaratan"

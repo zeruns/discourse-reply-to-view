@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"ar":
+  js:
+    composer:
+      rtv_reply_option: "إدراج محتوى يظهر بعد الرد"
+      rtv_login_option: "إدراج محتوى يظهر بعد تسجيل الدخول"
+      rtv_reply_surround_example: "محتوى مخفي"
+      rtv_login_surround_example: "محتوى مخفي"
+    reply_to_view:
+      block:
+        login_button: "سجّل الدخول للعرض"
+        reply_button: "ردّ للعرض"
+        owner_notice: "هذا المحتوى مخفي عن المستخدمين الذين لم يستوفوا الشروط"
+        preview_notice: "سيكون هذا المحتوى مخفيًا عن المستخدمين الذين لم يستوفوا الشروط"

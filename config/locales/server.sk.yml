@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"sk":
+  reply_to_view:
+    reply:
+      placeholder: "Tento obsah sa zobrazí po odpovedi v tejto téme"
+      count_placeholder: "Tento obsah sa zobrazí po publikovaní aspoň %{count} platných odpovedí v tejto téme"
+    login:
+      placeholder: "Pre zobrazenie tohto obsahu sa prihláste"
+    sanitized_placeholder: "[skrytý obsah]"
+    search_placeholder: "[chránený obsah]"
+    revision_placeholder: "Zmeny obsahu tohto chráneného príspevku sú skryté"
+  site_settings:
+    enable_rtv: "Povoluje plugin reply-to-view (značky ochrany obsahu [reply] a [login]). Po vypnutí sa skôr označený obsah zobrazí ako obyčajný text."
+    reply_to_view_mode: "Spôsob odomknutia obsahu [reply]. any_reply: akákoľvek platná odpoveď v téme odomkne všetko. exact_post: iba priama odpoveď na príspevok s obsahom ho odomkne (pri prvom príspevku stačí aj odpoveď v téme)."
+    reply_to_view_allow_count: "Povoluje syntax počítadla [reply=N]: obsah sa zobrazí po aspoň N platných odpovediach v téme. Vypnuté sa [reply=N] správa ako bežné [reply]."
+    min_trust_level_to_bypass: "Používatelia na tejto úrovni dôvery alebo vyššej vidia celý obsah reply-to-view bez odpovedania. 0 vypne oslobodenie."
+    min_trust_level_to_use: "Minimálna úroveň dôvery na používanie značiek skrytého obsahu. Značky používateľov pod touto úrovňou nemajú účinok a ich obsah je viditeľný pre všetkých."
+    keywords:
+      enable_rtv: "rtv, odpoveď na zobrazenie, skrytý obsah, prihlásenie na zobrazenie"
+      reply_to_view_mode: "režim odpovedí, ľubovoľná odpoveď, presný príspevok"
+      reply_to_view_allow_count: "počet odpovedí, reply=N"
+      min_trust_level_to_bypass: "úroveň dôvery, oslobodenie"
+      min_trust_level_to_use: "úroveň dôvery, používanie značiek"

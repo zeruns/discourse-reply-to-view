@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"pl":
+  reply_to_view:
+    reply:
+      placeholder: "Ta treść będzie widoczna po odpowiedzi w tym temacie"
+      count_placeholder: "Ta treść stanie się widoczna po opublikowaniu co najmniej %{count} prawidłowych odpowiedzi w tym temacie"
+    login:
+      placeholder: "Zaloguj się, aby zobaczyć tę treść"
+    sanitized_placeholder: "[ukryta treść]"
+    search_placeholder: "[chroniona treść]"
+    revision_placeholder: "Zmiany treści tego chronionego wpisu są ukryte"
+  site_settings:
+    enable_rtv: "Włącza wtyczkę reply-to-view (znaczniki ochrony treści [reply] i [login]). Po wyłączeniu wcześniej oznaczona treść jest wyświetlana jako zwykły tekst."
+    reply_to_view_mode: "Sposób odblokowywania treści [reply]. any_reply: dowolna prawidłowa odpowiedź w temacie odblokowuje wszystko. exact_post: tylko bezpośrednia odpowiedź we wpisie z treścią ją odblokowuje (dla pierwszego wpisu liczy się też odpowiedź w temacie)."
+    reply_to_view_allow_count: "Włącza składnię licznika [reply=N]: treść staje się widoczna po co najmniej N prawidłowych odpowiedziach w temacie. Wyłączona, [reply=N] działa jak zwykłe [reply]."
+    min_trust_level_to_bypass: "Użytkownicy na tym poziomie zaufania lub wyższym widzą całą treść reply-to-view bez odpowiadania. 0 wyłącza zwolnienie."
+    min_trust_level_to_use: "Minimalny poziom zaufania do używania znaczników ukrytej treści. Znaczniki użytkowników poniżej tego poziomu nie działają, a ich treść jest widoczna dla wszystkich."
+    keywords:
+      enable_rtv: "rtv, odpowiedz aby zobaczyć, ukryta treść, zaloguj się aby zobaczyć"
+      reply_to_view_mode: "tryb odpowiedzi, dowolna odpowiedź, dokładny wpis"
+      reply_to_view_allow_count: "licznik odpowiedzi, reply=N"
+      min_trust_level_to_bypass: "poziom zaufania, zwolnienie"
+      min_trust_level_to_use: "poziom zaufania, używanie znaczników"

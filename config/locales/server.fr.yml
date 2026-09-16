@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"fr":
+  reply_to_view:
+    reply:
+      placeholder: "Ce contenu est masqué jusqu'à ce que vous répondiez à ce sujet"
+      count_placeholder: "Ce contenu devient visible après avoir publié au moins %{count} réponses valides dans ce sujet"
+    login:
+      placeholder: "Connectez-vous pour voir ce contenu"
+    sanitized_placeholder: "[contenu masqué]"
+    search_placeholder: "[contenu protégé]"
+    revision_placeholder: "Les modifications de contenu de ce message protégé sont masquées"
+  site_settings:
+    enable_rtv: "Active l'extension reply-to-view (balises de protection de contenu [reply] et [login]). Désactivée, le contenu précédemment marqué est affiché en clair."
+    reply_to_view_mode: "Comment le contenu [reply] est déverrouillé. any_reply : toute réponse valide dans le sujet déverrouille tout. exact_post : seule une réponse directe au message contenant le contenu le déverrouille (pour le premier message, répondre au sujet compte aussi)."
+    reply_to_view_allow_count: "Active la syntaxe de comptage [reply=N] : le contenu devient visible après au moins N réponses valides dans le sujet. Désactivée, [reply=N] se comporte comme [reply]."
+    min_trust_level_to_bypass: "Les utilisateurs de ce niveau de confiance ou supérieur peuvent voir tout le contenu reply-to-view sans répondre. 0 désactive cette exemption."
+    min_trust_level_to_use: "Niveau de confiance minimal pour utiliser les balises de contenu masqué. Les balises publiées par des utilisateurs de niveau inférieur n'ont aucun effet et leur contenu est visible par tous."
+    keywords:
+      enable_rtv: "rtv, répondre pour voir, contenu masqué, se connecter pour voir"
+      reply_to_view_mode: "mode de réponse, toute réponse, message exact"
+      reply_to_view_allow_count: "nombre de réponses, reply=N"
+      min_trust_level_to_bypass: "niveau de confiance, exemption"
+      min_trust_level_to_use: "niveau de confiance, utiliser les balises"

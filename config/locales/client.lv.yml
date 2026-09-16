@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"lv":
+  js:
+    composer:
+      rtv_reply_option: "Ievietot saturu, kas redzams pēc atbildes"
+      rtv_login_option: "Ievietot saturu, kas redzams pēc pieteikšanās"
+      rtv_reply_surround_example: "paslēpts saturs"
+      rtv_login_surround_example: "paslēpts saturs"
+    reply_to_view:
+      block:
+        login_button: "Pieslēgties skatīšanai"
+        reply_button: "Atbildēt skatīšanai"
+        owner_notice: "Šis saturs ir paslēpts lietotājiem, kas neatbilst prasībām"
+        preview_notice: "Šis saturs būs paslēpts lietotājiem, kas neatbilst prasībām"

@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"pl":
+  js:
+    composer:
+      rtv_reply_option: "Wstaw treść widoczną po odpowiedzi"
+      rtv_login_option: "Wstaw treść widoczną po zalogowaniu"
+      rtv_reply_surround_example: "ukryta treść"
+      rtv_login_surround_example: "ukryta treść"
+    reply_to_view:
+      block:
+        login_button: "Zaloguj się, aby zobaczyć"
+        reply_button: "Odpowiedz, aby zobaczyć"
+        owner_notice: "Ta treść jest ukryta dla użytkowników, którzy nie spełnili warunków"
+        preview_notice: "Ta treść będzie ukryta dla użytkowników, którzy nie spełnią warunków"

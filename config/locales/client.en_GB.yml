@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"en_GB":
+  js:
+    composer:
+      rtv_reply_option: "Insert reply-to-view content"
+      rtv_login_option: "Insert login-to-view content"
+      rtv_reply_surround_example: "hidden content"
+      rtv_login_surround_example: "hidden content"
+    reply_to_view:
+      block:
+        login_button: "Sign in to view"
+        reply_button: "Reply to view"
+        owner_notice: "This content is hidden from users who haven't met the requirements"
+        preview_notice: "This content will be hidden from users who haven't met the requirements"

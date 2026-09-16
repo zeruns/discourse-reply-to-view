@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"pt_BR":
+  reply_to_view:
+    reply:
+      placeholder: "Este conteúdo fica oculto até você responder a este tópico"
+      count_placeholder: "Este conteúdo fica visível depois de publicar pelo menos %{count} respostas válidas neste tópico"
+    login:
+      placeholder: "Entre na sua conta para ver este conteúdo"
+    sanitized_placeholder: "[conteúdo oculto]"
+    search_placeholder: "[conteúdo protegido]"
+    revision_placeholder: "As alterações de conteúdo desta publicação protegida estão ocultas"
+  site_settings:
+    enable_rtv: "Ativa o plugin reply-to-view (tags de proteção de conteúdo [reply] e [login]). Ao desativar, o conteúdo marcado anteriormente é exibido como texto simples."
+    reply_to_view_mode: "Como o conteúdo [reply] é desbloqueado. any_reply: qualquer resposta válida no tópico desbloqueia tudo. exact_post: apenas uma resposta direta à publicação que contém o conteúdo o desbloqueia (na primeira publicação, responder ao tópico também vale)."
+    reply_to_view_allow_count: "Ativa a sintaxe de contagem [reply=N]: o conteúdo fica visível após pelo menos N respostas válidas no tópico. Desativada, [reply=N] se comporta como [reply]."
+    min_trust_level_to_bypass: "Usuários neste nível de confiança ou superior podem ver todo o conteúdo reply-to-view sem responder. 0 desativa a isenção."
+    min_trust_level_to_use: "Nível de confiança mínimo para usar as tags de conteúdo oculto. Tags publicadas por usuários abaixo desse nível não têm efeito e o conteúdo fica visível para todos."
+    keywords:
+      enable_rtv: "rtv, responder para ver, conteúdo oculto, entrar para ver"
+      reply_to_view_mode: "modo de resposta, qualquer resposta, publicação exata"
+      reply_to_view_allow_count: "contagem de respostas, reply=N"
+      min_trust_level_to_bypass: "nível de confiança, isenção"
+      min_trust_level_to_use: "nível de confiança, usar tags"

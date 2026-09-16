@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"he":
+  js:
+    composer:
+      rtv_reply_option: "הוספת תוכן שיוצג לאחר תגובה"
+      rtv_login_option: "הוספת תוכן שיוצג לאחר התחברות"
+      rtv_reply_surround_example: "תוכן מוסתר"
+      rtv_login_surround_example: "תוכן מוסתר"
+    reply_to_view:
+      block:
+        login_button: "התחברות לצפייה"
+        reply_button: "תגובה לצפייה"
+        owner_notice: "תוכן זה מוסתר ממשתמשים שלא עמדו בתנאים"
+        preview_notice: "תוכן זה יוסתר ממשתמשים שלא יעמדו בתנאים"

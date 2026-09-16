@@ -2,7 +2,7 @@
  * discourse-reply-to-view —— 前端主入口
  *
  * 职责：
- *   1. 编辑器工具栏按钮（回帖可见 / 登录可见）—— 桌面端与移动端共用
+ *   1. 编辑器「+」扩展菜单中的两个插入选项（回帖可见 / 登录可见）
  *   2. 帖子渲染与编辑器预览的占位框装饰（作者提示条 / 登录与回复按钮）
  *   3. 用户回复成功后对页面内锁定帖子做单帖局部刷新（不重拉整个主题）
  *
@@ -22,52 +22,52 @@ export default apiInitializer("1.34.0", (api) => {
     return;
   }
 
-  /* ==================== 1. 编辑器工具栏按钮 ====================
-   * 使用 Glimmer Composer 体系下的官方工具栏扩展 API：
-   *   api.onToolbarCreate((toolbar) => toolbar.addButton({...}))
-   * 该 API 同时覆盖桌面端与移动端编辑器工具栏。
-   * 注：Discourse 3.2 时代引入的 api.addComposerToolbarButton 已在
-   * 最新 master 分支移除，onToolbarCreate 为其现行替代方案。
+  /* ==================== 1. 编辑器「+」扩展菜单选项 ====================
+   * 通过官方 addComposerToolbarPopupMenuOption 注册到编辑器工具栏的
+   * 「+」扩展菜单（与“引用整个帖子/插表/隐藏详细信息”同级），
+   * 桌面端与移动端一致。
+   *
+   * 注意两点实现契约（与核心 d-editor 保持一致）：
+   *   - label 为完整 i18n 键（菜单组件自行翻译）；
+   *   - applySurround 的 exampleKey 会被核心拼接 composer. 前缀
+   *     （composer.${exampleKey}），故此处只传短键，翻译放在
+   *     js.composer.rtv_*_surround_example 下。
+   *
+   * 使用权限：staff 始终可用；普通用户按 min_trust_level_to_use 判定。
+   * 前端仅控制菜单项显隐，服务端序列化层仍是最终权威（低等级标记不生效）。
    */
-  api.onToolbarCreate((toolbar) => {
-    // 使用权限：staff 始终可用；普通用户按 min_trust_level_to_use 判定。
-    // 前端仅控制按钮显隐，服务端序列化层仍是最终权威（低等级标记不生效）
-    const minTL = parseInt(siteSettings.min_trust_level_to_use ?? "0", 10);
-    if (!currentUser || !(currentUser.staff || currentUser.trust_level >= minTL)) {
-      return;
-    }
+  const minTL = parseInt(siteSettings.min_trust_level_to_use ?? "0", 10);
+  const canUse =
+    !currentUser || currentUser.staff || currentUser.trust_level >= minTL;
 
-    toolbar.addButton({
-      id: "rtv-reply",
-      group: "extras",
-      icon: "reply", // fas fa-reply
-      title: "reply_to_view.composer.reply_button_title",
-      shortcut: "ALT+R",
-      action: (toolbarEvent) => {
-        // 有选中文本时包裹选区；无选中文本时插入空标签对，
-        // 光标定位到标签中间（example 文本处于选中态，可直接输入替换）
-        toolbarEvent.applySurround(
-          "[reply]\n",
-          "\n[/reply]",
-          "reply_to_view.composer.reply_surround_example"
-        );
-      },
-    });
+  api.addComposerToolbarPopupMenuOption({
+    name: "rtv-reply",
+    icon: "reply", // fas fa-reply
+    label: "composer.rtv_reply_option",
+    condition: () => canUse,
+    action: (toolbarEvent) => {
+      // 有选中文本时包裹选区；无选中文本时插入空标签对，
+      // 光标定位到标签中间（example 文本处于选中态，可直接输入替换）
+      toolbarEvent.applySurround(
+        "[reply]\n",
+        "\n[/reply]",
+        "rtv_reply_surround_example"
+      );
+    },
+  });
 
-    toolbar.addButton({
-      id: "rtv-login",
-      group: "extras",
-      icon: "user", // fas fa-user
-      title: "reply_to_view.composer.login_button_title",
-      shortcut: "ALT+L",
-      action: (toolbarEvent) => {
-        toolbarEvent.applySurround(
-          "[login]\n",
-          "\n[/login]",
-          "reply_to_view.composer.login_surround_example"
-        );
-      },
-    });
+  api.addComposerToolbarPopupMenuOption({
+    name: "rtv-login",
+    icon: "user", // fas fa-user
+    label: "composer.rtv_login_option",
+    condition: () => canUse,
+    action: (toolbarEvent) => {
+      toolbarEvent.applySurround(
+        "[login]\n",
+        "\n[/login]",
+        "rtv_login_surround_example"
+      );
+    },
   });
 
   /* ==================== 2. 帖子 / 预览装饰 ==================== */
@@ -171,10 +171,14 @@ export default apiInitializer("1.34.0", (api) => {
 
   /* ==================== 3. 回复成功后的局部刷新 ====================
    * 监听回复创建完成事件（appEvents "post:created"），
-   * 仅对页面内处于锁定态的 rtv 帖子发起 /posts/:id.json 单帖刷新并替换内容，
-   * 不重拉整个主题流。
+   * 仅对页面内处于锁定态的 rtv 帖子发起 /posts/:id.json 单帖刷新：
+   *   - 优先走 store 更新 post 模型的 cooked，Ember 响应式自动重渲染，
+   *     帖子的全部装饰器（@提及、灯箱等）由组件重新应用；
+   *   - 模型不在当前身份映射表时退回 DOM 替换。
+   * 全程不重拉整个主题流。
    */
   const appEvents = api.container.lookup("service:app-events");
+  const store = api.container.lookup("service:store");
   appEvents.on("post:created", () => refreshLockedBlocks());
 
   async function refreshLockedBlocks() {
@@ -195,14 +199,29 @@ export default apiInitializer("1.34.0", (api) => {
         if (!refreshed?.cooked) {
           continue;
         }
-        document
-          .querySelectorAll(`.rtv-block[data-post-id='${CSS.escape(id)}']`)
-          .forEach((el) => {
-            const cookedEl = el.closest(".cooked");
-            if (cookedEl) {
-              cookedEl.innerHTML = refreshed.cooked;
-            }
-          });
+        const numericId = Number(id);
+        let model = null;
+        try {
+          model = store.peekRecord("post", numericId);
+        } catch {
+          model = null;
+        }
+
+        if (model) {
+          // 响应式路径：更新模型触发组件重渲染（装饰器完整保留）
+          model.set("cooked", refreshed.cooked);
+        } else {
+          // 兜底路径：直接替换 DOM,并对新节点重新应用本插件的装饰
+          document
+            .querySelectorAll(`.rtv-block[data-post-id='${CSS.escape(id)}']`)
+            .forEach((el) => {
+              const cookedEl = el.closest(".cooked");
+              if (cookedEl) {
+                cookedEl.innerHTML = refreshed.cooked;
+                decorateRtvBlocks(cookedEl, null);
+              }
+            });
+        }
       } catch {
         // 静默失败：下一次整页加载时服务端判定自然生效
       }

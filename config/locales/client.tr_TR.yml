@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"tr":
+  js:
+    composer:
+      rtv_reply_option: "Yanıttan sonra görünecek içerik ekle"
+      rtv_login_option: "Girişten sonra görünecek içerik ekle"
+      rtv_reply_surround_example: "gizli içerik"
+      rtv_login_surround_example: "gizli içerik"
+    reply_to_view:
+      block:
+        login_button: "Görmek için giriş yap"
+        reply_button: "Görmek için yanıtla"
+        owner_notice: "Bu içerik, koşulları karşılamayan kullanıcılara gizlidir"
+        preview_notice: "Bu içerik, koşulları karşılamayan kullanıcılara gizli olacaktır"

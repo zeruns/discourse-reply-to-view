@@ -1,11 +1,24 @@
-zh_CN:
+# frozen_string_literal: true
+
+"zh_CN":
   reply_to_view:
     reply:
       placeholder: "本内容回复主题后可见"
       count_placeholder: "本内容需在本主题下发布至少 %{count} 条有效回复后可见"
     login:
       placeholder: "登录后即可查看本内容"
-    # raw 出口脱敏占位（/posts/:id/raw 等接口）
     sanitized_placeholder: "【内容已隐藏】"
-    # 搜索索引脱敏占位
     search_placeholder: "【受保护内容】"
+    revision_placeholder: "该受保护帖子的内容变更已隐藏"
+  site_settings:
+    enable_rtv: "启用回帖可见/登录可见插件（[reply] 与 [login] 内容保护标记）。关闭后，历史标记内容将以明文直接显示。"
+    reply_to_view_mode: "[reply] 内容的解锁方式。any_reply：在本主题发布任意有效回复即解锁全部回帖可见内容；exact_post：必须直接回复内容所在楼层才解锁（主楼兼容回复主题与回复主楼）。"
+    reply_to_view_allow_count: "启用 [reply=N] 计数语法：在本主题下发布至少 N 条有效回复后内容可见。关闭时 [reply=N] 按普通 [reply] 处理。"
+    min_trust_level_to_bypass: "信任等级达到该值的用户无需回复即可查看全部回帖可见内容。设为 0 表示不启用豁免。"
+    min_trust_level_to_use: "使用隐藏标记所需的最低信任等级。低于该等级的用户发布的标记不生效，其内容对所有人直接可见。"
+    keywords:
+      enable_rtv: "rtv,回复可见,回帖可见,登录可见,隐藏内容"
+      reply_to_view_mode: "回复模式,任意回复,精确楼层"
+      reply_to_view_allow_count: "回复计数,reply=N"
+      min_trust_level_to_bypass: "信任等级,豁免"
+      min_trust_level_to_use: "信任等级,使用权限"

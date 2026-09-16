@@ -1,11 +1,13 @@
-en:
+# frozen_string_literal: true
+
+"en":
   js:
+    composer:
+      rtv_reply_option: "Insert reply-to-view content"
+      rtv_login_option: "Insert login-to-view content"
+      rtv_reply_surround_example: "hidden content"
+      rtv_login_surround_example: "hidden content"
     reply_to_view:
-      composer:
-        reply_button_title: "Wrap selection as reply-to-view content"
-        reply_surround_example: "hidden content"
-        login_button_title: "Wrap selection as login-to-view content"
-        login_surround_example: "hidden content"
       block:
         login_button: "Sign in to view"
         reply_button: "Reply to view"

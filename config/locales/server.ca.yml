@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"ca":
+  reply_to_view:
+    reply:
+      placeholder: "Aquest contingut s'amaga fins que responguis a aquest tema"
+      count_placeholder: "Aquest contingut es fa visible després de publicar almenys %{count} respostes vàlides en aquest tema"
+    login:
+      placeholder: "Inicieu la sessió per veure aquest contingut"
+    sanitized_placeholder: "[contingut ocult]"
+    search_placeholder: "[contingut protegit]"
+    revision_placeholder: "Els canvis de contingut d'aquesta publicació protegida estan ocults"
+  site_settings:
+    enable_rtv: "Activa el connector reply-to-view (etiquetes de protecció de contingut [reply] i [login]). En desactivar-lo, el contingut marcat anteriorment es mostra com a text pla."
+    reply_to_view_mode: "Com es desbloqueja el contingut [reply]. any_reply: qualsevol resposta vàlida al tema ho desbloqueja tot. exact_post: només una resposta directa a la publicació que conté el contingut el desbloqueja (per a la primera publicació també compta respondre al tema)."
+    reply_to_view_allow_count: "Activa la sintaxi de recompte [reply=N]: el contingut es fa visible després d'almenys N respostes vàlides al tema. Desactivada, [reply=N] es comporta com [reply]."
+    min_trust_level_to_bypass: "Els usuaris amb aquest nivell de confiança o superior poden veure tot el contingut reply-to-view sense respondre. 0 desactiva l'exempció."
+    min_trust_level_to_use: "Nivell de confiança mínim per utilitzar les etiquetes de contingut ocult. Les etiquetes d'usuaris per sota d'aquest nivell no tenen efecte i el seu contingut és visible per a tothom."
+    keywords:
+      enable_rtv: "rtv, respon per veure, contingut ocult, inicia sessió per veure"
+      reply_to_view_mode: "mode de resposta, qualsevol resposta, publicació exacta"
+      reply_to_view_allow_count: "recompte de respostes, reply=N"
+      min_trust_level_to_bypass: "nivell de confiança, exempció"
+      min_trust_level_to_use: "nivell de confiança, ús d'etiquetes"

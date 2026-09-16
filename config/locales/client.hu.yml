@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"hu":
+  js:
+    composer:
+      rtv_reply_option: "Válasz után látható tartalom beszúrása"
+      rtv_login_option: "Bejelentkezés után látható tartalom beszúrása"
+      rtv_reply_surround_example: "rejtett tartalom"
+      rtv_login_surround_example: "rejtett tartalom"
+    reply_to_view:
+      block:
+        login_button: "Bejelentkezés a megtekintéshez"
+        reply_button: "Válasz a megtekintéshez"
+        owner_notice: "Ez a tartalom rejtett azok elől, akik nem teljesítik a feltételeket"
+        preview_notice: "Ez a tartalom rejtve lesz azok elől, akik nem teljesítik a feltételeket"

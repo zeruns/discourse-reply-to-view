@@ -29,6 +29,39 @@ module ReplyToView
     end
   end
 
+  # ============ PostRevisionSerializer 扩展（修订历史 diff 脱敏） ============
+  # 【安全优先级：最高】
+  # 核心修订历史的 body_changes.side_by_side_markdown 输出 raw 的词级 diff,
+  # 含 [reply] / [login] 标记内的隐藏原文,是 cooked 占位体系之外的泄露面。
+  # 非特权用户（作者/管理员/版主/分类版主之外）查看含标记帖子的修订时,
+  # 整个 body_changes 替换为占位提示 —— 保守方向,杜绝任何 diff 还原的可能。
+  # 特权用户（编辑需要）不受影响。
+  module PostRevisionSerializerExtension
+    def body_changes
+      changes = super
+      return changes if changes.nil? || !SiteSetting.enable_rtv
+
+      post = object.post
+      return changes if post.nil?
+
+      # 仅当新旧两个版本的 raw 都不含标记时才放行
+      # （防止“先带标记后删除”的历史版本经 diff 泄露）
+      old_raw = previous.respond_to?(:[]) ? previous["raw"].to_s : ""
+      new_raw = current.respond_to?(:[]) ? current["raw"].to_s : ""
+      return changes if !Engine.contains_marks?(old_raw) && !Engine.contains_marks?(new_raw)
+
+      # 特权用户可查看完整 diff（编辑需要）
+      return changes if Guard.new(scope&.user, post).privileged?
+
+      placeholder = I18n.t("reply_to_view.revision_placeholder")
+      {
+        inline: %(<p>#{CGI.escapeHTML(placeholder)}</p>),
+        side_by_side: %(<p>#{CGI.escapeHTML(placeholder)}</p>),
+        side_by_side_markdown: placeholder,
+      }
+    end
+  end
+
   # ============ PostsController 扩展（封堵 raw 文本出口） ============
   # 核心的 markdown 系列端点（/posts/:id/raw、/raw/:topic_id/:post_number、
   # 修订历史）对“能看帖的用户”直接输出 post.raw,必须统一净化。

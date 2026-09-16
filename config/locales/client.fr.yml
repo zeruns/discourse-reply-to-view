@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"fr":
+  js:
+    composer:
+      rtv_reply_option: "Insérer un contenu visible après réponse"
+      rtv_login_option: "Insérer un contenu visible après connexion"
+      rtv_reply_surround_example: "contenu masqué"
+      rtv_login_surround_example: "contenu masqué"
+    reply_to_view:
+      block:
+        login_button: "Se connecter pour voir"
+        reply_button: "Répondre pour voir"
+        owner_notice: "Ce contenu est masqué pour les utilisateurs n'ayant pas rempli les conditions"
+        preview_notice: "Ce contenu sera masqué pour les utilisateurs n'ayant pas rempli les conditions"

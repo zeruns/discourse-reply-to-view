@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"ur":
+  js:
+    composer:
+      rtv_reply_option: "جواب کے بعد نظر آنے والا مواد شامل کریں"
+      rtv_login_option: "سائن ان کے بعد نظر آنے والا مواد شامل کریں"
+      rtv_reply_surround_example: "چھپا ہوا مواد"
+      rtv_login_surround_example: "چھپا ہوا مواد"
+    reply_to_view:
+      block:
+        login_button: "دیکھنے کے لیے سائن ان کریں"
+        reply_button: "دیکھنے کے لیے جواب دیں"
+        owner_notice: "یہ مواد ان صارفین سے چھپایا گیا ہے جنہوں نے شرائط پوری نہیں کیں"
+        preview_notice: "یہ مواد ان صارفین سے چھپایا جائے گا جنہوں نے شرائط پوری نہیں کیں"

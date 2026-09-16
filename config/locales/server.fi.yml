@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"fi":
+  reply_to_view:
+    reply:
+      placeholder: "Tämä sisältö piilotetaan, kunnes vastaat tähän aiheeseen"
+      count_placeholder: "Tämä sisältö näkyy, kun olet julkaissut vähintään %{count} kelvollista vastausta tähän aiheeseen"
+    login:
+      placeholder: "Kirjaudu sisään nähdäksesi tämä sisältö"
+    sanitized_placeholder: "[piilotettu sisältö]"
+    search_placeholder: "[suojattu sisältö]"
+    revision_placeholder: "Tämän suojatun viestin sisältömuutokset on piilotettu"
+  site_settings:
+    enable_rtv: "Ottaa käyttöön reply-to-view-lisäosan ([reply]- ja [login]-sisältösuojatagit). Poissa käytöstä aiemmin merkitty sisältö näkyy tekstinä."
+    reply_to_view_mode: "Miten [reply]-sisältö avataan. any_reply: mikä tahansa kelvollinen vastaus aiheessa avaa kaiken. exact_post: vain suora vastaus viestiin, joka sisältää sisällön, avaa sen (ensimmäiselle viestille myös vastaus aiheeseen kelpaa)."
+    reply_to_view_allow_count: "Ottaa käyttöön [reply=N]-määräsyntaksin: sisältö näkyy vähintään N kelvollisen vastauksen jälkeen aiheessa. Poissa käytöstä [reply=N] toimii kuin tavallinen [reply]."
+    min_trust_level_to_bypass: "Tämän luottamustason ja ylemmät käyttäjät näkevät kaiken reply-to-view-sisällön vastaamatta. 0 poistaa poikkeuksen käytöstä."
+    min_trust_level_to_use: "Vähimmäisluottamustaso piilotettujen sisältötagien käyttöön. Tason alapuolisten käyttäjien tagit eivät vaikuta, ja niiden sisältö näkyy kaikille."
+    keywords:
+      enable_rtv: "rtv, vastaa nähdäksesi, piilotettu sisältö, kirjaudu nähdäksesi"
+      reply_to_view_mode: "vastaustila, mikä tahansa vastaus, tarkka viesti"
+      reply_to_view_allow_count: "vastausten määrä, reply=N"
+      min_trust_level_to_bypass: "luottamustaso, poikkeus"
+      min_trust_level_to_use: "luottamustaso, tagien käyttö"

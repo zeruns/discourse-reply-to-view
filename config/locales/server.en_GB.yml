@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"en_GB":
+  reply_to_view:
+    reply:
+      placeholder: "This content is hidden until you reply to this topic"
+      count_placeholder: "This content becomes visible after you post at least %{count} valid replies in this topic"
+    login:
+      placeholder: "Please sign in to view this content"
+    sanitized_placeholder: "[hidden content]"
+    search_placeholder: "[protected content]"
+    revision_placeholder: "Content changes are hidden for this protected post"
+  site_settings:
+    enable_rtv: "Enable the reply-to-view plugin ([reply] and [login] content protection tags). When disabled, previously marked content is displayed as plain text."
+    reply_to_view_mode: "How [reply] content is unlocked. any_reply: any valid reply in the topic unlocks all reply-to-view content. exact_post: only a direct reply to the post containing the content unlocks it (for the first post, replying to the topic or to the first post both count)."
+    reply_to_view_allow_count: "Enable the [reply=N] count syntax: content becomes visible after at least N valid replies in the topic. When disabled, [reply=N] behaves like [reply]."
+    min_trust_level_to_bypass: "Users at this trust level or above can view all reply-to-view content without replying. Set to 0 to disable this exemption."
+    min_trust_level_to_use: "Minimum trust level required to use the hidden-content tags. Tags posted by users below this level have no effect and their content is visible to everyone."
+    keywords:
+      enable_rtv: "rtv, reply to view, hidden content, login to view"
+      reply_to_view_mode: "reply mode, any reply, exact post"
+      reply_to_view_allow_count: "reply count, reply=N"
+      min_trust_level_to_bypass: "trust level, bypass, exemption"
+      min_trust_level_to_use: "trust level, use tags"

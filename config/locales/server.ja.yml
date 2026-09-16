@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"ja":
+  reply_to_view:
+    reply:
+      placeholder: "この内容は、このトピックに返信すると表示されます"
+      count_placeholder: "この内容は、このトピックで有効な返信を %{count} 件以上投稿すると表示されます"
+    login:
+      placeholder: "この内容を表示するにはログインしてください"
+    sanitized_placeholder: "【非表示のコンテンツ】"
+    search_placeholder: "【保護されたコンテンツ】"
+    revision_placeholder: "この保護された投稿の変更内容は非表示です"
+  site_settings:
+    enable_rtv: "リプライ閲覧プラグインを有効にします（[reply] と [login] のコンテンツ保護タグ）。無効にすると、既存のマークされた内容は平文で表示されます。"
+    reply_to_view_mode: "[reply] コンテンツの解錠方法。any_reply：トピック内の有効な返信ですべて解錠。exact_post：対象の投稿への直接返信でのみ解錠（最初の投稿はトピックへの返信も可）。"
+    reply_to_view_allow_count: "[reply=N] カウント構文を有効にします：トピック内で N 件以上の有効な返信で表示。無効の場合は通常の [reply] として扱われます。"
+    min_trust_level_to_bypass: "このトラストレベル以上のユーザーは返信なしですべてのリプライ閲覧コンテンツを表示できます。0 で免除を無効化します。"
+    min_trust_level_to_use: "隠しコンテンツタグの使用に必要な最低トラストレベル。このレベル未満のユーザーのタグは無効になり、内容は全員に表示されます。"
+    keywords:
+      enable_rtv: "rtv,返信で表示,ログインで表示,隠しコンテンツ"
+      reply_to_view_mode: "返信モード,任意の返信,対象投稿への返信"
+      reply_to_view_allow_count: "返信数,reply=N"
+      min_trust_level_to_bypass: "トラストレベル,免除"
+      min_trust_level_to_use: "トラストレベル,使用権限"

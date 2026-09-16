@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"ug":
+  js:
+    composer:
+      rtv_reply_option: "جاۋابتىن كېيىن كۆرۈنىدىغان مەزمۇن قىستۇرۇڭ"
+      rtv_login_option: "تىزىملىتىشتىن كېيىن كۆرۈنىدىغان مەزمۇن قىستۇرۇڭ"
+      rtv_reply_surround_example: "يوشۇرۇنغان مەزمۇن"
+      rtv_login_surround_example: "يوشۇرۇنغان مەزمۇن"
+    reply_to_view:
+      block:
+        login_button: "كۆرۈش ئۈچۈن تىزىملىتىڭ"
+        reply_button: "كۆرۈش ئۈچۈن جاۋاب بېرىڭ"
+        owner_notice: "بۇ مەزمۇن شەرتنى ھازىرلىمىغان ئىشلەتكۈچىلەرگە يوشۇرۇنغان"
+        preview_notice: "بۇ مەزمۇن شەرتنى ھازىرلىمىغان ئىشلەتكۈچىلەرگە يوشۇرۇنغان بولىدۇ"

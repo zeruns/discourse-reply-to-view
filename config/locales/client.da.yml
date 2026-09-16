@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"da":
+  js:
+    composer:
+      rtv_reply_option: "Indsæt indhold, der er synligt efter svar"
+      rtv_login_option: "Indsæt indhold, der er synligt efter login"
+      rtv_reply_surround_example: "skjult indhold"
+      rtv_login_surround_example: "skjult indhold"
+    reply_to_view:
+      block:
+        login_button: "Log ind for at se"
+        reply_button: "Svar for at se"
+        owner_notice: "Dette indhold er skjult for brugere, der ikke opfylder kravene"
+        preview_notice: "Dette indhold vil være skjult for brugere, der ikke opfylder kravene"

@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"nb_NO":
+  js:
+    composer:
+      rtv_reply_option: "Sett inn innhold som syns etter svar"
+      rtv_login_option: "Sett inn innhold som syns etter innlogging"
+      rtv_reply_surround_example: "skjult innhold"
+      rtv_login_surround_example: "skjult innhold"
+    reply_to_view:
+      block:
+        login_button: "Logg inn for å se"
+        reply_button: "Svar for å se"
+        owner_notice: "Dette innholdet er skjult for brukere som ikke oppfyller kravene"
+        preview_notice: "Dette innholdet vil være skjult for brukere som ikke oppfyller kravene"

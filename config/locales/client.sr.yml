@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"sr":
+  js:
+    composer:
+      rtv_reply_option: "Уметни садржај видљив након одговора"
+      rtv_login_option: "Уметни садржај видљив након пријаве"
+      rtv_reply_surround_example: "скривени садржај"
+      rtv_login_surround_example: "скривени садржај"
+    reply_to_view:
+      block:
+        login_button: "Пријавите се за преглед"
+        reply_button: "Одговорите за преглед"
+        owner_notice: "Овај садржај је скривен од корисника који нису испунили услове"
+        preview_notice: "Овај садржај биће скривен од корисника који не испуњавају услове"

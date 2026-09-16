@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"ja":
+  js:
+    composer:
+      rtv_reply_option: "返信後に表示されるコンテンツを挿入"
+      rtv_login_option: "ログイン後に表示されるコンテンツを挿入"
+      rtv_reply_surround_example: "非表示のコンテンツ"
+      rtv_login_surround_example: "非表示のコンテンツ"
+    reply_to_view:
+      block:
+        login_button: "ログインして表示"
+        reply_button: "返信して表示"
+        owner_notice: "この内容は、条件を満たしていないユーザーには表示されません"
+        preview_notice: "この内容は、条件を満たしていないユーザーには表示されません"

@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"it":
+  reply_to_view:
+    reply:
+      placeholder: "Questo contenuto è nascosto finché non rispondi a questo argomento"
+      count_placeholder: "Questo contenuto diventa visibile dopo aver pubblicato almeno %{count} risposte valide in questo argomento"
+    login:
+      placeholder: "Accedi per visualizzare questo contenuto"
+    sanitized_placeholder: "[contenuto nascosto]"
+    search_placeholder: "[contenuto protetto]"
+    revision_placeholder: "Le modifiche al contenuto di questo post protetto sono nascoste"
+  site_settings:
+    enable_rtv: "Abilita il plugin reply-to-view (tag di protezione contenuti [reply] e [login]). Se disabilitato, il contenuto precedentemente contrassegnato viene mostrato come testo semplice."
+    reply_to_view_mode: "Come si sblocca il contenuto [reply]. any_reply: qualsiasi risposta valida nell'argomento sblocca tutto. exact_post: solo una risposta diretta al post che contiene il contenuto lo sblocca (per il primo post vale anche rispondere all'argomento)."
+    reply_to_view_allow_count: "Abilita la sintassi di conteggio [reply=N]: il contenuto diventa visibile dopo almeno N risposte valide nell'argomento. Se disabilitata, [reply=N] si comporta come [reply]."
+    min_trust_level_to_bypass: "Gli utenti con questo livello di attendibilità o superiore possono vedere tutto il contenuto reply-to-view senza rispondere. 0 disabilita l'esenzione."
+    min_trust_level_to_use: "Livello di attendibilità minimo per usare i tag di contenuto nascosto. I tag pubblicati da utenti di livello inferiore non hanno effetto e il loro contenuto è visibile a tutti."
+    keywords:
+      enable_rtv: "rtv, rispondi per vedere, contenuto nascosto, accedi per vedere"
+      reply_to_view_mode: "modalità risposta, qualsiasi risposta, post esatto"
+      reply_to_view_allow_count: "numero di risposte, reply=N"
+      min_trust_level_to_bypass: "livello di attendibilità, esenzione"
+      min_trust_level_to_use: "livello di attendibilità, uso dei tag"

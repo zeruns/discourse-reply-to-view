@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"sq":
+  reply_to_view:
+    reply:
+      placeholder: "Kjo përmbajtje fshihet derisa të përgjigjeni në këtë temë"
+      count_placeholder: "Kjo përmbajtje bëhet e dukshme pas publikimit të së paku %{count} përgjigjeve të vlefshme në këtë temë"
+    login:
+      placeholder: "Hyni për të parë këtë përmbajtje"
+    sanitized_placeholder: "[përmbajtje e fshehur]"
+    search_placeholder: "[përmbajtje e mbrojtur]"
+    revision_placeholder: "Ndryshimet e përmbajtjes së këtij postimi të mbrojtur janë të fshehura"
+  site_settings:
+    enable_rtv: "Aktivizon shtojcën reply-to-view (etiketat e mbrojtjes së përmbajtjes [reply] dhe [login]). Kur është e çaktivizuar, përmbajtja e shënuar më parë shfaqet si tekst i thjeshtë."
+    reply_to_view_mode: "Si çbllokohet përmbajtja [reply]. any_reply: çdo përgjigje e vlefshme në temë i çbllokon të gjitha. exact_post: vetëm një përgjigje e drejtpërdrejtë në postimin që përmban përmbajtjen e çbllokon (për postimin e parë numërohet edhe përgjigja në temë)."
+    reply_to_view_allow_count: "Aktivizon sintaksën e numërimit [reply=N]: përmbajtja bëhet e dukshme pas të paktën N përgjigjeve të vlefshme në temë. E çaktivizuar, [reply=N] sillet si një [reply] i thjeshtë."
+    min_trust_level_to_bypass: "Përdoruesit në këtë nivel besueshmërie ose më lart mund të shohin gjithë përmbajtjen reply-to-view pa përgjigjur. 0 e çaktivizon përjashtimin."
+    min_trust_level_to_use: "Niveli minimal i besueshmërisë për të përdorur etiketat e përmbajtjes së fshehur. Etiketat e përdoruesve nën këtë nivel nuk kanë efekt dhe përmbajtja e tyre është e dukshme për të gjithë."
+    keywords:
+      enable_rtv: "rtv, përgjigju për të parë, përmbajtje e fshehur, hyj për të parë"
+      reply_to_view_mode: "mënyra e përgjigjes, çdo përgjigje, postim i saktë"
+      reply_to_view_allow_count: "numri i përgjigjeve, reply=N"
+      min_trust_level_to_bypass: "nivel besueshmërie, përjashtim"
+      min_trust_level_to_use: "nivel besueshmërie, përdorimi i etiketave"

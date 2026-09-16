@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"lt":
+  reply_to_view:
+    reply:
+      placeholder: "Šis turinys paslėptas, kol atsakysite šioje temoje"
+      count_placeholder: "Šis turinys taps matomas paskelbus bent %{count} galiojančių atsakymų šioje temoje"
+    login:
+      placeholder: "Prisijunkite, kad matytumėte šį turinį"
+    sanitized_placeholder: "[paslėptas turinys]"
+    search_placeholder: "[apsaugotas turinys]"
+    revision_placeholder: "Šio apsaugoto įrašo turinio pakeitimai paslėpti"
+  site_settings:
+    enable_rtv: "Įjungia reply-to-view įskiepį ([reply] ir [login] turinio apsaugos žymos). Išjungus anksčiau pažymėtas turinys rodomas kaip paprastas tekstas."
+    reply_to_view_mode: "Kaip atrakcinamas [reply] turinys. any_reply: bet koks galiojantis atsakymas temoje atrakina viską. exact_post: tik tiesioginis atsakymas į įrašą su turiniu jį atrakina (pirmam įrašui skaičiuojamas ir atsakymas temoje)."
+    reply_to_view_allow_count: "Įjungia [reply=N] skaitiklio sintaksę: turinys tampa matomas po bent N galiojančių atsakymų temoje. Išjungta [reply=N] veikia kaip paprastas [reply]."
+    min_trust_level_to_bypass: "Šio pasitikėjimo lygio ir aukštesni vartotojai mato visą reply-to-view turinį be atsakymų. 0 išjungia išimtį."
+    min_trust_level_to_use: "Mažiausias pasitikėjimo lygis naudoti paslėpto turinio žymas. Žemesnio lygio vartotojų žymos neveikia, jų turinys matomas visiems."
+    keywords:
+      enable_rtv: "rtv, atsakyk pamatyti, paslėptas turinys, prisijunk pamatyti"
+      reply_to_view_mode: "atsakymų režimas, bet koks atsakymas, tikslus įrašas"
+      reply_to_view_allow_count: "atsakymų skaičius, reply=N"
+      min_trust_level_to_bypass: "pasitikėjimo lygis, išimtis"
+      min_trust_level_to_use: "pasitikėjimo lygis, žymų naudojimas"

@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"ko":
+  js:
+    composer:
+      rtv_reply_option: "답글 후 보이는 콘텐츠 삽입"
+      rtv_login_option: "로그인 후 보이는 콘텐츠 삽입"
+      rtv_reply_surround_example: "숨겨진 콘텐츠"
+      rtv_login_surround_example: "숨겨진 콘텐츠"
+    reply_to_view:
+      block:
+        login_button: "로그인하여 보기"
+        reply_button: "답글 달아 보기"
+        owner_notice: "이 콘텐츠는 조건을 충족하지 않은 사용자에게 숨겨집니다"
+        preview_notice: "이 콘텐츠는 조건을 충족하지 않은 사용자에게 숨겨집니다"

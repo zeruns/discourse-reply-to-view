@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"he":
+  reply_to_view:
+    reply:
+      placeholder: "תוכן זה מוסתר עד שתגיבו בנושא זה"
+      count_placeholder: "תוכן זה יופיע לאחר פרסום לפחות %{count} תגובות תקפות בנושא זה"
+    login:
+      placeholder: "התחברו כדי לצפות בתוכן זה"
+    sanitized_placeholder: "[תוכן מוסתר]"
+    search_placeholder: "[תוכן מוגן]"
+    revision_placeholder: "שינויי התוכן של פוסט מוגן זה מוסתרים"
+  site_settings:
+    enable_rtv: "מפעיל את תוסף reply-to-view (תגי הגנת תוכן [reply] ו-[login]). כשמושבת, תוכן שסומן בעבר מוצג כטקסט פשוט."
+    reply_to_view_mode: "כיצד נפתח תוכן [reply]. any_reply: כל תגובה תקפה בנושא פותחת הכול. exact_post: רק תגובה ישירה לפוסט המכיל את התוכן פותחת אותו (לפוסט הראשון גם תגובה בנושא נספרת)."
+    reply_to_view_allow_count: "מפעיל את תחביר הספירה [reply=N]: התוכן יופיע לאחר לפחות N תגובות תקפות בנושא. כשמושבת, [reply=N] פועל כ-[reply] רגיל."
+    min_trust_level_to_bypass: "משתמשים ברמת אמון זו ומעלה יכולים לראות את כל תוכן ה-reply-to-view ללא תגובה. 0 מבטל את הפטור."
+    min_trust_level_to_use: "רמת אמון מינימלית לשימוש בתגי תוכן מוסתר. תגים של משתמשים מתחת לרמה זו אינם פעילים והתוכן שלהם גלוי לכולם."
+    keywords:
+      enable_rtv: "rtv, תגובה לצפייה, תוכן מוסתר, התחברות לצפייה"
+      reply_to_view_mode: "מצב תגובה, כל תגובה, פוסט מדויק"
+      reply_to_view_allow_count: "מספר תגובות, reply=N"
+      min_trust_level_to_bypass: "רמת אמון, פטור"
+      min_trust_level_to_use: "רמת אמון, שימוש בתגים"

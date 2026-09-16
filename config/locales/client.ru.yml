@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"ru":
+  js:
+    composer:
+      rtv_reply_option: "Вставить контент, видимый после ответа"
+      rtv_login_option: "Вставить контент, видимый после входа"
+      rtv_reply_surround_example: "скрытый контент"
+      rtv_login_surround_example: "скрытый контент"
+    reply_to_view:
+      block:
+        login_button: "Войти, чтобы увидеть"
+        reply_button: "Ответить, чтобы увидеть"
+        owner_notice: "Этот контент скрыт от пользователей, не выполнивших условия"
+        preview_notice: "Этот контент будет скрыт от пользователей, не выполнивших условия"

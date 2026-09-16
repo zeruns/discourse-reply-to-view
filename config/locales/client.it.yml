@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"it":
+  js:
+    composer:
+      rtv_reply_option: "Inserisci contenuto visibile dopo la risposta"
+      rtv_login_option: "Inserisci contenuto visibile dopo l'accesso"
+      rtv_reply_surround_example: "contenuto nascosto"
+      rtv_login_surround_example: "contenuto nascosto"
+    reply_to_view:
+      block:
+        login_button: "Accedi per vedere"
+        reply_button: "Rispondi per vedere"
+        owner_notice: "Questo contenuto è nascosto agli utenti che non soddisfano i requisiti"
+        preview_notice: "Questo contenuto sarà nascosto agli utenti che non soddisfano i requisiti"

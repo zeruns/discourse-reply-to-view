@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"el":
+  js:
+    composer:
+      rtv_reply_option: "Εισαγωγή περιεχομένου ορατού μετά την απάντηση"
+      rtv_login_option: "Εισαγωγή περιεχομένου ορατού μετά τη σύνδεση"
+      rtv_reply_surround_example: "κρυφό περιεχόμενο"
+      rtv_login_surround_example: "κρυφό περιεχόμενο"
+    reply_to_view:
+      block:
+        login_button: "Σύνδεση για προβολή"
+        reply_button: "Απάντηση για προβολή"
+        owner_notice: "Αυτό το περιεχόμενο είναι κρυφό για χρήστες που δεν πληρούν τις προϋποθέσεις"
+        preview_notice: "Αυτό το περιεχόμενο θα είναι κρυφό για χρήστες που δεν πληρούν τις προϋποθέσεις"

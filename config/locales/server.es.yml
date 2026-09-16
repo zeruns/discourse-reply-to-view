@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"es":
+  reply_to_view:
+    reply:
+      placeholder: "Este contenido queda oculto hasta que respondas a este tema"
+      count_placeholder: "Este contenido se hace visible después de publicar al menos %{count} respuestas válidas en este tema"
+    login:
+      placeholder: "Inicia sesión para ver este contenido"
+    sanitized_placeholder: "[contenido oculto]"
+    search_placeholder: "[contenido protegido]"
+    revision_placeholder: "Los cambios de contenido de esta publicación protegida están ocultos"
+  site_settings:
+    enable_rtv: "Activa el plugin reply-to-view (etiquetas de protección de contenido [reply] y [login]). Al desactivarlo, el contenido marcado anteriormente se muestra como texto plano."
+    reply_to_view_mode: "Cómo se desbloquea el contenido [reply]. any_reply: cualquier respuesta válida en el tema lo desbloquea todo. exact_post: solo una respuesta directa a la publicación que contiene el contenido lo desbloquea (en la primera publicación también cuenta responder al tema)."
+    reply_to_view_allow_count: "Activa la sintaxis de conteo [reply=N]: el contenido se hace visible tras al menos N respuestas válidas en el tema. Si se desactiva, [reply=N] se comporta como [reply]."
+    min_trust_level_to_bypass: "Los usuarios con este nivel de confianza o superior pueden ver todo el contenido reply-to-view sin responder. 0 desactiva la exención."
+    min_trust_level_to_use: "Nivel de confianza mínimo para usar las etiquetas de contenido oculto. Las etiquetas de usuarios por debajo no tienen efecto y su contenido es visible para todos."
+    keywords:
+      enable_rtv: "rtv, responder para ver, contenido oculto, iniciar sesión para ver"
+      reply_to_view_mode: "modo de respuesta, cualquier respuesta, publicación exacta"
+      reply_to_view_allow_count: "número de respuestas, reply=N"
+      min_trust_level_to_bypass: "nivel de confianza, exención"
+      min_trust_level_to_use: "nivel de confianza, usar etiquetas"

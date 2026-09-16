@@ -22,6 +22,21 @@
 
 ---
 
+## 更新日志
+
+### v1.1.0（当前）
+
+- `min_trust_level_to_bypass` 默认值改为 **0**（严格回帖可见；v1.0.0 默认 1 会导致 TL1+ 用户免回复直接可见）
+- 编辑器的两个插入按钮从工具栏移入「**+**」扩展菜单（与「插表」「隐藏详细信息」同级），修复插入示例文本显示为未翻译键名的问题
+- **多语言**：补齐 Discourse 支持的全部 49 种语言（前台文案 + 后台设置项描述与搜索关键词）
+- **安全加固**：封堵修订历史 diff 泄露面（`/posts/:id/revisions/latest` 的 raw 词级差异对非特权用户替换为占位提示）
+- 回复后自动刷新改为更新帖子模型（Ember 响应式重渲染,装饰器完整保留）
+- 新增 `rake rtv:rebake` 任务:重烘焙插件安装前已存在的含标记历史帖子
+
+### v1.0.0
+
+- 首个版本:[reply] / [login] / [reply=N] 标记、服务端权限判定、cooked 零原文存储、raw 出口封堵、搜索脱敏
+
 ## 一、BBCode 语法
 
 | 标记 | 语义 |
@@ -90,7 +105,7 @@ cooked = <div class="rtv-block rtv-reply" data-rtv-type data-rtv-index
 | `enable_rtv` | 布尔 / `true` | 总开关。关闭后历史标记内容在渲染视图明文回显（无框直出）,开关可逆 |
 | `reply_to_view_mode` | 枚举 / `any_reply` | `any_reply` 任意回复解锁 / `exact_post` 精确楼层解锁 |
 | `reply_to_view_allow_count` | 布尔 / `false` | 启用 `[reply=N]` 计数语法;关闭时自动降级为普通 `[reply]` |
-| `min_trust_level_to_bypass` | 0~4 / `1` | TL 豁免线,0 = 不豁免。**运营提示**:默认 1 意味着 TL1+ 用户免回复即可见,如需严格「回帖可见」体验请设为 0 |
+| `min_trust_level_to_bypass` | 0~4 / `0` | TL 豁免线,0 = 不豁免（默认,严格「回帖可见」体验）。如希望 TL1+ 用户免回复可见,可按需调高 |
 | `min_trust_level_to_use` | 0~4 / `1` | 使用权限:低于该等级的用户发布的标记不生效（内容对所有人直接可见）,编辑器按钮也对其隐藏 |
 
 ## 五、安装（官方 Docker 部署）
@@ -138,6 +153,26 @@ docker cp /path/to/discourse-reply-to-view app:/var/www/discourse/plugins/
 3. 匿名窗口打开:应看到绿色（登录）与蓝色（回复）两个占位框
 4. 登录另一个账号:login 块可见、reply 块仍为占位;回复该主题后页面自动局部刷新解锁
 
+
+## 多语言支持
+
+插件内置 Discourse 支持的全部 49 种语言（与核心 locale 列表逐一对应）：
+前台占位文案、按钮与提示条、后台插件设置描述与搜索关键词均已翻译。
+序列化层按当前请求用户的 locale 渲染占位文案；邮件、搜索等直读 cooked 的通道
+使用站点默认语言的烘焙文案。
+
+## 历史帖子重烘焙
+
+插件安装前已存在的含标记帖子,其 cooked 中是未解析的字面标记文本。
+执行以下命令重烘焙（重新走 cook 管线,生成占位容器并烘焙占位文案）：
+
+```bash
+./launcher enter app
+rake rtv:rebake
+```
+
+插件安装后新发布的帖子无需此操作（自动走正常烘焙链路）。
+
 ## 六、运行测试
 
 ```bash
@@ -154,7 +189,7 @@ docker exec -u discourse app bash -lc "cd /var/www/discourse && \
   SKIP_MULTISITE=1 RAILS_ENV=test bin/rspec plugins/discourse-reply-to-view/spec/"
 ```
 
-测试结果:70 examples, 0 failures（连续多次随机顺序运行稳定）。
+测试结果:73 examples, 0 failures（连续多次随机顺序运行稳定）。
 
 覆盖场景:
 - 服务端 cook:占位容器生成 / 原文零泄露 / 计数属性 / 未闭合原样 / 嵌套语义 / 跨端指纹对齐（含中文与 Emoji）
@@ -196,7 +231,7 @@ discourse-reply-to-view/
 │   │   │   └── client-rtv-rule.js    客户端预览规则（渲染内容 + 包裹预览容器）
 │   │   └── discourse/
 │   │       ├── initializers/
-│   │       │   └── reply-to-view.js  工具栏按钮 / 占位框装饰 / 回复后局部刷新
+│   │       │   └── reply-to-view.js  「+」菜单插入项 / 占位框装饰 / 回复后局部刷新
 │   │       └── components/
 │   │           └── rtv-block.gjs     占位框交互组件（登录/回复按钮）
 │   └── stylesheets/

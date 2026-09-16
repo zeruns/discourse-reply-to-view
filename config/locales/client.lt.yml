@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"lt":
+  js:
+    composer:
+      rtv_reply_option: "Įterpti turinį, matomą po atsakymo"
+      rtv_login_option: "Įterpti turinį, matomą po prisijungimo"
+      rtv_reply_surround_example: "paslėptas turinys"
+      rtv_login_surround_example: "paslėptas turinys"
+    reply_to_view:
+      block:
+        login_button: "Prisijungti peržiūrai"
+        reply_button: "Atsakyti peržiūrai"
+        owner_notice: "Šis turinys paslėptas nuo vartotojų, neatitinkančių reikalavimų"
+        preview_notice: "Šis turinys bus paslėptas nuo vartotojų, neatitinkančių reikalavimų"

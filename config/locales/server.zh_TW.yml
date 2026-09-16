@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"zh_TW":
+  reply_to_view:
+    reply:
+      placeholder: "本內容回覆主題後可見"
+      count_placeholder: "本內容需在本主題下發布至少 %{count} 則有效回覆後可見"
+    login:
+      placeholder: "登入後即可檢視本內容"
+    sanitized_placeholder: "【內容已隱藏】"
+    search_placeholder: "【受保護內容】"
+    revision_placeholder: "該受保護貼文的內容變更已隱藏"
+  site_settings:
+    enable_rtv: "啟用回覆可見/登入可視外掛（[reply] 與 [login] 內容保護標記）。停用後，歷史標記內容將以純文字直接顯示。"
+    reply_to_view_mode: "[reply] 內容的解鎖方式。any_reply：在本主題發布任意有效回覆即解鎖；exact_post：必須直接回覆內容所在樓層才解鎖（主樓相容回覆主題與回覆主樓）。"
+    reply_to_view_allow_count: "啟用 [reply=N] 計數語法：在本主題下發布至少 N 則有效回覆後內容可見。停用時 [reply=N] 依一般 [reply] 處理。"
+    min_trust_level_to_bypass: "信任等級達到該值的使用者無需回覆即可檢視全部回覆可見內容。設為 0 表示不啟用豁免。"
+    min_trust_level_to_use: "使用隱藏標記所需的最低信任等級。低於該等級的使用者所發布的標記不生效，其內容對所有人直接可見。"
+    keywords:
+      enable_rtv: "rtv,回覆可見,登入可見,隱藏內容"
+      reply_to_view_mode: "回覆模式,任意回覆,精確樓層"
+      reply_to_view_allow_count: "回覆計數,reply=N"
+      min_trust_level_to_bypass: "信任等級,豁免"
+      min_trust_level_to_use: "信任等級,使用權限"

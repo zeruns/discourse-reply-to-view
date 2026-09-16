@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"ko":
+  reply_to_view:
+    reply:
+      placeholder: "이 콘텐츠는 이 주제에 답글을 달면 표시됩니다"
+      count_placeholder: "이 콘텐츠는 이 주제에서 유효한 답글을 %{count}개 이상 게시하면 표시됩니다"
+    login:
+      placeholder: "이 콘텐츠를 보려면 로그인하세요"
+    sanitized_placeholder: "【숨겨진 콘텐츠】"
+    search_placeholder: "【보호되는 콘텐츠】"
+    revision_placeholder: "이 보호된 게시물의 변경 내용은 숨겨집니다"
+  site_settings:
+    enable_rtv: "답글 보기 플러그인을 사용합니다([reply], [login] 콘텐츠 보호 태그). 비활성화하면 기존에 표시된 콘텐츠가 일반 텍스트로 표시됩니다."
+    reply_to_view_mode: "[reply] 콘텐츠 잠금 해제 방식. any_reply: 주제 내 유효한 답글 하나로 모두 해제. exact_post: 해당 게시물에 직접 답글을 달 때만 해제(첫 게시물은 주제 답글도 인정)."
+    reply_to_view_allow_count: "[reply=N] 개수 구문을 사용합니다: 주제 내 유효한 답글이 N개 이상이면 표시. 비활성화 시 일반 [reply]로 동작합니다."
+    min_trust_level_to_bypass: "이 신뢰 레벨 이상 사용자는 답글 없이 모든 답글 보기 콘텐츠를 볼 수 있습니다. 0으로 설정하면 면제가 비활성화됩니다."
+    min_trust_level_to_use: "숨김 콘텐츠 태그를 사용하기 위한 최소 신뢰 레벨. 이 레벨 미만 사용자의 태그는 적용되지 않으며 콘텐츠가 모두에게 표시됩니다."
+    keywords:
+      enable_rtv: "rtv,답글 보기,로그인 보기,숨긴 콘텐츠"
+      reply_to_view_mode: "답글 모드,아무 답글,지정 게시물 답글"
+      reply_to_view_allow_count: "답글 수,reply=N"
+      min_trust_level_to_bypass: "신뢰 레벨,면제"
+      min_trust_level_to_use: "신뢰 레벨,사용 권한"

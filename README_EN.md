@@ -24,6 +24,21 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 
 ---
 
+## Changelog
+
+### v1.1.0 (current)
+
+- `min_trust_level_to_bypass` default changed to **0** (strict reply-to-view; the v1.0.0 default of 1 let TL1+ users see content without replying)
+- The two composer insert buttons moved from the toolbar into the "**+**" options menu (alongside "insert table" / "hidden details"); fixed the inserted example text showing an untranslated key
+- **Localization**: all 49 languages supported by Discourse are now included (front-end texts + admin setting descriptions and search keywords)
+- **Security hardening**: sealed the revision-history diff leak (the raw word-diff at `/posts/:id/revisions/latest` is replaced with a placeholder for non-privileged users)
+- The post-reply auto-refresh now updates the post model (Ember reactive re-render, all decorators preserved)
+- Added a `rake rtv:rebake` task to rebake historical posts that existed before the plugin was installed
+
+### v1.0.0
+
+- Initial release: [reply] / [login] / [reply=N] tags, server-side permission checks, zero-content cooked, raw outlet sealing, search scrubbing
+
 ## 1. BBCode Syntax
 
 | Tag | Meaning |
@@ -103,7 +118,7 @@ After installation, configure under **Admin → Settings → Plugins** (`/admin/
 | `enable_rtv` | bool / `true` | Master switch. When off, historical marked content is shown as plain text (no box) in rendered views; the switch is reversible |
 | `reply_to_view_mode` | enum / `any_reply` | `any_reply` = any reply unlocks / `exact_post` = exact-floor unlock |
 | `reply_to_view_allow_count` | bool / `false` | Enables `[reply=N]` count syntax; when off it degrades to plain `[reply]` |
-| `min_trust_level_to_bypass` | 0–4 / `1` | TL bypass line, 0 = disabled. **Tip**: the default 1 means TL1+ users see content without replying; set it to 0 for a strict reply-to-view experience |
+| `min_trust_level_to_bypass` | 0–4 / `0` | TL bypass line, 0 = disabled (default, strict reply-to-view). Raise it if TL1+ users should see content without replying |
 | `min_trust_level_to_use` | 0–4 / `1` | Usage permission: tags posted by users below this level have no effect (content is directly visible to everyone), and the composer buttons are hidden for them |
 
 ## 5. Installation (Official Docker Deployment)
@@ -152,6 +167,27 @@ Note: files copied directly into the container are lost on `rebuild`; use Option
 4. Sign in with another account: the login block is visible while the reply block stays locked;
    after replying to the topic the page refreshes the locked posts in place
 
+
+## Localization
+
+The plugin ships all 49 languages supported by Discourse (mirroring the core locale list):
+front-end placeholders, buttons and notice bars, admin setting descriptions and search keywords
+are all translated. Placeholders are rendered per requesting user's locale at serialization
+time; channels that read cooked directly (emails, search) use the baked site-default locale text.
+
+## Rebaking Historical Posts
+
+Posts that existed before the plugin was installed have literal tag text in their cooked field.
+Rebake them as follows (re-runs the cook pipeline, generating placeholder containers with baked
+notices):
+
+```bash
+./launcher enter app
+rake rtv:rebake
+```
+
+Posts created after installation do not need this (they are baked automatically).
+
 ## 6. Running the Tests
 
 ```bash
@@ -167,7 +203,7 @@ docker exec -u discourse app bash -lc "cd /var/www/discourse && \
   SKIP_MULTISITE=1 RAILS_ENV=test bin/rspec plugins/discourse-reply-to-view/spec/"
 ```
 
-Result: 70 examples, 0 failures (stable across multiple randomized-order runs).
+Result: 73 examples, 0 failures (stable across multiple randomized-order runs).
 
 Covered scenarios:
 - Server-side cooking: placeholder container generation / zero content leakage / count attributes /
@@ -216,7 +252,7 @@ discourse-reply-to-view/
 │   │   │   └── client-rtv-rule.js    Client preview rule (renders content + wraps in preview container)
 │   │   └── discourse/
 │   │       ├── initializers/
-│   │       │   └── reply-to-view.js  Toolbar buttons / placeholder decoration / post-reply refresh
+│   │       │   └── reply-to-view.js  "+"-menu insert options / placeholder decoration / post-reply refresh
 │   │       └── components/
 │   │           └── rtv-block.gjs     Placeholder interaction component (login/reply buttons)
 │   └── stylesheets/

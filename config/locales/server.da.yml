@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"da":
+  reply_to_view:
+    reply:
+      placeholder: "Dette indhold skjules, indtil du svarer i dette emne"
+      count_placeholder: "Dette indhold bliver synligt, efter du har sendt mindst %{count} gyldige svar i dette emne"
+    login:
+      placeholder: "Log ind for at se dette indhold"
+    sanitized_placeholder: "[skjult indhold]"
+    search_placeholder: "[beskyttet indhold]"
+    revision_placeholder: "Indholdsændringerne for dette beskyttede indlæg er skjult"
+  site_settings:
+    enable_rtv: "Aktiverer reply-to-view-pluginet ([reply]- og [login]-indholdsbeskyttelsestags). Deaktiveret vises tidligere markeret indhold som almindelig tekst."
+    reply_to_view_mode: "Hvordan [reply]-indhold låses op. any_reply: ethvert gyldigt svar i emnet låser alt op. exact_post: kun et direkte svar på indlægget med indholdet låser det op (ved det første indlæg tæller et svar i emnet også)."
+    reply_to_view_allow_count: "Aktiverer [reply=N]-tællesyntaksen: indhold bliver synligt efter mindst N gyldige svar i emnet. Deaktiveret opfører [reply=N] sig som et almindeligt [reply]."
+    min_trust_level_to_bypass: "Brugere på dette tillidsniveau eller højere kan se alt reply-to-view-indhold uden at svare. 0 deaktiverer fritagelsen."
+    min_trust_level_to_use: "Mindste tillidsniveau for at bruge de skjulte indholdstags. Tags fra brugere under dette niveau har ingen effekt, og deres indhold er synligt for alle."
+    keywords:
+      enable_rtv: "rtv, svar for at se, skjult indhold, log ind for at se"
+      reply_to_view_mode: "svartilstand, ethvert svar, exakt indlæg"
+      reply_to_view_allow_count: "svarantal, reply=N"
+      min_trust_level_to_bypass: "tillidsniveau, fritagelse"
+      min_trust_level_to_use: "tillidsniveau, brug tags"

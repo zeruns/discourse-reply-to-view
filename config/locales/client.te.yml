@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"te":
+  js:
+    composer:
+      rtv_reply_option: "స్పందించిన తర్వాత కనిపించే కంటెంట్‌ను చొప్పించండి"
+      rtv_login_option: "సైన్ ఇన్ తర్వాత కనిపించే కంటెంట్‌ను చొప్పించండి"
+      rtv_reply_surround_example: "దాగిన కంటెంట్"
+      rtv_login_surround_example: "దాగిన కంటెంట్"
+    reply_to_view:
+      block:
+        login_button: "చూడటానికి సైన్ ఇన్ చేయండి"
+        reply_button: "చూడటానికి స్పందించండి"
+        owner_notice: "షరతులు నెరవేర్చని వినియోగదారుల నుండి ఈ కంటెంట్ దాగి ఉంది"
+        preview_notice: "షరతులు నెరవేర్చని వినియోగదారుల నుండి ఈ కంటెంట్ దాగి ఉంటుంది"

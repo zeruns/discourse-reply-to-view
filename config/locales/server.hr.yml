@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"hr":
+  reply_to_view:
+    reply:
+      placeholder: "Ovaj sadržaj skriven je dok ne odgovorite u ovoj temi"
+      count_placeholder: "Ovaj sadržaj postaje vidljiv nakon objavljivanja najmanje %{count} valjanih odgovora u ovoj temi"
+    login:
+      placeholder: "Prijavite se za pregled ovog sadržaja"
+    sanitized_placeholder: "[skriveni sadržaj]"
+    search_placeholder: "[zaštićeni sadržaj]"
+    revision_placeholder: "Promjene sadržaja ovog zaštićenog posta skrivene su"
+  site_settings:
+    enable_rtv: "Omogućuje plugin reply-to-view (oznake zaštite sadržaja [reply] i [login]). Isključeno, prethodno označeni sadržaj prikazuje se kao običan tekst."
+    reply_to_view_mode: "Kako se otključava sadržaj [reply]. any_reply: bilo koji valjani odgovor u temi otključava sve. exact_post: samo izravan odgovor na post sa sadržajem ga otključava (za prvi post računa se i odgovor u temi)."
+    reply_to_view_allow_count: "Omogućuje sintaksu brojača [reply=N]: sadržaj postaje vidljiv nakon najmanje N valjanih odgovora u temi. Isključeno, [reply=N] djeluje kao običan [reply]."
+    min_trust_level_to_bypass: "Korisnici na ovoj razini povjerenja ili višoj vide sav sadržaj reply-to-view bez odgovaranja. 0 isključuje oslobodenje."
+    min_trust_level_to_use: "Minimalna razina povjerenja za korištenje oznaka skrivenog sadržaja. Oznake korisnika ispod te razine nemaju učinka, a njihov je sadržaj vidljiv svima."
+    keywords:
+      enable_rtv: "rtv, odgovori za pregled, skriveni sadržaj, prijava za pregled"
+      reply_to_view_mode: "način odgovora, bilo koji odgovor, točan post"
+      reply_to_view_allow_count: "broj odgovora, reply=N"
+      min_trust_level_to_bypass: "razina povjerenja, oslobodenje"
+      min_trust_level_to_use: "razina povjerenja, korištenje oznaka"

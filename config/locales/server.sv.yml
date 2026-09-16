@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"sv":
+  reply_to_view:
+    reply:
+      placeholder: "Detta innehåll är dolt tills du svarar i detta ämne"
+      count_placeholder: "Detta innehåll blir synligt efter att du har publicerat minst %{count} giltiga svar i detta ämne"
+    login:
+      placeholder: "Logga in för att se detta innehåll"
+    sanitized_placeholder: "[dolt innehåll]"
+    search_placeholder: "[skyddat innehåll]"
+    revision_placeholder: "Innehållsändringarna för detta skyddade inlägg är dolda"
+  site_settings:
+    enable_rtv: "Aktiverar reply-to-view-insticksprogrammet ([reply]- och [login]-innehållskyddstaggar). Inaktiverat visas tidigare markerat innehåll som vanlig text."
+    reply_to_view_mode: "Hur [reply]-innehåll låses upp. any_reply: ett giltigt svar i ämnet låser upp allt. exact_post: endast ett direkt svar på inlägget med innehållet låser upp det (för första inlägget räknas även svar i ämnet)."
+    reply_to_view_allow_count: "Aktiverar [reply=N]-räknesyntaxen: innehåll blir synligt efter minst N giltiga svar i ämnet. Inaktiverad fungerar [reply=N] som ett vanligt [reply]."
+    min_trust_level_to_bypass: "Användare på denna förtroendenivå eller högre kan se allt reply-to-view-innehåll utan att svara. 0 inaktiverar undantaget."
+    min_trust_level_to_use: "Lägsta förtroendenivå för att använda taggarna för dolt innehåll. Taggar från användare under denna nivå har ingen effekt och deras innehåll syns för alla."
+    keywords:
+      enable_rtv: "rtv, svara för att se, dolt innehåll, logga in för att se"
+      reply_to_view_mode: "svarsläge, valfritt svar, exakt inlägg"
+      reply_to_view_allow_count: "svarsantal, reply=N"
+      min_trust_level_to_bypass: "förtroendenivå, undantag"
+      min_trust_level_to_use: "förtroendenivå, använda taggar"

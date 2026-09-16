@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"hy":
+  js:
+    composer:
+      rtv_reply_option: "Տեղադրել պատասխանելուց հետո տեսանելի բովանդակություն"
+      rtv_login_option: "Տեղադրել մուտք գործելուց հետո տեսանելի բովանդակություն"
+      rtv_reply_surround_example: "թաքնված բովանդակություն"
+      rtv_login_surround_example: "թաքնված բովանդակություն"
+    reply_to_view:
+      block:
+        login_button: "Մուտք գործել դիտելու համար"
+        reply_button: "Պատասխանել դիտելու համար"
+        owner_notice: "Այս բովանդակությունը թաքնված է պայմանները չբավարարող օգտատերերից"
+        preview_notice: "Այս բովանդակությունը թաքնված կլինի պայմանները չբավարարող օգտատերերից"

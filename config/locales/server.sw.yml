@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"sw":
+  reply_to_view:
+    reply:
+      placeholder: "Maudhui haya hufichwa hadi ujibu kwenye mada hii"
+      count_placeholder: "Maudhui haya huonekana baada ya kuchapisha majibu %{count} sahihi angalau katika mada hii"
+    login:
+      placeholder: "Ingia ili kuona maudhui haya"
+    sanitized_placeholder: "[maudhui yaliyofichwa]"
+    search_placeholder: "[maudhui yaliyolindwa]"
+    revision_placeholder: "Mabadiliko ya maudhui ya chapisho hili lililolindwa yamefichwa"
+  site_settings:
+    enable_rtv: "Huwezesha programu-jalizi ya reply-to-view (lebo za ulinzi wa maudhui [reply] na [login]). Ikiwa imezimwa, maudhui yaliyoonyeshwa awali huchapishwa kama maandishi wazi."
+    reply_to_view_mode: "Jinsi maudhui ya [reply] yanavyofunguliwa. any_reply: jibu lolote sahihi kwenye mada hufungua yote. exact_post: ni jibu la moja kwa moja kwenye chapisho lenye maudhui tu linalofungua (kwa chapisho la kwanza, kujibu mada pia huhesabiwa)."
+    reply_to_view_allow_count: "Huwezesha sintaksia ya kuhesabu [reply=N]: maudhui huonekana baada ya majibu %{count} sahihi angalau. Ikiwa imezimwa, [reply=N] hufanya kama [reply] ya kawaida."
+    min_trust_level_to_bypass: "Watumiaji katika kiwango hiki cha kuaminika au juu yake wanaona maudhui yote ya reply-to-view bila kujibu. 0 inazima uondoaji."
+    min_trust_level_to_use: "Kiwango cha chini kabisa cha kuaminika cha kutumia lebo za maudhui yaliyofichwa. Lebo za watumiaji chini ya kiwango hiki hazina athari na maudhui yao yanaonekana kwa wote."
+    keywords:
+      enable_rtv: "rtv, jibu ili kuona, maudhui yaliyofichwa, ingia ili kuona"
+      reply_to_view_mode: "hali ya majibu, jibu lolote, chapisho mahususi"
+      reply_to_view_allow_count: "idadi ya majibu, reply=N"
+      min_trust_level_to_bypass: "kiwango cha kuaminika, uondoaji"
+      min_trust_level_to_use: "kiwango cha kuaminika, kutumia lebo"

@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"nl":
+  js:
+    composer:
+      rtv_reply_option: "Inhoud invoegen die na reactie zichtbaar is"
+      rtv_login_option: "Inhoud invoegen die na aanmelding zichtbaar is"
+      rtv_reply_surround_example: "verborgen inhoud"
+      rtv_login_surround_example: "verborgen inhoud"
+    reply_to_view:
+      block:
+        login_button: "Inloggen om te zien"
+        reply_button: "Reageren om te zien"
+        owner_notice: "Deze inhoud is verborgen voor gebruikers die niet aan de voorwaarden voldoen"
+        preview_notice: "Deze inhoud zal verborgen zijn voor gebruikers die niet aan de voorwaarden voldoen"

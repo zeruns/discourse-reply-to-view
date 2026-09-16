@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"et":
+  reply_to_view:
+    reply:
+      placeholder: "See sisu on peidetud, kuni vastate selles teemas"
+      count_placeholder: "See sisu muutub nähtavaks pärast vähemalt %{count} kehtiva vastuse avaldamist selles teemas"
+    login:
+      placeholder: "Logige sisse selle sisu vaatamiseks"
+    sanitized_placeholder: "[peidetud sisu]"
+    search_placeholder: "[kaitstud sisu]"
+    revision_placeholder: "Selle kaitstud postituse sisumuudatused on peidetud"
+  site_settings:
+    enable_rtv: "Lubab reply-to-view pistikprogrammi ([reply] ja [login] sisukaitse sildid). Välja lülitatud kuvatakse varem märgitud sisu lihttekstina."
+    reply_to_view_mode: "Kuidas [reply] sisu avatakse. any_reply: iga kehtiv vastus teemas avab kõik. exact_post: ainus otsene vastus sisu sisaldavale postitusele avab selle (esimese postituse puhul arvestatakse ka vastust teemas)."
+    reply_to_view_allow_count: "Lubab [reply=N] loendisüntaksi: sisu muutub nähtavaks pärast vähemalt N kehtivat vastust teemas. Välja lülitatud käitub [reply=N] nagu tavaline [reply]."
+    min_trust_level_to_bypass: "Selles usaldustasemes või kõrgemad kasutajad näevad kogu reply-to-view sisu vastamata. 0 keelab vabastuse."
+    min_trust_level_to_use: "Minimaalne usaldustase peidetud sisu siltide kasutamiseks. Madalama taseme kasutajate sildid ei toimi ja nende sisu on nähtav kõigile."
+    keywords:
+      enable_rtv: "rtv, vasta et näha, peidetud sisu, logi sisse et näha"
+      reply_to_view_mode: "vastuse režiim, mis tahes vastus, täpne postitus"
+      reply_to_view_allow_count: "vastuste arv, reply=N"
+      min_trust_level_to_bypass: "usaldustase, vabastus"
+      min_trust_level_to_use: "usaldustase, siltide kasutamine"

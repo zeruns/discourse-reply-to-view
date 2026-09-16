@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"vi":
+  js:
+    composer:
+      rtv_reply_option: "Chèn nội dung hiển thị sau khi trả lời"
+      rtv_login_option: "Chèn nội dung hiển thị sau khi đăng nhập"
+      rtv_reply_surround_example: "nội dung ẩn"
+      rtv_login_surround_example: "nội dung ẩn"
+    reply_to_view:
+      block:
+        login_button: "Đăng nhập để xem"
+        reply_button: "Trả lời để xem"
+        owner_notice: "Nội dung này bị ẩn với những người dùng chưa đáp ứng điều kiện"
+        preview_notice: "Nội dung này sẽ bị ẩn với những người dùng chưa đáp ứng điều kiện"

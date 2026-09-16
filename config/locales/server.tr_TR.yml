@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+"tr":
+  reply_to_view:
+    reply:
+      placeholder: "Bu içerik, bu konuya yanıt verene kadar gizlidir"
+      count_placeholder: "Bu içerik, bu konuda en az %{count} geçerli yanıt yayınladıktan sonra görünür olur"
+    login:
+      placeholder: "Bu içeriği görmek için giriş yapın"
+    sanitized_placeholder: "[gizli içerik]"
+    search_placeholder: "[korunan içerik]"
+    revision_placeholder: "Bu korunan gönderinin içerik değişiklikleri gizlidir"
+  site_settings:
+    enable_rtv: "Yanıtla-gör eklentisini etkinleştirir ([reply] ve [login] içerik koruma etiketleri). Devre dışı bırakıldığında daha önce işaretlenmiş içerik düz metin olarak gösterilir."
+    reply_to_view_mode: "[reply] içeriğinin kilidinin açılma yolu. any_reply: konudaki herhangi bir geçerli yanıt kilidi açar. exact_post: yalnızca içeriği içeren gönderiye doğrudan yanıt kilidi açar (ilk gönderi için konuya yanıt da sayılır)."
+    reply_to_view_allow_count: "[reply=N] sayaç sözdizimini etkinleştirir: konuda en az N geçerli yanıt sonrasında içerik görünür. Devre dışıyken [reply=N] normal [reply] gibi davranır."
+    min_trust_level_to_bypass: "Bu güven düzeyindeki veya üzeri kullanıcılar tüm içerikleri yanıtlamadan görebilir. 0, muafiyeti devre dışı bırakır."
+    min_trust_level_to_use: "Gizli içerik etiketlerini kullanmak için gereken en düşük güven düzeyi. Bu düzeyin altındaki kullanıcıların etiketleri geçersizdir ve içerikleri herkese görünür."
+    keywords:
+      enable_rtv: "rtv, yanıtlayınca gör, gizli içerik, giriş yapınca gör"
+      reply_to_view_mode: "yanıt modu, herhangi bir yanıt, tam gönderi"
+      reply_to_view_allow_count: "yanıt sayısı, reply=N"
+      min_trust_level_to_bypass: "güven düzeyi, muafiyet"
+      min_trust_level_to_use: "güven düzeyi, etiket kullanımı"

@@ -38,6 +38,11 @@ module ReplyToView
     INLINE_RE = /\A\[(reply|login)(?:=([^\]\s]+))?\](.+)\[\/\1\]\z/
 
     class << self
+      # 快速检测文本是否包含本插件标记（轻量正则,用于大文本 early-exit）
+      def contains_marks?(text)
+        !text.nil? && text.match?(/\[(reply|login)(=|\])/i)
+      end
+
       # 从 raw 提取全部标记块（按出现顺序）
       def extract(raw)
         blocks = []

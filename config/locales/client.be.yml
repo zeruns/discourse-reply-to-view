@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"be":
+  js:
+    composer:
+      rtv_reply_option: "Уставіць кантэнт, бачны пасля адказу"
+      rtv_login_option: "Уставіць кантэнт, бачны пасля ўваходу"
+      rtv_reply_surround_example: "схаваны кантэнт"
+      rtv_login_surround_example: "схаваны кантэнт"
+    reply_to_view:
+      block:
+        login_button: "Увайсці, каб паглядзець"
+        reply_button: "Адказаць, каб паглядзець"
+        owner_notice: "Гэты кантэнт схаваны ад карыстальнікаў, якія не выканалі ўмовы"
+        preview_notice: "Гэты кантэнт будзе схаваны ад карыстальнікаў, якія не выканаюць умовы"

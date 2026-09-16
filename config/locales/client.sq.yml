@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"sq":
+  js:
+    composer:
+      rtv_reply_option: "Fut përmbajtje që duket pas përgjigjes"
+      rtv_login_option: "Fut përmbajtje që duket pas hyrjes"
+      rtv_reply_surround_example: "përmbajtje e fshehur"
+      rtv_login_surround_example: "përmbajtje e fshehur"
+    reply_to_view:
+      block:
+        login_button: "Hyr për të parë"
+        reply_button: "Përgjigju për të parë"
+        owner_notice: "Kjo përmbajtje është e fshehur për përdoruesit që nuk plotësojnë kushtet"
+        preview_notice: "Kjo përmbajtje do të jetë e fshehur për përdoruesit që nuk plotësojnë kushtet"

@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+"fi":
+  js:
+    composer:
+      rtv_reply_option: "Lisää vastauksen jälkeen näkyvä sisältö"
+      rtv_login_option: "Lisää kirjautumisen jälkeen näkyvä sisältö"
+      rtv_reply_surround_example: "piilotettu sisältö"
+      rtv_login_surround_example: "piilotettu sisältö"
+    reply_to_view:
+      block:
+        login_button: "Kirjaudu nähdäksesi"
+        reply_button: "Vastaa nähdäksesi"
+        owner_notice: "Tämä sisältö on piilotettu käyttäjiltä, jotka eivät täytä vaatimuksia"
+        preview_notice: "Tämä sisältö piilotetaan käyttäjiltä, jotka eivät täytä vaatimuksia"
