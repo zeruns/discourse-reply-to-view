@@ -11,9 +11,9 @@
     search_placeholder: "[protected content]"
     revision_placeholder: "Content changes are hidden for this protected post"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Enable the reply-to-view plugin ([reply] and [login] content protection tags). When disabled, previously marked content is displayed as plain text."
-    reply_to_view_mode: "How [reply] content is unlocked. any_reply: any valid reply in the topic unlocks all reply-to-view content. exact_post: only a direct reply to the post containing the content unlocks it (for the first post, replying to the topic or to the first post both count)."
-    reply_to_view_allow_count: "Enable the [reply=N] count syntax: content becomes visible after at least N valid replies in the topic. When disabled, [reply=N] behaves like [reply]."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Enable the reply-to-view plugin ([reply-visible] and [login-visible] content protection tags). When disabled, previously marked content is displayed as plain text."
+    reply_to_view_mode: "How [reply-visible] content is unlocked. any_reply: any valid reply in the topic unlocks all reply-to-view content. exact_post: only a direct reply to the post containing the content unlocks it (for the first post, replying to the topic or to the first post both count)."
+    reply_to_view_allow_count: "Enable the [reply-visible=N] count syntax: content becomes visible after at least N valid replies in the topic. When disabled, [reply-visible=N] behaves like [reply-visible]."
     min_trust_level_to_bypass: "Users at this trust level or above can view all reply-to-view content without replying. Set to 0 to disable this exemption."
     min_trust_level_to_use: "Minimum trust level required to use the hidden-content tags. Tags posted by users below this level have no effect and their content is visible to everyone."
     keywords:

@@ -24,13 +24,13 @@ function parseCount(tagInfo) {
 }
 
 /** 构造单个标记的 bbcode 规则（rule.wrap 形态：内容正常渲染 + 容器包裹） */
-function makeWrapRule(tag) {
+function makeWrapRule(tag, type) {
   return {
     tag,
     wrap(token, tagInfo) {
       const attrs = [
-        ["class", `rtv-block rtv-${tag} rtv-preview`],
-        ["data-rtv-type", tag],
+        ["class", `rtv-block rtv-${type} rtv-preview`],
+        ["data-rtv-type", type],
       ];
       const count = parseCount(tagInfo);
       if (count) {
@@ -56,7 +56,10 @@ export function setup(helper) {
   ]);
 
   helper.registerPlugin((md) => {
-    md.block.bbcode.ruler.push("rtv_reply", makeWrapRule("reply"));
-    md.block.bbcode.ruler.push("rtv_login", makeWrapRule("login"));
+    // 新标签（主用）与旧标签（兼容历史内容）共用预览容器结构
+    md.block.bbcode.ruler.push("rtv_reply_visible", makeWrapRule("reply-visible", "reply"));
+    md.block.bbcode.ruler.push("rtv_login_visible", makeWrapRule("login-visible", "login"));
+    md.block.bbcode.ruler.push("rtv_reply", makeWrapRule("reply", "reply"));
+    md.block.bbcode.ruler.push("rtv_login", makeWrapRule("login", "login"));
   });
 }

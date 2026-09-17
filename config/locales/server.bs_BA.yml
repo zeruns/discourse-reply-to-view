@@ -11,9 +11,9 @@
     search_placeholder: "[zaštićeni sadržaj]"
     revision_placeholder: "Promjene sadržaja ovog zaštićenog posta su skrivene"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Omogućava plugin reply-to-view (oznake zaštite sadržaja [reply] i [login]). Isključeno, ranije označeni sadržaj prikazuje se kao običan tekst."
-    reply_to_view_mode: "Kako se otključava sadržaj [reply]. any_reply: bilo koji važeći odgovor u temi otključava sve. exact_post: samo direktni odgovor na post sa sadržajem ga otključava (za prvi post računa se i odgovor u temi)."
-    reply_to_view_allow_count: "Omogućava sintaksu brojača [reply=N]: sadržaj postaje vidljiv nakon najmanje N važećih odgovora u temi. Isključeno, [reply=N] djeluje kao običan [reply]."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Omogućava plugin reply-to-view (oznake zaštite sadržaja [reply-visible] i [login-visible]). Isključeno, ranije označeni sadržaj prikazuje se kao običan tekst."
+    reply_to_view_mode: "Kako se otključava sadržaj [reply-visible]. any_reply: bilo koji važeći odgovor u temi otključava sve. exact_post: samo direktni odgovor na post sa sadržajem ga otključava (za prvi post računa se i odgovor u temi)."
+    reply_to_view_allow_count: "Omogućava sintaksu brojača [reply-visible=N]: sadržaj postaje vidljiv nakon najmanje N važećih odgovora u temi. Isključeno, [reply-visible=N] djeluje kao običan [reply-visible]."
     min_trust_level_to_bypass: "Korisnici na ovom nivou povjerenja ili višem vide sav sadržaj reply-to-view bez odgovaranja. 0 isključuje oslobodenje."
     min_trust_level_to_use: "Minimalni nivo povjerenja za korištenje oznaka skrivenog sadržaja. Oznake korisnika ispod tog nivoa nemaju efekt, a njihov sadržaj je vidljiv svima."
     keywords:

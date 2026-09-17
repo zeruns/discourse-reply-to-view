@@ -11,9 +11,9 @@
     search_placeholder: "[contenido protegido]"
     revision_placeholder: "Los cambios de contenido de esta publicación protegida están ocultos"
   site_settings:
-    enable_rtv: "Blog del autor: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>.  Activa el plugin reply-to-view (etiquetas de protección de contenido [reply] y [login]). Al desactivarlo, el contenido marcado anteriormente se muestra como texto plano."
-    reply_to_view_mode: "Cómo se desbloquea el contenido [reply]. any_reply: cualquier respuesta válida en el tema lo desbloquea todo. exact_post: solo una respuesta directa a la publicación que contiene el contenido lo desbloquea (en la primera publicación también cuenta responder al tema)."
-    reply_to_view_allow_count: "Activa la sintaxis de conteo [reply=N]: el contenido se hace visible tras al menos N respuestas válidas en el tema. Si se desactiva, [reply=N] se comporta como [reply]."
+    enable_rtv: "Blog del autor: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>.  Activa el plugin reply-to-view (etiquetas de protección de contenido [reply-visible] y [login-visible]). Al desactivarlo, el contenido marcado anteriormente se muestra como texto plano."
+    reply_to_view_mode: "Cómo se desbloquea el contenido [reply-visible]. any_reply: cualquier respuesta válida en el tema lo desbloquea todo. exact_post: solo una respuesta directa a la publicación que contiene el contenido lo desbloquea (en la primera publicación también cuenta responder al tema)."
+    reply_to_view_allow_count: "Activa la sintaxis de conteo [reply-visible=N]: el contenido se hace visible tras al menos N respuestas válidas en el tema. Si se desactiva, [reply-visible=N] se comporta como [reply-visible]."
     min_trust_level_to_bypass: "Los usuarios con este nivel de confianza o superior pueden ver todo el contenido reply-to-view sin responder. 0 desactiva la exención."
     min_trust_level_to_use: "Nivel de confianza mínimo para usar las etiquetas de contenido oculto. Las etiquetas de usuarios por debajo no tienen efecto y su contenido es visible para todos."
     keywords:

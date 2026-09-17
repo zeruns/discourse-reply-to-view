@@ -11,9 +11,9 @@
     search_placeholder: "[konten yang dilindungi]"
     revision_placeholder: "Perubahan konten kiriman yang dilindungi ini disembunyikan"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Mengaktifkan plugin reply-to-view (tag perlindungan konten [reply] dan [login]). Saat nonaktif, konten yang sebelumnya ditandai ditampilkan sebagai teks biasa."
-    reply_to_view_mode: "Cara konten [reply] dibuka. any_reply: balasan valid apa pun di topik membuka semuanya. exact_post: hanya balasan langsung ke kiriman yang memuat konten yang membukanya (untuk kiriman pertama, membalas di topik juga dihitung)."
-    reply_to_view_allow_count: "Mengaktifkan sintaks penghitung [reply=N]: konten terlihat setelah setidaknya N balasan valid di topik. Saat nonaktif, [reply=N] berperilaku seperti [reply] biasa."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Mengaktifkan plugin reply-to-view (tag perlindungan konten [reply-visible] dan [login-visible]). Saat nonaktif, konten yang sebelumnya ditandai ditampilkan sebagai teks biasa."
+    reply_to_view_mode: "Cara konten [reply-visible] dibuka. any_reply: balasan valid apa pun di topik membuka semuanya. exact_post: hanya balasan langsung ke kiriman yang memuat konten yang membukanya (untuk kiriman pertama, membalas di topik juga dihitung)."
+    reply_to_view_allow_count: "Mengaktifkan sintaks penghitung [reply-visible=N]: konten terlihat setelah setidaknya N balasan valid di topik. Saat nonaktif, [reply-visible=N] berperilaku seperti [reply-visible] biasa."
     min_trust_level_to_bypass: "Pengguna pada tingkat kepercayaan ini atau lebih tinggi dapat melihat semua konten reply-to-view tanpa membalas. 0 menonaktifkan pengecualian."
     min_trust_level_to_use: "Tingkat kepercayaan minimum untuk menggunakan tag konten tersembunyi. Tag dari pengguna di bawah tingkat ini tidak berpengaruh dan kontennya terlihat oleh semua orang."
     keywords:

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 # name: discourse-reply-to-view
-# version: 1.1.3
+# version: 1.2.0
 # authors: zeruns
 # url: https://github.com/zeruns/discourse-reply-to-view
-# about: 回帖可见 / 登录可见内容保护插件（[reply] 与 [login] BBCode 标记，
+# about: 回帖可见 / 登录可见内容保护插件（[reply-visible] 与 [login-visible] BBCode 标记，
 #   服务端权限判定 + cooked 零原文存储，全场景防泄露）
 
 # —— 插件整体启用开关（对应站点设置 enable_rtv）——

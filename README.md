@@ -1,6 +1,6 @@
 # discourse-reply-to-view
 
-回帖可见 / 登录可见内容保护插件。提供 `[reply]` / `[login]` / `[reply=N]` 三种 BBCode 标记,
+回帖可见 / 登录可见内容保护插件。提供 `[reply-visible]` / `[login-visible]` / `[reply-visible=N]` 三种 BBCode 标记,
 隐藏内容的可见性判定 **100% 在服务端完成**,数据库 cooked 字段**零原文存储**,
 并对搜索索引、邮件、摘要、raw 导出等全部内容出口做了泄露封堵。
 
@@ -29,7 +29,15 @@
 
 ## 更新日志
 
-### v1.1.3（当前）
+### v1.2.0（当前）
+
+- **标记更名**：主标记改为 `[reply-visible]` / `[login-visible]`（计数语法 `[reply-visible=N]`），
+  语义更明确、避免与普通文本或其他插件撞名；编辑器按钮插入新标签
+- **向后兼容**：旧标签 `[reply]` / `[login]` / `[reply=N]` 仍被识别与保护，
+  历史帖子（含已有翻译版本）无需任何处理,不会出现明文泄露
+- 其余文案与文档同步更新
+
+### v1.1.3
 
 - **修复:非默认语言界面回复后全部内容变为锁定**。本地化 cooked 的容器指纹对应
   翻译后内容,与帖子原文 raw 对齐失败被"防错位"机制整体降级为占位框。
@@ -44,7 +52,7 @@
 ### v1.1.2
 
 - **修复:非默认语言下隐藏内容直接可见**。站点开启内容本地化（content_localization）时,
-  翻译产物可能丢失 [reply]/[login] 的占位容器结构,已翻译的隐藏内容会经
+  翻译产物可能丢失 [reply-visible]/[login-visible] 的占位容器结构,已翻译的隐藏内容会经
   `ContentLocalization.translated_post_cooked` 直接提供给非默认语言用户。
   现帖子含隐藏标记且当前用户不满足"全部块可见"时,本地化 cooked 变体一律拒绝
   （回退到受保护的默认 cooked）,特权与已解锁用户不受影响
@@ -66,35 +74,35 @@
 
 ### v1.0.0
 
-- 首个版本:[reply] / [login] / [reply=N] 标记、服务端权限判定、cooked 零原文存储、raw 出口封堵、搜索脱敏
+- 首个版本:[reply-visible] / [login-visible] / [reply-visible=N] 标记、服务端权限判定、cooked 零原文存储、raw 出口封堵、搜索脱敏
 
 ## 一、BBCode 语法
 
 | 标记 | 语义 |
 | --- | --- |
-| `[reply]内容[/reply]` | 回帖可见:按站点模式判定解锁 |
-| `[login]内容[/login]` | 登录可见:任何已登录用户（TL0~TL4）可见 |
-| `[reply=N]内容[/reply]` | 计数模式:在本主题下发布至少 N 条有效回复后可见（需开启 `reply_to_view_allow_count`） |
+| `[reply-visible]内容[/reply-visible]` | 回帖可见:按站点模式判定解锁 |
+| `[login-visible]内容[/login-visible]` | 登录可见:任何已登录用户（TL0~TL4）可见 |
+| `[reply-visible=N]内容[/reply-visible]` | 计数模式:在本主题下发布至少 N 条有效回复后可见（需开启 `reply_to_view_allow_count`） |
 
 - 标记内部可嵌套任意普通 Markdown（代码块、图片、链接、列表等）
-- **支持两种形态**:块级（开/闭标记各独占一行,允许缩进）与单行完整对（`[reply]xxx[/reply]` 整行）
+- **支持两种形态**:块级（开/闭标记各独占一行,允许缩进）与单行完整对（`[reply-visible]xxx[/reply-visible]` 整行）
 - **禁止两种标记互相嵌套**:异名嵌套时内层标记作为外层块的内容被整体处理,不单独生效
 - 未闭合 / 非法形态（行内前后有其他文字、属性非正整数等）按普通文本原样输出,不报错
 
 ## 二、可见性判定规则
 
-`[login]`:匿名访客看到占位框与「登录后可见」按钮（跳转 `/login?redirect_to=当前帖子`）;
+`[login-visible]`:匿名访客看到占位框与「登录后可见」按钮（跳转 `/login?redirect_to=当前帖子`）;
 信任等级豁免设置对本标记不生效。
 
-`[reply]` 判定优先级（从高到低）:
+`[reply-visible]` 判定优先级（从高到低）:
 
 1. 全站管理员、全站版主、对应分类的分类版主（需开启核心 `enable_category_group_moderation`）:始终可见
 2. 帖子作者本人:始终可见（查看时内容带虚线边框 + 提示条）
 3. `min_trust_level_to_bypass`:用户 TL ≥ 该值直接可见（0 = 不启用豁免）
 4. 普通用户按 `reply_to_view_mode` 判定:
-   - `any_reply`（默认）:在本主题发布过任意有效回复（未删除、未隐藏）即解锁全部 `[reply]` 内容
-   - `exact_post`:必须直接回复 `[reply]` 内容所在楼层;主楼兼容「直接回复主题」与「回复主楼」
-5. 计数模式（`reply_to_view_allow_count` 开启时）:本主题有效回复总数 ≥ N 时解锁 `[reply=N]`
+   - `any_reply`（默认）:在本主题发布过任意有效回复（未删除、未隐藏）即解锁全部 `[reply-visible]` 内容
+   - `exact_post`:必须直接回复 `[reply-visible]` 内容所在楼层;主楼兼容「直接回复主题」与「回复主楼」
+5. 计数模式（`reply_to_view_allow_count` 开启时）:本主题有效回复总数 ≥ N 时解锁 `[reply-visible=N]`
 
 ## 三、安全架构（最高优先级设计）
 
@@ -135,7 +143,7 @@ cooked = <div class="rtv-block rtv-reply" data-rtv-type data-rtv-index
 | --- | --- | --- |
 | `enable_rtv` | 布尔 / `true` | 总开关。关闭后历史标记内容在渲染视图明文回显（无框直出）,开关可逆 |
 | `reply_to_view_mode` | 枚举 / `any_reply` | `any_reply` 任意回复解锁 / `exact_post` 精确楼层解锁 |
-| `reply_to_view_allow_count` | 布尔 / `false` | 启用 `[reply=N]` 计数语法;关闭时自动降级为普通 `[reply]` |
+| `reply_to_view_allow_count` | 布尔 / `false` | 启用 `[reply-visible=N]` 计数语法;关闭时自动降级为普通 `[reply-visible]` |
 | `min_trust_level_to_bypass` | 0~4 / `0` | TL 豁免线,0 = 不豁免（默认,严格「回帖可见」体验）。如希望 TL1+ 用户免回复可见,可按需调高 |
 | `min_trust_level_to_use` | 0~4 / `1` | 使用权限:低于该等级的用户发布的标记不生效（内容对所有人直接可见）,编辑器按钮也对其隐藏 |
 
@@ -176,9 +184,9 @@ docker cp /path/to/discourse-reply-to-view app:/var/www/discourse/plugins/
 2. 发一个测试帖:
 
    ```
-   [login]登录可见的内容[/login]
+   [login-visible]登录可见的内容[/login-visible]
 
-   [reply]回复可见的内容[/reply]
+   [reply-visible]回复可见的内容[/reply-visible]
    ```
 
 3. 匿名窗口打开:应看到绿色（登录）与蓝色（回复）两个占位框

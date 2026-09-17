@@ -11,9 +11,9 @@
     search_placeholder: "[védett tartalom]"
     revision_placeholder: "A védett hozzászólás tartalomváltozásai rejtve vannak"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Engedélyezi a reply-to-view bővítményt ([reply] és [login] tartalomvédelmi címkék). Kikapcsolva a korábban megjelölt tartalom egyszerű szövegként jelenik meg."
-    reply_to_view_mode: "Hogyan nyílik meg a [reply] tartalom. any_reply: a témában bármely érvényes válasz mindent megnyit. exact_post: csak a tartalmat tartalmazó hozzászólásra adott közvetlen válasz nyitja meg (az első hozzászólásnál a témára adott válasz is számít)."
-    reply_to_view_allow_count: "Engedélyezi a [reply=N] számláló szintaxist: a tartalom legalább N érvényes válasz után válik láthatóvá a témában. Kikapcsolva a [reply=N] úgy viselkedik, mint egy normál [reply]."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Engedélyezi a reply-to-view bővítményt ([reply-visible] és [login-visible] tartalomvédelmi címkék). Kikapcsolva a korábban megjelölt tartalom egyszerű szövegként jelenik meg."
+    reply_to_view_mode: "Hogyan nyílik meg a [reply-visible] tartalom. any_reply: a témában bármely érvényes válasz mindent megnyit. exact_post: csak a tartalmat tartalmazó hozzászólásra adott közvetlen válasz nyitja meg (az első hozzászólásnál a témára adott válasz is számít)."
+    reply_to_view_allow_count: "Engedélyezi a [reply-visible=N] számláló szintaxist: a tartalom legalább N érvényes válasz után válik láthatóvá a témában. Kikapcsolva a [reply-visible=N] úgy viselkedik, mint egy normál [reply-visible]."
     min_trust_level_to_bypass: "Ezen vagy magasabb bizalmi szintű felhasználók válasz nélkül láthatják az összes reply-to-view tartalmat. A 0 kikapcsolja a mentességet."
     min_trust_level_to_use: "Legalacsonyabb bizalmi szint a rejtett tartalom címkéinek használatához. Az alacsonyabb szintű felhasználók címkéi nem hatnak, tartalmuk mindenki számára látható."
     keywords:

@@ -9,8 +9,8 @@ plugins:
     client: true
 
   # 回复可见模式
-  #   any_reply —— 在本主题发布过任意有效回复即解锁全部 [reply] 内容（默认）
-  #   exact_post —— 必须直接回复 [reply] 内容所在楼层才解锁该楼内容;
+  #   any_reply —— 在本主题发布过任意有效回复即解锁全部 [reply-visible] 内容（默认）
+  #   exact_post —— 必须直接回复 [reply-visible] 内容所在楼层才解锁该楼内容;
   #                 主楼兼容「直接回复主题」与「回复主楼」两种情况
   reply_to_view_mode:
     type: enum
@@ -20,14 +20,14 @@ plugins:
     default: any_reply
     client: true
 
-  # 是否启用进阶计数语法 [reply=N]
-  # 开启后 [reply=N] 要求用户在本主题下的有效回复总数 >= N;
-  # 关闭时 [reply=N] 自动降级为普通 [reply] 逻辑
+  # 是否启用进阶计数语法 [reply-visible=N]
+  # 开启后 [reply-visible=N] 要求用户在本主题下的有效回复总数 >= N;
+  # 关闭时 [reply-visible=N] 自动降级为普通 [reply-visible] 逻辑
   reply_to_view_allow_count:
     default: false
     client: true
 
-  # 信任等级豁免:TL >= 该值的用户无需回复即可见全部 [reply] 内容（仅对 reply 标记生效）
+  # 信任等级豁免:TL >= 该值的用户无需回复即可见全部 [reply-visible] 内容（仅对 reply 标记生效）
   # 0 = 不启用豁免（严格“回帖可见”体验,默认）
   min_trust_level_to_bypass:
     type: integer

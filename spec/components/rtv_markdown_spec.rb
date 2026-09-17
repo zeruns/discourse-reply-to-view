@@ -140,6 +140,92 @@ RSpec.describe PrettyText, type: :component do
       expect(cooked).not_to include("SECRET-OUTER")
     end
 
+    # ============ v1.2.0 新标签 [reply-visible] / [login-visible] ============
+    it "新标签 [reply-visible] 生成 reply 类型容器且不泄露原文" do
+      cooked = PrettyText.cook(<<~MD)
+        [reply-visible]
+        NEWTAG-SECRET-A
+        [/reply-visible]
+      MD
+
+      aggregate_failures do
+        expect(cooked).to include(%(class="rtv-block rtv-reply"))
+        expect(cooked).to include(%(data-rtv-type="reply"))
+        expect(cooked).not_to include("NEWTAG-SECRET-A")
+      end
+    end
+
+    it "新标签 [login-visible] 生成 login 类型容器且不泄露原文" do
+      cooked = PrettyText.cook(<<~MD)
+        [login-visible]
+        NEWTAG-SECRET-B
+        [/login-visible]
+      MD
+
+      aggregate_failures do
+        expect(cooked).to include(%(class="rtv-block rtv-login"))
+        expect(cooked).to include(%(data-rtv-type="login"))
+        expect(cooked).not_to include("NEWTAG-SECRET-B")
+      end
+    end
+
+    it "新标签计数语法 [reply-visible=N] 输出计数值" do
+      cooked = PrettyText.cook(<<~MD)
+        [reply-visible=3]
+        NEWTAG-SECRET-C
+        [/reply-visible]
+      MD
+
+      aggregate_failures do
+        expect(cooked).to include(%(data-rtv-count="3"))
+        expect(cooked).not_to include("NEWTAG-SECRET-C")
+      end
+    end
+
+    it "新旧标签混用于同一帖子时均可解析且指纹各自对齐" do
+      raw = <<~MD
+        [reply]
+        OLD-TAG-CONTENT
+        [/reply]
+
+        [reply-visible]
+        NEW-TAG-CONTENT
+        [/reply-visible]
+      MD
+
+      cooked = PrettyText.cook(raw)
+      doc = Nokogiri::HTML5.fragment(cooked)
+      containers = doc.css("div.rtv-block[data-rtv-index]")
+      blocks = ReplyToView::Engine.extract(raw)
+
+      expect(containers.size).to eq(2)
+      expect(blocks.size).to eq(2)
+
+      containers.sort_by { |el| el["data-rtv-index"].to_i }.each_with_index do |el, i|
+        block = blocks[i]
+        expect(el["data-rtv-checksum"]).to eq(block.checksum.to_s(16))
+        expect(el["data-rtv-type"]).to eq(block.type.to_s)
+      end
+
+      aggregate_failures do
+        expect(cooked).not_to include("OLD-TAG-CONTENT")
+        expect(cooked).not_to include("NEW-TAG-CONTENT")
+      end
+    end
+
+    it "新旧标签交叉嵌套视为非法形态,按普通文本原样输出" do
+      cooked = PrettyText.cook(<<~MD)
+        [reply]
+        CROSS-TAG-SECRET
+        [/reply-visible]
+      MD
+
+      aggregate_failures do
+        expect(cooked).not_to include("rtv-block")
+        expect(cooked).to include("CROSS-TAG-SECRET")
+      end
+    end
+
     # ============ 跨端对齐校验（安全不变量） ============
     # Ruby 提取引擎的块序列（类型 / 计数 / 指纹）必须与
     # cook 阶段写入容器的属性完全一致，否则序列化期会整帖降级为占位符

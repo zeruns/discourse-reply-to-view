@@ -11,9 +11,9 @@
     search_placeholder: "[aizsargāts saturs]"
     revision_placeholder: "Šī aizsargātā ieraksta satura izmaiņas ir paslēptas"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Ieslēdz reply-to-view spraudni ([reply] un [login] satura aizsardzības marķierus). Izslēgts, iepriekš atzīmētais saturs tiek rādīts kā vienkāršs teksts."
-    reply_to_view_mode: "Kā tiek atbloķēts [reply] saturs. any_reply: jebkura derīga atbilde tēmā atbloķē visu. exact_post: tikai tieša atbilde ierakstam ar saturu to atbloķē (pirmajam ierakstam skaitās arī atbilde tēmā)."
-    reply_to_view_allow_count: "Ieslēdz [reply=N] skaitītāja sintaksi: saturs kļūst redzams pēc vismaz N derīgām atbildēm tēmā. Izslēgta, [reply=N] darbojas kā parasts [reply]."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Ieslēdz reply-to-view spraudni ([reply-visible] un [login-visible] satura aizsardzības marķierus). Izslēgts, iepriekš atzīmētais saturs tiek rādīts kā vienkāršs teksts."
+    reply_to_view_mode: "Kā tiek atbloķēts [reply-visible] saturs. any_reply: jebkura derīga atbilde tēmā atbloķē visu. exact_post: tikai tieša atbilde ierakstam ar saturu to atbloķē (pirmajam ierakstam skaitās arī atbilde tēmā)."
+    reply_to_view_allow_count: "Ieslēdz [reply-visible=N] skaitītāja sintaksi: saturs kļūst redzams pēc vismaz N derīgām atbildēm tēmā. Izslēgta, [reply-visible=N] darbojas kā parasts [reply-visible]."
     min_trust_level_to_bypass: "Lietotāji šajā uzticības līmenī vai augstāk redz visu reply-to-view saturu bez atbildēm. 0 izslēdz atbrīvojumu."
     min_trust_level_to_use: "Minimālais uzticības līmenis slēpto satura marķieru lietošanai. Zemāka līmeņa lietotāju marķieri nedarbojas, un to saturs ir redzams visiem."
     keywords:

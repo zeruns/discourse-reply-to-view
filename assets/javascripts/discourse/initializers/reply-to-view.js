@@ -48,10 +48,11 @@ export default apiInitializer("1.34.0", (api) => {
     condition: () => canUse,
     action: (toolbarEvent) => {
       // 有选中文本时包裹选区；无选中文本时插入空标签对，
-      // 光标定位到标签中间（example 文本处于选中态，可直接输入替换）
+      // 光标定位到标签中间（example 文本处于选中态，可直接输入替换）。
+      // v1.2.0 起新帖使用 [reply-visible] 标签;旧标签 [reply] 仍受支持
       toolbarEvent.applySurround(
-        "[reply]\n",
-        "\n[/reply]",
+        "[reply-visible]\n",
+        "\n[/reply-visible]",
         "rtv_reply_surround_example"
       );
     },
@@ -64,8 +65,8 @@ export default apiInitializer("1.34.0", (api) => {
     condition: () => canUse,
     action: (toolbarEvent) => {
       toolbarEvent.applySurround(
-        "[login]\n",
-        "\n[/login]",
+        "[login-visible]\n",
+        "\n[/login-visible]",
         "rtv_login_surround_example"
       );
     },

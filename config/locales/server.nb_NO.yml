@@ -11,9 +11,9 @@
     search_placeholder: "[beskyttet innhold]"
     revision_placeholder: "Innholdsendringene for dette beskyttede innlegget er skjult"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Aktiverer reply-to-view-utvidelsen ([reply]- og [login]-innholdsbeskyttelseskoder). Deaktivert vises tidligere merket innhold som ren tekst."
-    reply_to_view_mode: "Hvordan [reply]-innhold låses opp. any_reply: et gyldig svar i emnet låser opp alt. exact_post: bare et direkte svar på innlegget med innholdet låser det opp (for første innlegg teller også svar i emnet)."
-    reply_to_view_allow_count: "Aktiverer [reply=N]-tellesyntaksen: innhold blir synlig etter minst N gyldige svar i emnet. Deaktivert oppfører [reply=N] seg som vanlig [reply]."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Aktiverer reply-to-view-utvidelsen ([reply-visible]- og [login-visible]-innholdsbeskyttelseskoder). Deaktivert vises tidligere merket innhold som ren tekst."
+    reply_to_view_mode: "Hvordan [reply-visible]-innhold låses opp. any_reply: et gyldig svar i emnet låser opp alt. exact_post: bare et direkte svar på innlegget med innholdet låser det opp (for første innlegg teller også svar i emnet)."
+    reply_to_view_allow_count: "Aktiverer [reply-visible=N]-tellesyntaksen: innhold blir synlig etter minst N gyldige svar i emnet. Deaktivert oppfører [reply-visible=N] seg som vanlig [reply-visible]."
     min_trust_level_to_bypass: "Brukere på dette tillitsnivået eller høyere kan se alt reply-to-view-innhold uten å svare. 0 deaktiverer unntaket."
     min_trust_level_to_use: "Laveste tillitsnivå for å bruke kodene for skjult innhold. Koder fra brukere under dette nivået har ingen virkning, og innholdet deres er synlig for alle."
     keywords:

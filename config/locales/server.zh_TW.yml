@@ -11,9 +11,9 @@
     search_placeholder: "【受保護內容】"
     revision_placeholder: "該受保護貼文的內容變更已隱藏"
   site_settings:
-    enable_rtv: "作者部落格：<a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>。啟用回覆可見/登入可視外掛（[reply] 與 [login] 內容保護標記）。停用後，歷史標記內容將以純文字直接顯示。"
-    reply_to_view_mode: "[reply] 內容的解鎖方式。any_reply：在本主題發布任意有效回覆即解鎖；exact_post：必須直接回覆內容所在樓層才解鎖（主樓相容回覆主題與回覆主樓）。"
-    reply_to_view_allow_count: "啟用 [reply=N] 計數語法：在本主題下發布至少 N 則有效回覆後內容可見。停用時 [reply=N] 依一般 [reply] 處理。"
+    enable_rtv: "作者部落格：<a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>。啟用回覆可見/登入可視外掛（[reply-visible] 與 [login-visible] 內容保護標記）。停用後，歷史標記內容將以純文字直接顯示。"
+    reply_to_view_mode: "[reply-visible] 內容的解鎖方式。any_reply：在本主題發布任意有效回覆即解鎖；exact_post：必須直接回覆內容所在樓層才解鎖（主樓相容回覆主題與回覆主樓）。"
+    reply_to_view_allow_count: "啟用 [reply-visible=N] 計數語法：在本主題下發布至少 N 則有效回覆後內容可見。停用時 [reply-visible=N] 依一般 [reply-visible] 處理。"
     min_trust_level_to_bypass: "信任等級達到該值的使用者無需回覆即可檢視全部回覆可見內容。設為 0 表示不啟用豁免。"
     min_trust_level_to_use: "使用隱藏標記所需的最低信任等級。低於該等級的使用者所發布的標記不生效，其內容對所有人直接可見。"
     keywords:

@@ -11,9 +11,9 @@
     search_placeholder: "[beveiligde inhoud]"
     revision_placeholder: "De inhoudswijzigingen van deze beveiligde post zijn verborgen"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Schakelt de reply-to-view-plugin in ([reply]- en [login]-inhoudbeveiligingstags). Bij uitschakeling wordt eerder gemarkeerde inhoud als platte tekst weergegeven."
-    reply_to_view_mode: "Hoe [reply]-inhoud wordt ontgrendeld. any_reply: elke geldige reactie in het onderwerp ontgrendelt alles. exact_post: alleen een directe reactie op de post met de inhoud ontgrendelt deze (bij de eerste post telt ook een reactie op het onderwerp)."
-    reply_to_view_allow_count: "Schakelt de [reply=N]-telsyntaxis in: inhoud wordt zichtbaar na minstens N geldige reacties in het onderwerp. Uitgeschakeld gedraagt [reply=N] zich als [reply]."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Schakelt de reply-to-view-plugin in ([reply-visible]- en [login-visible]-inhoudbeveiligingstags). Bij uitschakeling wordt eerder gemarkeerde inhoud als platte tekst weergegeven."
+    reply_to_view_mode: "Hoe [reply-visible]-inhoud wordt ontgrendeld. any_reply: elke geldige reactie in het onderwerp ontgrendelt alles. exact_post: alleen een directe reactie op de post met de inhoud ontgrendelt deze (bij de eerste post telt ook een reactie op het onderwerp)."
+    reply_to_view_allow_count: "Schakelt de [reply-visible=N]-telsyntaxis in: inhoud wordt zichtbaar na minstens N geldige reacties in het onderwerp. Uitgeschakeld gedraagt [reply-visible=N] zich als [reply-visible]."
     min_trust_level_to_bypass: "Gebruikers op dit vertrouwensniveau of hoger kunnen alle reply-to-view-inhoud zonder reactie zien. 0 schakelt de vrijstelling uit."
     min_trust_level_to_use: "Minimaal vertrouwensniveau om de inhoudstags te gebruiken. Tags van gebruikers onder dit niveau hebben geen effect en hun inhoud is voor iedereen zichtbaar."
     keywords:

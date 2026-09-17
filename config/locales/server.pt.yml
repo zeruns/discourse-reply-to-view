@@ -11,9 +11,9 @@
     search_placeholder: "[conteúdo protegido]"
     revision_placeholder: "As alterações de conteúdo desta publicação protegida estão ocultas"
   site_settings:
-    enable_rtv: "Blog do autor: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>.  Ativa o plugin reply-to-view (etiquetas de proteção de conteúdo [reply] e [login]). Ao desativar, o conteúdo anteriormente marcado é apresentado como texto simples."
-    reply_to_view_mode: "Como o conteúdo [reply] é desbloqueado. any_reply: qualquer resposta válida no tópico desbloqueia tudo. exact_post: apenas uma resposta direta à publicação que contém o conteúdo o desbloqueia (na primeira publicação, responder ao tópico também conta)."
-    reply_to_view_allow_count: "Ativa a sintaxe de contagem [reply=N]: o conteúdo fica visível após pelo menos N respostas válidas no tópico. Desativada, [reply=N] comporta-se como [reply]."
+    enable_rtv: "Blog do autor: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>.  Ativa o plugin reply-to-view (etiquetas de proteção de conteúdo [reply-visible] e [login-visible]). Ao desativar, o conteúdo anteriormente marcado é apresentado como texto simples."
+    reply_to_view_mode: "Como o conteúdo [reply-visible] é desbloqueado. any_reply: qualquer resposta válida no tópico desbloqueia tudo. exact_post: apenas uma resposta direta à publicação que contém o conteúdo o desbloqueia (na primeira publicação, responder ao tópico também conta)."
+    reply_to_view_allow_count: "Ativa a sintaxe de contagem [reply-visible=N]: o conteúdo fica visível após pelo menos N respostas válidas no tópico. Desativada, [reply-visible=N] comporta-se como [reply-visible]."
     min_trust_level_to_bypass: "Utilizadores neste nível de confiança ou superior podem ver todo o conteúdo reply-to-view sem responder. 0 desativa a isenção."
     min_trust_level_to_use: "Nível de confiança mínimo para usar as etiquetas de conteúdo oculto. Etiquetas de utilizadores abaixo deste nível não têm efeito e o conteúdo fica visível para todos."
     keywords:

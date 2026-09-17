@@ -1,7 +1,7 @@
 # discourse-reply-to-view
 
 A content-protection plugin for Discourse providing "reply-to-view" and "login-to-view" functionality.
-It offers three BBCode tags — `[reply]` / `[login]` / `[reply=N]` — with visibility resolved
+It offers three BBCode tags — `[reply-visible]` / `[login-visible]` / `[reply-visible=N]` — with visibility resolved
 **100% server-side**, **zero hidden content stored in the cooked column**, and leak-proofing
 across every content outlet: search index, emails, digests, excerpts, and raw exports.
 
@@ -31,7 +31,17 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 
 ## Changelog
 
-### v1.1.3 (current)
+### v1.2.0 (current)
+
+- **Tags renamed**: the primary tags are now `[reply-visible]` / `[login-visible]`
+  (count syntax `[reply-visible=N]`) — more explicit and avoids collisions with
+  plain text or other plugins; composer buttons insert the new tags
+- **Backward compatible**: the legacy tags `[reply]` / `[login]` / `[reply=N]` are still
+  recognized and protected — existing posts (including their translations) need no
+  migration and cannot leak as plain text
+- Docs and copy updated accordingly
+
+### v1.1.3
 
 - **Fixed: after replying in a non-default language UI, all hidden blocks turned locked**.
   The localized cooked's container checksums correspond to the translated content and failed
@@ -49,7 +59,7 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 ### v1.1.2
 
 - **Fixed: hidden content directly visible in non-default languages**. When content
-  localization is enabled, translations can lose the [reply]/[login] container structure,
+  localization is enabled, translations can lose the [reply-visible]/[login-visible] container structure,
   and the translated hidden content was served to non-default-language users via
   `ContentLocalization.translated_post_cooked`. Now, if a post contains hidden marks and
   the requesting user cannot view all blocks, the localized cooked variant is refused
@@ -74,19 +84,19 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 
 ### v1.0.0
 
-- Initial release: [reply] / [login] / [reply=N] tags, server-side permission checks, zero-content cooked, raw outlet sealing, search scrubbing
+- Initial release: [reply-visible] / [login-visible] / [reply-visible=N] tags, server-side permission checks, zero-content cooked, raw outlet sealing, search scrubbing
 
 ## 1. BBCode Syntax
 
 | Tag | Meaning |
 | --- | --- |
-| `[reply]content[/reply]` | Reply-to-view: unlocked according to the site mode |
-| `[login]content[/login]` | Login-to-view: visible to any signed-in user (TL0–TL4) |
-| `[reply=N]content[/reply]` | Count mode: requires at least N valid replies in the topic (needs `reply_to_view_allow_count` enabled) |
+| `[reply-visible]content[/reply-visible]` | Reply-to-view: unlocked according to the site mode |
+| `[login-visible]content[/login-visible]` | Login-to-view: visible to any signed-in user (TL0–TL4) |
+| `[reply-visible=N]content[/reply-visible]` | Count mode: requires at least N valid replies in the topic (needs `reply_to_view_allow_count` enabled) |
 
 - Arbitrary regular Markdown (code blocks, images, links, lists, etc.) may be nested inside the tags.
 - **Two supported forms**: block form (opening/closing tags each on their own line, indentation allowed)
-  and single-line form (`[reply]xxx[/reply]` occupying a whole line).
+  and single-line form (`[reply-visible]xxx[/reply-visible]` occupying a whole line).
 - **Nesting one tag inside the other is forbidden**: with mixed nesting, the inner tag is treated as
   plain content of the outer block and never takes effect on its own.
 - Unclosed / malformed forms (other text on the same line, non-positive-integer attributes, etc.)
@@ -94,22 +104,22 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 
 ## 2. Visibility Rules
 
-`[login]`: anonymous visitors see a placeholder box with a "Sign in to view" button
+`[login-visible]`: anonymous visitors see a placeholder box with a "Sign in to view" button
 (redirects to `/login?redirect_to=<current post URL>`); the trust-level bypass setting
 does not apply to this tag.
 
-`[reply]` precedence (highest to lowest):
+`[reply-visible]` precedence (highest to lowest):
 
 1. Site admins, site moderators, and category moderators of the post's category
    (requires core `enable_category_group_moderation`): always visible
 2. The post author: always visible (shown with a dashed border + notice bar)
 3. `min_trust_level_to_bypass`: users at or above this TL see everything directly (0 = disabled)
 4. Regular users, according to `reply_to_view_mode`:
-   - `any_reply` (default): any valid reply in the topic (not deleted, not hidden) unlocks all `[reply]` content
-   - `exact_post`: must reply directly to the floor containing the `[reply]` content;
+   - `any_reply` (default): any valid reply in the topic (not deleted, not hidden) unlocks all `[reply-visible]` content
+   - `exact_post`: must reply directly to the floor containing the `[reply-visible]` content;
      for the first post, both "reply to topic" and "reply to post #1" count
 5. Count mode (when `reply_to_view_allow_count` is enabled): unlocked once the user's total valid
-   replies in the topic reach N for `[reply=N]`
+   replies in the topic reach N for `[reply-visible=N]`
 
 ## 3. Security Architecture (Top Priority)
 
@@ -154,7 +164,7 @@ After installation, configure under **Admin → Settings → Plugins** (`/admin/
 | --- | --- | --- |
 | `enable_rtv` | bool / `true` | Master switch. When off, historical marked content is shown as plain text (no box) in rendered views; the switch is reversible |
 | `reply_to_view_mode` | enum / `any_reply` | `any_reply` = any reply unlocks / `exact_post` = exact-floor unlock |
-| `reply_to_view_allow_count` | bool / `false` | Enables `[reply=N]` count syntax; when off it degrades to plain `[reply]` |
+| `reply_to_view_allow_count` | bool / `false` | Enables `[reply-visible=N]` count syntax; when off it degrades to plain `[reply-visible]` |
 | `min_trust_level_to_bypass` | 0–4 / `0` | TL bypass line, 0 = disabled (default, strict reply-to-view). Raise it if TL1+ users should see content without replying |
 | `min_trust_level_to_use` | 0–4 / `1` | Usage permission: tags posted by users below this level have no effect (content is directly visible to everyone), and the composer buttons are hidden for them |
 
@@ -195,9 +205,9 @@ Note: files copied directly into the container are lost on `rebuild`; use Option
 2. Create a test post:
 
    ```
-   [login]content for signed-in users[/login]
+   [login-visible]content for signed-in users[/login-visible]
 
-   [reply]content for repliers[/reply]
+   [reply-visible]content for repliers[/reply-visible]
    ```
 
 3. Open it in an anonymous window: you should see a green (login) and a blue (reply) placeholder box

@@ -61,7 +61,7 @@ function nextIndex(state) {
 }
 
 /** 构造单个标记的 bbcode 规则（rule.replace 形态：整体替换、丢弃内容） */
-function makeReplaceRule(tag) {
+function makeReplaceRule(tag, type) {
   return {
     tag,
     replace(state, tagInfo, content) {
@@ -70,10 +70,12 @@ function makeReplaceRule(tag) {
       const checksum = fnv1a32(content).toString(16);
 
       // 注意：token.content 中只允许出现结构属性与指纹，
-      // 任何情况下都不得拼接 content（隐藏原文）本身
+      // 任何情况下都不得拼接 content（隐藏原文）本身。
+      // type 为归一化类型（reply/login），新标签 reply-visible/login-visible
+      // 与旧标签 reply/login 共用同一容器结构与 CSS 主题
       const attrs = [
-        `class="rtv-block rtv-${tag}"`,
-        `data-rtv-type="${tag}"`,
+        `class="rtv-block rtv-${type}"`,
+        `data-rtv-type="${type}"`,
         `data-rtv-index="${index}"`,
         count ? `data-rtv-count="${count}"` : "",
         `data-rtv-checksum="${checksum}"`,
@@ -107,7 +109,11 @@ export function setup(helper) {
   ]);
 
   helper.registerPlugin((md) => {
-    md.block.bbcode.ruler.push("rtv_reply", makeReplaceRule("reply"));
-    md.block.bbcode.ruler.push("rtv_login", makeReplaceRule("login"));
+    // 新标签（v1.2.0 起主用）
+    md.block.bbcode.ruler.push("rtv_reply_visible", makeReplaceRule("reply-visible", "reply"));
+    md.block.bbcode.ruler.push("rtv_login_visible", makeReplaceRule("login-visible", "login"));
+    // 旧标签向后兼容：历史帖子仍受保护,移除将导致旧隐藏内容明文泄露
+    md.block.bbcode.ruler.push("rtv_reply", makeReplaceRule("reply", "reply"));
+    md.block.bbcode.ruler.push("rtv_login", makeReplaceRule("login", "login"));
   });
 }

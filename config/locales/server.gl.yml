@@ -11,9 +11,9 @@
     search_placeholder: "[contido protexido]"
     revision_placeholder: "Os cambios de contido desta publicación protexida están ocultos"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Activa o engadido reply-to-view (etiquetas de protección de contido [reply] e [login]). Ao desactivalo, o contido marcado anteriormente revélase como texto simple."
-    reply_to_view_mode: "Como se desbloquea o contido [reply]. any_reply: calquera resposta válida no tema desbloquéao todo. exact_post: só unha resposta directa á publicación que contén o contido o desbloquea (na primeira publicación tamén conta responder ao tema)."
-    reply_to_view_allow_count: "Activa a sintaxe de reconto [reply=N]: o contido faise visible despois de polo menos N respostas válidas no tema. Desactivada, [reply=N] compórtase como [reply]."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Activa o engadido reply-to-view (etiquetas de protección de contido [reply-visible] e [login-visible]). Ao desactivalo, o contido marcado anteriormente revélase como texto simple."
+    reply_to_view_mode: "Como se desbloquea o contido [reply-visible]. any_reply: calquera resposta válida no tema desbloquéao todo. exact_post: só unha resposta directa á publicación que contén o contido o desbloquea (na primeira publicación tamén conta responder ao tema)."
+    reply_to_view_allow_count: "Activa a sintaxe de reconto [reply-visible=N]: o contido faise visible despois de polo menos N respostas válidas no tema. Desactivada, [reply-visible=N] compórtase como [reply-visible]."
     min_trust_level_to_bypass: "Os usuarios neste nivel de confianza ou superior poden ver todo o contido reply-to-view sen responder. 0 desactiva a exención."
     min_trust_level_to_use: "Nivel de confianza mínimo para usar as etiquetas de contido oculto. As etiquetas de usuarios por debaixo deste nivel non teñen efecto e o seu contido é visible para todos."
     keywords:

@@ -11,9 +11,9 @@
     search_placeholder: "[chroniona treść]"
     revision_placeholder: "Zmiany treści tego chronionego wpisu są ukryte"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Włącza wtyczkę reply-to-view (znaczniki ochrony treści [reply] i [login]). Po wyłączeniu wcześniej oznaczona treść jest wyświetlana jako zwykły tekst."
-    reply_to_view_mode: "Sposób odblokowywania treści [reply]. any_reply: dowolna prawidłowa odpowiedź w temacie odblokowuje wszystko. exact_post: tylko bezpośrednia odpowiedź we wpisie z treścią ją odblokowuje (dla pierwszego wpisu liczy się też odpowiedź w temacie)."
-    reply_to_view_allow_count: "Włącza składnię licznika [reply=N]: treść staje się widoczna po co najmniej N prawidłowych odpowiedziach w temacie. Wyłączona, [reply=N] działa jak zwykłe [reply]."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Włącza wtyczkę reply-to-view (znaczniki ochrony treści [reply-visible] i [login-visible]). Po wyłączeniu wcześniej oznaczona treść jest wyświetlana jako zwykły tekst."
+    reply_to_view_mode: "Sposób odblokowywania treści [reply-visible]. any_reply: dowolna prawidłowa odpowiedź w temacie odblokowuje wszystko. exact_post: tylko bezpośrednia odpowiedź we wpisie z treścią ją odblokowuje (dla pierwszego wpisu liczy się też odpowiedź w temacie)."
+    reply_to_view_allow_count: "Włącza składnię licznika [reply-visible=N]: treść staje się widoczna po co najmniej N prawidłowych odpowiedziach w temacie. Wyłączona, [reply-visible=N] działa jak zwykłe [reply-visible]."
     min_trust_level_to_bypass: "Użytkownicy na tym poziomie zaufania lub wyższym widzą całą treść reply-to-view bez odpowiadania. 0 wyłącza zwolnienie."
     min_trust_level_to_use: "Minimalny poziom zaufania do używania znaczników ukrytej treści. Znaczniki użytkowników poniżej tego poziomu nie działają, a ich treść jest widoczna dla wszystkich."
     keywords:

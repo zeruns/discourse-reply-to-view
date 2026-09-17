@@ -11,9 +11,9 @@
     search_placeholder: "[conținut protejat]"
     revision_placeholder: "Modificările de conținut ale acestei postări protejate sunt ascunse"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Activează pluginul reply-to-view (etichete de protecție a conținutului [reply] și [login]). Dezactivat, conținutul marcat anterior este afișat ca text simplu."
-    reply_to_view_mode: "Cum se deblochează conținutul [reply]. any_reply: orice răspuns valid în subiect deblochează tot. exact_post: doar un răspuns direct la postarea care conține conținutul o deblochează (pentru prima postare contează și răspunsul în subiect)."
-    reply_to_view_allow_count: "Activează sintaxa de numărare [reply=N]: conținutul devine vizibil după cel puțin N răspunsuri valide în subiect. Dezactivată, [reply=N] se comportă ca un [reply] obișnuit."
+    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Activează pluginul reply-to-view (etichete de protecție a conținutului [reply-visible] și [login-visible]). Dezactivat, conținutul marcat anterior este afișat ca text simplu."
+    reply_to_view_mode: "Cum se deblochează conținutul [reply-visible]. any_reply: orice răspuns valid în subiect deblochează tot. exact_post: doar un răspuns direct la postarea care conține conținutul o deblochează (pentru prima postare contează și răspunsul în subiect)."
+    reply_to_view_allow_count: "Activează sintaxa de numărare [reply-visible=N]: conținutul devine vizibil după cel puțin N răspunsuri valide în subiect. Dezactivată, [reply-visible=N] se comportă ca un [reply-visible] obișnuit."
     min_trust_level_to_bypass: "Utilizatorii cu acest nivel de încredere sau mai mare pot vedea tot conținutul reply-to-view fără să răspundă. 0 dezactivează scutirea."
     min_trust_level_to_use: "Nivelul minim de încredere pentru a folosi etichetele de conținut ascuns. Etichetele publicate de utilizatori sub acest nivel nu au efect, iar conținutul lor este vizibil tuturor."
     keywords:
