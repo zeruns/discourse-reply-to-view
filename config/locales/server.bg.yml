@@ -11,7 +11,7 @@
     search_placeholder: "[защитено съдържание]"
     revision_placeholder: "Промените в съдържанието на тази защитена публикация са скрити"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Включва разширението reply-to-view (тагове за защита на съдържание [reply-visible] и [login-visible]). При изключване предишно маркираното съдържание се показва като обикновен текст."
+    enable_rtv: "Блог на автора: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Включва разширението reply-to-view (тагове за защита на съдържание [reply-visible] и [login-visible]). При изключване предишно маркираното съдържание се показва като обикновен текст."
     reply_to_view_mode: "Как се отключва съдържание [reply-visible]. any_reply: всеки валиден отговор в темата отключва всичко. exact_post: само директен отговор на публикацията със съдържанието го отключва (за първата публикация важи и отговор в темата)."
     reply_to_view_allow_count: "Включва синтаксиса на брояча [reply-visible=N]: съдържанието става видимо след поне N валидни отговора в темата. При изключване [reply-visible=N] действа като обикновен [reply-visible]."
     min_trust_level_to_bypass: "Потребители на това ниво на доверие или по-високо виждат цялото съдържание reply-to-view без отговор. 0 изключва освобождението."

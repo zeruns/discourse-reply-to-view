@@ -11,7 +11,7 @@
     search_placeholder: "[apsaugotas turinys]"
     revision_placeholder: "Šio apsaugoto įrašo turinio pakeitimai paslėpti"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Įjungia reply-to-view įskiepį ([reply-visible] ir [login-visible] turinio apsaugos žymos). Išjungus anksčiau pažymėtas turinys rodomas kaip paprastas tekstas."
+    enable_rtv: "Autoriaus tinklaraštis: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Įjungia reply-to-view įskiepį ([reply-visible] ir [login-visible] turinio apsaugos žymos). Išjungus anksčiau pažymėtas turinys rodomas kaip paprastas tekstas."
     reply_to_view_mode: "Kaip atrakcinamas [reply-visible] turinys. any_reply: bet koks galiojantis atsakymas temoje atrakina viską. exact_post: tik tiesioginis atsakymas į įrašą su turiniu jį atrakina (pirmam įrašui skaičiuojamas ir atsakymas temoje)."
     reply_to_view_allow_count: "Įjungia [reply-visible=N] skaitiklio sintaksę: turinys tampa matomas po bent N galiojančių atsakymų temoje. Išjungta [reply-visible=N] veikia kaip paprastas [reply-visible]."
     min_trust_level_to_bypass: "Šio pasitikėjimo lygio ir aukštesni vartotojai mato visą reply-to-view turinį be atsakymų. 0 išjungia išimtį."

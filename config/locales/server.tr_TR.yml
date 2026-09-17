@@ -11,7 +11,7 @@
     search_placeholder: "[korunan içerik]"
     revision_placeholder: "Bu korunan gönderinin içerik değişiklikleri gizlidir"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Yanıtla-gör eklentisini etkinleştirir ([reply-visible] ve [login-visible] içerik koruma etiketleri). Devre dışı bırakıldığında daha önce işaretlenmiş içerik düz metin olarak gösterilir."
+    enable_rtv: "Yazarın blogu: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Yanıtla-gör eklentisini etkinleştirir ([reply-visible] ve [login-visible] içerik koruma etiketleri). Devre dışı bırakıldığında daha önce işaretlenmiş içerik düz metin olarak gösterilir."
     reply_to_view_mode: "[reply-visible] içeriğinin kilidinin açılma yolu. any_reply: konudaki herhangi bir geçerli yanıt kilidi açar. exact_post: yalnızca içeriği içeren gönderiye doğrudan yanıt kilidi açar (ilk gönderi için konuya yanıt da sayılır)."
     reply_to_view_allow_count: "[reply-visible=N] sayaç sözdizimini etkinleştirir: konuda en az N geçerli yanıt sonrasında içerik görünür. Devre dışıyken [reply-visible=N] normal [reply-visible] gibi davranır."
     min_trust_level_to_bypass: "Bu güven düzeyindeki veya üzeri kullanıcılar tüm içerikleri yanıtlamadan görebilir. 0, muafiyeti devre dışı bırakır."

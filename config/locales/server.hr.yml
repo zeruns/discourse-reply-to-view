@@ -11,7 +11,7 @@
     search_placeholder: "[zaštićeni sadržaj]"
     revision_placeholder: "Promjene sadržaja ovog zaštićenog posta skrivene su"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Omogućuje plugin reply-to-view (oznake zaštite sadržaja [reply-visible] i [login-visible]). Isključeno, prethodno označeni sadržaj prikazuje se kao običan tekst."
+    enable_rtv: "Blog autora: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Omogućuje plugin reply-to-view (oznake zaštite sadržaja [reply-visible] i [login-visible]). Isključeno, prethodno označeni sadržaj prikazuje se kao običan tekst."
     reply_to_view_mode: "Kako se otključava sadržaj [reply-visible]. any_reply: bilo koji valjani odgovor u temi otključava sve. exact_post: samo izravan odgovor na post sa sadržajem ga otključava (za prvi post računa se i odgovor u temi)."
     reply_to_view_allow_count: "Omogućuje sintaksu brojača [reply-visible=N]: sadržaj postaje vidljiv nakon najmanje N valjanih odgovora u temi. Isključeno, [reply-visible=N] djeluje kao običan [reply-visible]."
     min_trust_level_to_bypass: "Korisnici na ovoj razini povjerenja ili višoj vide sav sadržaj reply-to-view bez odgovaranja. 0 isključuje oslobodenje."

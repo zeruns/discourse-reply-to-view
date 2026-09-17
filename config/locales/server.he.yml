@@ -11,7 +11,7 @@
     search_placeholder: "[תוכן מוגן]"
     revision_placeholder: "שינויי התוכן של פוסט מוגן זה מוסתרים"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. מפעיל את תוסף reply-to-view (תגי הגנת תוכן [reply-visible] ו-[login-visible]). כשמושבת, תוכן שסומן בעבר מוצג כטקסט פשוט."
+    enable_rtv: "הבלוג של המחבר: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. מפעיל את תוסף reply-to-view (תגי הגנת תוכן [reply-visible] ו-[login-visible]). כשמושבת, תוכן שסומן בעבר מוצג כטקסט פשוט."
     reply_to_view_mode: "כיצד נפתח תוכן [reply-visible]. any_reply: כל תגובה תקפה בנושא פותחת הכול. exact_post: רק תגובה ישירה לפוסט המכיל את התוכן פותחת אותו (לפוסט הראשון גם תגובה בנושא נספרת)."
     reply_to_view_allow_count: "מפעיל את תחביר הספירה [reply-visible=N]: התוכן יופיע לאחר לפחות N תגובות תקפות בנושא. כשמושבת, [reply-visible=N] פועל כ-[reply-visible] רגיל."
     min_trust_level_to_bypass: "משתמשים ברמת אמון זו ומעלה יכולים לראות את כל תוכן ה-reply-to-view ללא תגובה. 0 מבטל את הפטור."

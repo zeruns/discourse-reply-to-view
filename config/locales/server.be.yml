@@ -11,7 +11,7 @@
     search_placeholder: "[абаронены кантэнт]"
     revision_placeholder: "Змены кантэнту гэтага абароненага паведамлення схаваны"
   site_settings:
-    enable_rtv: "Author blog: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Уключае плагін reply-to-view (тэгі абароны кантэнту [reply-visible] і [login-visible]). Пры выключэнні раней пазначаны кантэнт адлюстроўваецца як звычайны тэкст."
+    enable_rtv: "Блог аўтара: <a href='https://blog.zeruns.com/' target='_blank' rel='noopener'>blog.zeruns.com</a>. Уключае плагін reply-to-view (тэгі абароны кантэнту [reply-visible] і [login-visible]). Пры выключэнні раней пазначаны кантэнт адлюстроўваецца як звычайны тэкст."
     reply_to_view_mode: "Як разблакіроўваецца кантэнт [reply-visible]. any_reply: любы дзейсны адказ у тэме разблакіроўвае ўсё. exact_post: толькі прамы адказ на паведамленне з кантэнтам яго разблакіроўвае (для першага паведамлення залічваецца і адказ у тэме)."
     reply_to_view_allow_count: "Уключае сінтаксіс лічильніка [reply-visible=N]: кантэнт бачны пасля не менш за N дзейсных адказаў у тэме. Пры выключэнні [reply-visible=N] дзейнічае як звычайны [reply-visible]."
     min_trust_level_to_bypass: "Карыстальнікі гэтага ўзроўню даверу і вышэй бачаць увесь кантэнт reply-to-view без адказаў. 0 выключае выключэнне."
