@@ -18,6 +18,16 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 - Discourse setup guide — deploy an open-source community forum from scratch (Chinese): <https://blog.zeruns.com/archives/919.html>
 - Discourse AI configuration guide — enable AI features for free with SiliconFlow API (Chinese): <https://blog.zeruns.com/archives/917.html>
 
+## Screenshots
+
+Composer (editor) page:
+
+![](https://tc3.zeruns.com/tc/2026/09/17/ff31f8c9-7018-465d-99a1-a4deedbb45b6c98bb3acbd5c8444.png)
+
+Article page, multi-language support:
+
+![](https://tc2.zeruns.com/tc/2026/09/17/WPS0606c3a8b8f40d79a.webp)
+
 ## Requirements
 
 - Verified against Discourse **v2026.9.0-latest** (master branch, built 2026-09-16)

@@ -17,6 +17,16 @@
 - Discourse 论坛搭建教程，零基础部署 Discourse 开源社区论坛网站：<https://blog.zeruns.com/archives/919.html>
 - Discourse AI 配置教程，使用硅基流动 API，免费开启 AI 功能：<https://blog.zeruns.com/archives/917.html>
 
+## 插件效果图
+
+编辑器页面插件效果图：
+
+![](https://tc3.zeruns.com/tc/2026/09/17/ff31f8c9-7018-465d-99a1-a4deedbb45b6c98bb3acbd5c8444.png)
+
+文章页效果图，支持多国语言：
+
+![](https://tc2.zeruns.com/tc/2026/09/17/WPS0606c3a8b8f40d79a.webp)
+
 ## 环境要求
 
 - 验证环境:Discourse **v2026.9.0-latest**（master 分支, 2026-09-16 构建）
