@@ -3,7 +3,7 @@
 # 修订历史 diff 的泄露封堵测试
 #
 # 【安全背景】核心 PostRevisionSerializer 的 body_changes.side_by_side_markdown
-# 输出 raw 的词级 diff,含 [reply] / [login] 标记内的隐藏原文。
+# 输出 raw 的词级 diff,含 [reply-visible] / [login-visible] 标记内的隐藏原文。
 # 本插件对非特权用户整体替换为占位提示;特权用户（作者/管理员/版主）不受影响。
 RSpec.describe PostRevisionSerializer, type: :request do
   fab!(:author) { Fabricate(:user, trust_level: TrustLevel[2]) }
@@ -14,9 +14,9 @@ RSpec.describe PostRevisionSerializer, type: :request do
     Fabricate(:post, topic: topic, user: author, raw: <<~MD)
       帖子正文
 
-      [reply]
+      [reply-visible]
       REVISION-SECRET-44
-      [/reply]
+      [/reply-visible]
     MD
   end
 

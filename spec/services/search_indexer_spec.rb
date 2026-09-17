@@ -8,13 +8,13 @@ RSpec.describe SearchIndexer do
     Fabricate(:post, topic: topic, user: author, raw: <<~MD)
       公开的话题标题文字 SEARCHABLE-PLAIN
 
-      [reply]
+      [reply-visible]
       SEARCH-SECRET-REPLY
-      [/reply]
+      [/reply-visible]
 
-      [login]
+      [login-visible]
       SEARCH-SECRET-LOGIN
-      [/login]
+      [/login-visible]
     MD
   end
 

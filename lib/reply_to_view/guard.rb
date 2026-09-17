@@ -56,12 +56,13 @@ module ReplyToView
       false
     end
 
-    # 特权用户：作者本人 / 全站管理员 / 全站版主 / 对应分类的分类版主
+    # 特权用户：帖子作者 / 主题楼主 / 全站管理员 / 全站版主 / 对应分类的分类版主
     def privileged?
       return @privileged if defined?(@privileged)
       @privileged =
         !@user.nil? && (
           @user.id == @post.user_id ||
+          @post.topic&.user_id == @user.id ||
           @user.staff? ||
           category_moderator?
         )
@@ -121,6 +122,9 @@ module ReplyToView
       cache = (Current.reply_data_cache ||= {})
       cache_key = "rtv_rd:#{@user.id}:#{@post.topic_id}"
       @reply_data = (cache[cache_key] ||= begin
+        # 说明:未采用 TopicUser.posted 非规范化标志做快速短路 ——
+        # import_mode / auto_track:false 的发帖路径不写该标志（假阴性会导致
+        # 已回复用户无法解锁）,且本查询带索引且请求级记忆化,开销可忽略
         rows = Post
           .where(user_id: @user.id, topic_id: @post.topic_id)
           .where(deleted_at: nil)

@@ -56,10 +56,7 @@ export function setup(helper) {
   ]);
 
   helper.registerPlugin((md) => {
-    // 新标签（主用）与旧标签（兼容历史内容）共用预览容器结构
     md.block.bbcode.ruler.push("rtv_reply_visible", makeWrapRule("reply-visible", "reply"));
     md.block.bbcode.ruler.push("rtv_login_visible", makeWrapRule("login-visible", "login"));
-    md.block.bbcode.ruler.push("rtv_reply", makeWrapRule("reply", "reply"));
-    md.block.bbcode.ruler.push("rtv_login", makeWrapRule("login", "login"));
   });
 }

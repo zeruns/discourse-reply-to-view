@@ -11,17 +11,17 @@ RSpec.describe "reply-to-view content protection", type: :request do
     Fabricate(:post, topic: topic, user: author, raw: <<~MD)
       帖子正文开头
 
-      [login]
+      [login-visible]
       LOGIN-SECRET-99
-      [/login]
+      [/login-visible]
 
-      [reply]
+      [reply-visible]
       REPLY-SECRET-88
-      [/reply]
+      [/reply-visible]
 
-      [reply=2]
+      [reply-visible=2]
       COUNT-SECRET-77
-      [/reply]
+      [/reply-visible]
     MD
   end
   fab!(:viewer) { Fabricate(:user, trust_level: TrustLevel[0]) }
@@ -84,6 +84,18 @@ RSpec.describe "reply-to-view content protection", type: :request do
       expect(response.body).to include(I18n.t("reply_to_view.sanitized_placeholder"))
     end
 
+    it "cooked 端点输出锁定占位框且无原文泄露" do
+      get "/posts/#{marked_post.id}/cooked.json"
+      expect(response.status).to eq(200)
+      cooked = JSON.parse(response.body)["cooked"]
+
+      aggregate_failures do
+        expect(cooked).to include(%(data-rtv-state="locked"))
+        expect(cooked).not_to include("LOGIN-SECRET-99")
+        expect(cooked).not_to include("REPLY-SECRET-88")
+      end
+    end
+
     it "按楼号 raw 端点输出脱敏文本" do
       get "/raw/#{topic.id}/#{marked_post.post_number}"
       expect(response.status).to eq(200)
@@ -101,7 +113,7 @@ RSpec.describe "reply-to-view content protection", type: :request do
   describe "登录未回复用户（TL0，无豁免）" do
     before { SiteSetting.min_trust_level_to_bypass = 0 }
 
-    it "[login] 内容可见、[reply] 与 [reply=N] 返回占位符" do
+    it "[login-visible] 内容可见、[reply-visible] 与 [reply-visible=N] 返回占位符" do
       cooked = fetch_cooked(marked_post, as: viewer)
 
       aggregate_failures do
@@ -125,14 +137,14 @@ RSpec.describe "reply-to-view content protection", type: :request do
   describe "已回复用户" do
     before { SiteSetting.min_trust_level_to_bypass = 0 }
 
-    it "any_reply 模式：任意有效回复解锁全部 [reply]（计数块未达标仍锁定）" do
+    it "any_reply 模式：任意有效回复解锁全部 [reply-visible]（计数块未达标仍锁定）" do
       SiteSetting.reply_to_view_allow_count = true
       Fabricate(:post, topic: topic, user: viewer)
       cooked = fetch_cooked(marked_post, as: viewer)
 
       aggregate_failures do
         expect(cooked).to include("REPLY-SECRET-88")
-        expect(cooked).not_to include("COUNT-SECRET-77") # [reply=2] 需要两条回复
+        expect(cooked).not_to include("COUNT-SECRET-77") # [reply-visible=2] 需要两条回复
       end
     end
 
@@ -186,7 +198,7 @@ RSpec.describe "reply-to-view content protection", type: :request do
       admin = Fabricate(:admin)
       sign_in(admin)
       get "/posts/#{marked_post.id}/raw"
-      expect(response.body).to include("[reply]")
+      expect(response.body).to include("[reply-visible]")
       expect(response.body).to include("REPLY-SECRET-88")
     end
 
@@ -198,7 +210,7 @@ RSpec.describe "reply-to-view content protection", type: :request do
   end
 
   describe "信任等级豁免" do
-    it "TL 达到 min_trust_level_to_bypass 时无需回复即可见 [reply]" do
+    it "TL 达到 min_trust_level_to_bypass 时无需回复即可见 [reply-visible]" do
       SiteSetting.min_trust_level_to_bypass = 3
       tl3 = Fabricate(:user, trust_level: TrustLevel[3])
       cooked = fetch_cooked(marked_post, as: tl3)
@@ -212,9 +224,9 @@ RSpec.describe "reply-to-view content protection", type: :request do
       SiteSetting.min_trust_level_to_use = 2
       low_tl_author = Fabricate(:user, trust_level: TrustLevel[0])
       low_post = Fabricate(:post, topic: topic, user: low_tl_author, raw: <<~MD)
-        [reply]
+        [reply-visible]
         INERT-SECRET-66
-        [/reply]
+        [/reply-visible]
       MD
 
       cooked = fetch_cooked(low_post, as: viewer)
@@ -230,11 +242,26 @@ RSpec.describe "reply-to-view content protection", type: :request do
       expect(response.status).to eq(200)
 
       body = response.body
-      # viewer 已登录:[login] 内容对其可见属预期(登录可见语义);
-      # [reply] 原文与 raw 中的隐藏块均不得出现
+      # viewer 已登录:[login-visible] 内容对其可见属预期(登录可见语义);
+      # [reply-visible] 原文与 raw 中的隐藏块均不得出现
       expect(body).not_to include("REPLY-SECRET-88")
       expect(body).not_to include("COUNT-SECRET-77")
       expect(body).to include("[hidden content]")
+    end
+  end
+
+  describe "BasicPostSerializer 路径（个人资料页等出口）" do
+    it "锁定用户经 BasicPostSerializer 拿到的 cooked 同样是占位符" do
+      cooked = BasicPostSerializer.new(
+        marked_post.reload,
+        scope: Guardian.new(viewer),
+        root: false,
+      ).cooked
+
+      aggregate_failures do
+        expect(cooked).to include(%(data-rtv-state="locked"))
+        expect(cooked).not_to include("REPLY-SECRET-88")
+      end
     end
   end
 
@@ -247,7 +274,7 @@ RSpec.describe "reply-to-view content protection", type: :request do
     end
 
     it "CookedPostProcessor 烘焙后 cooked 带占位提示文案（邮件可见友好提示）" do
-      post = Fabricate(:post, topic: topic, user: author, raw: "[reply]\nBAKE-SECRET-55\n[/reply]\n")
+      post = Fabricate(:post, topic: topic, user: author, raw: "[reply-visible]\nBAKE-SECRET-55\n[/reply-visible]\n")
       # 与核心 ProcessPost job 一致:post_process 修改文档,job 将结果写回 DB
       cp = CookedPostProcessor.new(post, {})
       cp.post_process

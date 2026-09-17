@@ -29,7 +29,26 @@
 
 ## 更新日志
 
-### v1.2.0（当前）
+### v2.0.0（当前）
+
+- **破坏性变更:移除旧标签 `[reply]` / `[login]` / `[reply=N]` 兼容**,
+  仅识别 `[reply-visible]` / `[login-visible]` / `[reply-visible=N]`。
+  含旧标签的历史帖子请先执行迁移任务（幂等,可重复执行）:
+
+  ```bash
+  ./launcher enter app
+  rake rtv:migrate_legacy_tags
+  ```
+
+  任务会批量替换帖子及其本地化翻译版本中的旧标记,并重新烘焙 cooked。
+  未迁移的旧帖隐藏内容将以明文渲染（迁移前请勿升级）
+- **新增:楼主可见**——主题楼主（即使不是隐藏内容所在帖的作者）可查看全部隐藏内容
+- **新增:`GET /posts/:id/cooked` 端点权限注入**,与各视角行为一致
+- **加固:cooked 注入点上移至 BasicPostSerializer**,覆盖个人资料页、
+  user actions、wordpress 导出等全部子类序列化路径
+- 测试 86 → 88 个,全部通过
+
+### v1.2.0
 
 - **标记更名**：主标记改为 `[reply-visible]` / `[login-visible]`（计数语法 `[reply-visible=N]`），
   语义更明确、避免与普通文本或其他插件撞名；编辑器按钮插入新标签

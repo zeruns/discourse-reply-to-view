@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-# 服务端 cook 管线测试：验证 [reply] / [login] 标记在 Markdown 渲染阶段
+# 服务端 cook 管线测试：验证 [reply-visible] / [login-visible] 标记在 Markdown 渲染阶段
 # 产出纯结构占位容器、隐藏原文绝不进入 cooked。
 RSpec.describe PrettyText, type: :component do
   describe "rtv bbcode rules" do
     it "生成 reply 占位容器且不包含隐藏原文" do
       cooked = PrettyText.cook(<<~MD)
-        [reply]
+        [reply-visible]
         SECRET-REPLY-CONTENT
-        [/reply]
+        [/reply-visible]
       MD
 
       expect(cooked).to include(%(class="rtv-block rtv-reply"))
@@ -20,9 +20,9 @@ RSpec.describe PrettyText, type: :component do
 
     it "生成 login 占位容器且不包含隐藏原文" do
       cooked = PrettyText.cook(<<~MD)
-        [login]
+        [login-visible]
         SECRET-LOGIN-CONTENT
-        [/login]
+        [/login-visible]
       MD
 
       expect(cooked).to include(%(class="rtv-block rtv-login"))
@@ -30,11 +30,11 @@ RSpec.describe PrettyText, type: :component do
       expect(cooked).not_to include("SECRET-LOGIN-CONTENT")
     end
 
-    it "[reply=N] 输出计数值属性" do
+    it "[reply-visible=N] 输出计数值属性" do
       cooked = PrettyText.cook(<<~MD)
-        [reply=3]
+        [reply-visible=3]
         SECRET-COUNT-CONTENT
-        [/reply]
+        [/reply-visible]
       MD
 
       expect(cooked).to include(%(data-rtv-count="3"))
@@ -43,9 +43,9 @@ RSpec.describe PrettyText, type: :component do
 
     it "非正整数计数属性被忽略（按普通 reply 处理）" do
       cooked = PrettyText.cook(<<~MD)
-        [reply=abc]
+        [reply-visible=abc]
         SECRET-INVALID-COUNT
-        [/reply]
+        [/reply-visible]
       MD
 
       expect(cooked).to include("rtv-block")
@@ -55,24 +55,24 @@ RSpec.describe PrettyText, type: :component do
 
     it "未闭合的标记按普通文本原样输出（不报错、不生成容器）" do
       cooked = PrettyText.cook(<<~MD)
-        [reply]
+        [reply-visible]
         SOME-TEXT
       MD
 
       expect(cooked).not_to include("rtv-block")
-      expect(cooked).to include("[reply]")
+      expect(cooked).to include("[reply-visible]")
     end
 
     it "标记内部支持嵌套普通 Markdown（块级结构）" do
       raw = <<~MD
-        [reply]
+        [reply-visible]
         - item one
         - item two
 
         ```ruby
         puts "SECRET-CODE"
         ```
-        [/reply]
+        [/reply-visible]
       MD
 
       blocks = ReplyToView::Engine.extract(raw)
@@ -86,28 +86,28 @@ RSpec.describe PrettyText, type: :component do
     end
 
     it "单行完整对形态被处理" do
-      cooked = PrettyText.cook("[reply]SINGLE-LINE-SECRET[/reply]\n")
+      cooked = PrettyText.cook("[reply-visible]SINGLE-LINE-SECRET[/reply-visible]\n")
 
       expect(cooked).to include("rtv-block")
       expect(cooked).not_to include("SINGLE-LINE-SECRET")
     end
 
     it "行内前后有文字的标记不生效（原样输出）" do
-      cooked = PrettyText.cook("prefix [reply]INLINE-SECRET[/reply]\n")
+      cooked = PrettyText.cook("prefix [reply-visible]INLINE-SECRET[/reply-visible]\n")
       expect(cooked).not_to include("rtv-block")
 
-      cooked = PrettyText.cook("[reply]INLINE-SECRET[/reply] suffix\n")
+      cooked = PrettyText.cook("[reply-visible]INLINE-SECRET[/reply-visible] suffix\n")
       expect(cooked).not_to include("rtv-block")
     end
 
     it "异名标记互相嵌套时内层标记不单独生效（禁止混合解析）" do
       cooked = PrettyText.cook(<<~MD)
-        [reply]
+        [reply-visible]
         outer SECRET-A
-        [login]
+        [login-visible]
         inner SECRET-B
-        [/login]
-        [/reply]
+        [/login-visible]
+        [/reply-visible]
       MD
 
       # 整体作为一个 reply 块：两层原文全部丢弃，不产生独立的 login 容器
@@ -120,13 +120,13 @@ RSpec.describe PrettyText, type: :component do
 
     it "同名标记嵌套按计数语义配对（最后一个闭合生效）" do
       raw = <<~MD
-        [reply]
+        [reply-visible]
         outer SECRET-OUTER
-        [reply]
+        [reply-visible]
         inner SECRET-INNER
-        [/reply]
+        [/reply-visible]
         tail SECRET-TAIL
-        [/reply]
+        [/reply-visible]
       MD
 
       blocks = ReplyToView::Engine.extract(raw)
@@ -182,47 +182,16 @@ RSpec.describe PrettyText, type: :component do
       end
     end
 
-    it "新旧标签混用于同一帖子时均可解析且指纹各自对齐" do
-      raw = <<~MD
-        [reply]
-        OLD-TAG-CONTENT
-        [/reply]
-
-        [reply-visible]
-        NEW-TAG-CONTENT
-        [/reply-visible]
-      MD
-
-      cooked = PrettyText.cook(raw)
-      doc = Nokogiri::HTML5.fragment(cooked)
-      containers = doc.css("div.rtv-block[data-rtv-index]")
-      blocks = ReplyToView::Engine.extract(raw)
-
-      expect(containers.size).to eq(2)
-      expect(blocks.size).to eq(2)
-
-      containers.sort_by { |el| el["data-rtv-index"].to_i }.each_with_index do |el, i|
-        block = blocks[i]
-        expect(el["data-rtv-checksum"]).to eq(block.checksum.to_s(16))
-        expect(el["data-rtv-type"]).to eq(block.type.to_s)
-      end
-
-      aggregate_failures do
-        expect(cooked).not_to include("OLD-TAG-CONTENT")
-        expect(cooked).not_to include("NEW-TAG-CONTENT")
-      end
-    end
-
-    it "新旧标签交叉嵌套视为非法形态,按普通文本原样输出" do
+    it "v2.0 起旧标签 [reply] 不再被解析,按普通文本原样输出（用 rake rtv:migrate_legacy_tags 迁移）" do
       cooked = PrettyText.cook(<<~MD)
         [reply]
-        CROSS-TAG-SECRET
-        [/reply-visible]
+        LEGACY-TAG-CONTENT
+        [/reply]
       MD
 
       aggregate_failures do
         expect(cooked).not_to include("rtv-block")
-        expect(cooked).to include("CROSS-TAG-SECRET")
+        expect(cooked).to include("[reply]")
       end
     end
 
@@ -233,19 +202,19 @@ RSpec.describe PrettyText, type: :component do
       raw = <<~MD
         开头一段普通文字
 
-        [login]
+        [login-visible]
         SECRET-LOGIN
-        [/login]
+        [/login-visible]
 
         中间一段普通文字
 
-        [reply=2]
+        [reply-visible=2]
         SECRET-COUNT
-        [/reply]
+        [/reply-visible]
 
-        [reply]
+        [reply-visible]
         SECRET-PLAIN
-        [/reply]
+        [/reply-visible]
       MD
 
       cooked = PrettyText.cook(raw)
@@ -269,9 +238,9 @@ RSpec.describe PrettyText, type: :component do
 
     it "块内容含中文与 Emoji 时跨端指纹仍然一致" do
       raw = <<~MD
-        [reply]
+        [reply-visible]
         中文内容测试 🎉 emoji
-        [/reply]
+        [/reply-visible]
       MD
 
       cooked = PrettyText.cook(raw)
@@ -283,9 +252,9 @@ RSpec.describe PrettyText, type: :component do
 
     it "占位文案在 CookedPostProcessor 阶段烘焙进 cooked（供搜索/邮件直读场景）" do
       post = Fabricate(:post, raw: <<~MD)
-        [reply]
+        [reply-visible]
         SECRET-BAKE
-        [/reply]
+        [/reply-visible]
       MD
 
       # 与核心 ProcessPost job 相同的调用方式；job 在 post_process 后

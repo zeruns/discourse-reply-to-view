@@ -109,11 +109,7 @@ export function setup(helper) {
   ]);
 
   helper.registerPlugin((md) => {
-    // 新标签（v1.2.0 起主用）
     md.block.bbcode.ruler.push("rtv_reply_visible", makeReplaceRule("reply-visible", "reply"));
     md.block.bbcode.ruler.push("rtv_login_visible", makeReplaceRule("login-visible", "login"));
-    // 旧标签向后兼容：历史帖子仍受保护,移除将导致旧隐藏内容明文泄露
-    md.block.bbcode.ruler.push("rtv_reply", makeReplaceRule("reply", "reply"));
-    md.block.bbcode.ruler.push("rtv_login", makeReplaceRule("login", "login"));
   });
 }

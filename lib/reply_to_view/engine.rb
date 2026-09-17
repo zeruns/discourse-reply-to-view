@@ -29,23 +29,23 @@ module ReplyToView
     #   range:    块在 raw 中占据的行号区间 [起始行, 结束行]（含端点，0 基），供 raw 净化重写使用
     Block = Struct.new(:type, :count, :content, :index, :checksum, :range, keyword_init: true)
 
-    # 标记名：v1.2.0 起主用 [reply-visible] / [login-visible]（更明确、避免与
-    # 其他插件或普通文本撞名）；旧标签 [reply] / [login] 向后兼容保留 ——
-    # 若移除旧标签,历史帖子的隐藏内容将以明文渲染,构成泄露,故不可移除
-    TAG_NAMES = %w[reply-visible login-visible reply login].freeze
+    # 标记名：[reply-visible] / [login-visible]（语义明确,避免与普通文本
+    # 或其他插件撞名）。计数语法 [reply-visible=N]。
+    # 注:v2.0 起仅支持新标签;旧 [reply]/[login] 标签请用 rake rtv:migrate_legacy_tags 迁移
+    TAG_NAMES = %w[reply-visible login-visible].freeze
 
-    # 开标记：整行 strip 后恰好是 [reply-visible] / [login] / [reply-visible=xxx] 等
+    # 开标记：整行 strip 后恰好是 [reply-visible] / [login-visible] / [reply-visible=xxx]
     # 属性值语义与核心引擎 parseBBCodeTag 对齐：非空白、非 ] 的连续字符
-    OPEN_RE = /\A\[(reply-visible|login-visible|reply|login)(?:=([^\]\s]+))?\]\z/
-    # 闭标记：整行 strip 后恰好是 [/reply-visible] / [/login] 等
-    CLOSE_RE = /\A\[\/(reply-visible|login-visible|reply|login)\]\z/
+    OPEN_RE = /\A\[(reply-visible|login-visible)(?:=([^\]\s]+))?\]\z/
+    # 闭标记：整行 strip 后恰好是 [/reply-visible] 或 [/login-visible]
+    CLOSE_RE = /\A\[\/(reply-visible|login-visible)\]\z/
     # 单行完整对：整行 strip 后恰好为完整的开闭对（回溯到最后一个闭标记）
-    INLINE_RE = /\A\[(reply-visible|login-visible|reply|login)(?:=([^\]\s]+))?\](.+)\[\/\1\]\z/
+    INLINE_RE = /\A\[(reply-visible|login-visible)(?:=([^\]\s]+))?\](.+)\[\/\1\]\z/
 
     class << self
-      # 快速检测文本是否包含本插件标记（新旧标签均识别,轻量正则用于 early-exit）
+      # 快速检测文本是否包含本插件标记（轻量正则,用于大文本 early-exit）
       def contains_marks?(text)
-        !text.nil? && text.match?(/\[\/?\[?(reply|login)(?:-visible)?(?:=|\])/i)
+        !text.nil? && text.match?(/\[\/?\[?(reply|login)-visible(?:=|\])/i)
       end
 
       # 从 raw 提取全部标记块（按出现顺序）

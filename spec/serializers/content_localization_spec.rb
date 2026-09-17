@@ -4,7 +4,7 @@
 #
 # 【背景】核心内容本地化把 post_localizations 中的翻译 cooked 提供给
 # 非默认语言用户（多个序列化出口共用 ContentLocalization.translated_post_cooked）。
-# AI 翻译保留 [reply]/[login] 标记时,本地化 cooked 带有完整的占位容器结构
+# AI 翻译保留 [reply-visible]/[login-visible] 标记时,本地化 cooked 带有完整的占位容器结构
 # （标记内容在 cook 阶段被规则丢弃）,可直接放行,由注入器按用户权限逐块处理;
 # 若翻译产物丢失容器结构（翻译后的隐藏内容明文暴露）,则仅对满足
 # "全部块可见"的用户放行,其他用户回退到受保护的默认 cooked。
@@ -17,15 +17,15 @@ RSpec.describe ContentLocalization, type: :request do
     Fabricate(:post, topic: topic, user: author, raw: <<~MD)
       帖子正文
 
-      [reply]
+      [reply-visible]
       中文隐藏内容
-      [/reply]
+      [/reply-visible]
     MD
   end
   fab!(:viewer) { Fabricate(:user, trust_level: TrustLevel[0]) }
   fab!(:localizer) { Fabricate(:admin) }
 
-  let(:en_raw) { "Post body\n\n[reply]\nEN-TRANSLATED-SECRET\n[/reply]\n" }
+  let(:en_raw) { "Post body\n\n[reply-visible]\nEN-TRANSLATED-SECRET\n[/reply-visible]\n" }
   # 结构完好:cook 后容器保留,翻译内容被规则丢弃
   let(:well_formed_cooked) { PrettyText.cook(en_raw) }
 

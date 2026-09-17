@@ -31,7 +31,28 @@ across every content outlet: search index, emails, digests, excerpts, and raw ex
 
 ## Changelog
 
-### v1.2.0 (current)
+### v2.0.0 (current)
+
+- **Breaking: removed legacy tag `[reply]` / `[login]` / `[reply=N]` compatibility**;
+  only `[reply-visible]` / `[login-visible]` / `[reply-visible=N]` are recognized.
+  Run the migration task before upgrading if any historical posts use the legacy tags
+  (idempotent, safe to re-run):
+
+  ```bash
+  ./launcher enter app
+  rake rtv:migrate_legacy_tags
+  ```
+
+  The task rewrites legacy marks in posts and their localized translations, then rebakes
+  the cooked HTML. Unmigrated legacy posts render their hidden content as plain text.
+- **New: topic-starter visibility** — the topic starter can view all hidden content in
+  their topic, even in posts authored by others
+- **New: permission injection on the `GET /posts/:id/cooked` endpoint**
+- **Hardening: cooked injection moved up to BasicPostSerializer**, covering every child
+  serializer path (profile pages, user actions, wordpress export, etc.)
+- Tests 86 → 88, all passing
+
+### v1.2.0
 
 - **Tags renamed**: the primary tags are now `[reply-visible]` / `[login-visible]`
   (count syntax `[reply-visible=N]`) — more explicit and avoids collisions with

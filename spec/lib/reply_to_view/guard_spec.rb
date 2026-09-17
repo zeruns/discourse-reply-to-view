@@ -21,7 +21,7 @@ RSpec.describe ReplyToView::Guard do
     ReplyToView::Current.reset
   end
 
-  describe "[login] 标记" do
+  describe "[login-visible] 标记" do
     it "匿名不可见" do
       expect(guard_for(nil).can_view?(login_block)).to be false
     end
@@ -38,7 +38,7 @@ RSpec.describe ReplyToView::Guard do
     end
   end
 
-  describe "[reply] 标记 - 特权判定" do
+  describe "[reply-visible] 标记 - 特权判定" do
     before { SiteSetting.min_trust_level_to_bypass = 0 }
     it "匿名不可见" do
       expect(guard_for(nil).can_view?(reply_block)).to be false
@@ -46,6 +46,13 @@ RSpec.describe ReplyToView::Guard do
 
     it "帖子作者始终可见" do
       expect(guard_for(author).can_view?(reply_block)).to be true
+    end
+
+    it "主题楼主可见（即使不是帖子作者）" do
+      starter = Fabricate(:user)
+      other_topic = Fabricate(:topic, user: starter)
+      author_reply = Fabricate(:post, topic: other_topic, user: author)
+      expect(described_class.new(starter, author_reply).can_view?(reply_block)).to be true
     end
 
     it "全站管理员始终可见" do
@@ -78,7 +85,7 @@ RSpec.describe ReplyToView::Guard do
     end
   end
 
-  describe "[reply] 标记 - 信任等级豁免" do
+  describe "[reply-visible] 标记 - 信任等级豁免" do
     it "TL >= min_trust_level_to_bypass 时无需回复即可见" do
       SiteSetting.min_trust_level_to_bypass = 2
       tl2 = Fabricate(:user, trust_level: TrustLevel[2])
@@ -92,7 +99,7 @@ RSpec.describe ReplyToView::Guard do
     end
   end
 
-  describe "[reply] 标记 - any_reply 模式（默认）" do
+  describe "[reply-visible] 标记 - any_reply 模式（默认）" do
     before { SiteSetting.min_trust_level_to_bypass = 0 }
 
     it "发布过任意有效回复即解锁" do
@@ -112,7 +119,7 @@ RSpec.describe ReplyToView::Guard do
     end
   end
 
-  describe "[reply] 标记 - exact_post 模式" do
+  describe "[reply-visible] 标记 - exact_post 模式" do
     before do
       SiteSetting.min_trust_level_to_bypass = 0
       SiteSetting.reply_to_view_mode = "exact_post"
@@ -142,7 +149,7 @@ RSpec.describe ReplyToView::Guard do
     end
   end
 
-  describe "[reply=N] 计数模式" do
+  describe "[reply-visible=N] 计数模式" do
     before { SiteSetting.min_trust_level_to_bypass = 0 }
 
     it "启用计数语法：回复数达到 N 才解锁" do
@@ -158,7 +165,7 @@ RSpec.describe ReplyToView::Guard do
       expect(guard_for(viewer).can_view?(count_block)).to be true
     end
 
-    it "关闭计数语法：[reply=N] 降级为普通 [reply]（任意回复即解锁）" do
+    it "关闭计数语法：[reply-visible=N] 降级为普通 [reply-visible]（任意回复即解锁）" do
       SiteSetting.reply_to_view_allow_count = false
       Fabricate(:post, topic: topic, user: viewer)
       expect(guard_for(viewer).can_view?(count_block)).to be true

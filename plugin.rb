@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # name: discourse-reply-to-view
-# version: 1.2.0
+# version: 2.0.0
 # authors: zeruns
 # url: https://github.com/zeruns/discourse-reply-to-view
 # about: 回帖可见 / 登录可见内容保护插件（[reply-visible] 与 [login-visible] BBCode 标记，
@@ -38,6 +38,7 @@ require_relative "lib/reply_to_view/extensions"
 # （Zeitwerk 自动加载尚未就绪）,to_prepare 在应用初始化完成后执行 ——
 # 此时核心类可安全引用,且开发环境代码重载后自动重新应用补丁。
 Rails.application.config.to_prepare do
+  ::BasicPostSerializer.prepend(::ReplyToView::BasicPostSerializerExtension)
   ::PostSerializer.prepend(::ReplyToView::PostSerializerExtension)
   ::PostsController.prepend(::ReplyToView::PostsControllerExtension)
   ::PostRevisionSerializer.prepend(::ReplyToView::PostRevisionSerializerExtension)

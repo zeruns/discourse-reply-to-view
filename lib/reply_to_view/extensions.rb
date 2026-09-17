@@ -9,19 +9,26 @@
 # 其内定义的常量会嵌套在插件单例作用域下 —— 因此所有 Extension 模块
 # 统一放在 lib 中定义,plugin.rb 仅负责 prepend 注册。
 module ReplyToView
-  # ============ PostSerializer 扩展（唯一的内容注入点） ============
+  # ============ BasicPostSerializer 扩展（内容注入点） ============
   # 【安全优先级：最高】
-  # cooked:数据库只存占位容器,序列化时按当前请求用户权限动态注入原文;
-  # raw:raw 属性仅在核心以 add_raw 输出时出现,此处统一做出口净化,
-  # 确保非特权用户拿到的 raw 不含隐藏原文。
-  module PostSerializerExtension
+  # cooked:数据库只存占位容器（标记内容在 cook 阶段被规则丢弃）,
+  # 序列化时按当前请求用户权限动态注入原文。
+  # 挂在 BasicPostSerializer 上以覆盖其全部子类 —— 话题页 PostSerializer、
+  # 个人资料页 GroupPostSerializer、user actions、wordpress 导出等所有
+  # 输出帖子 cooked 的序列化路径统一走本注入点。
+  module BasicPostSerializerExtension
     def cooked
       html = super
       return html if html.blank?
       # 匿名 / 后台任务等无用户上下文时,注入器内部全部输出占位符（默认拒绝）
       ::ReplyToView::CookedInjector.inject(html, object, scope&.user)
     end
+  end
 
+  # ============ PostSerializer 扩展（raw 属性出口净化） ============
+  # raw 属性仅在核心以 add_raw 输出时出现,此处统一做出口净化,
+  # 确保非特权用户拿到的 raw 不含隐藏原文。
+  module PostSerializerExtension
     def raw
       value = super
       return value if value.blank?
@@ -95,6 +102,15 @@ module ReplyToView
   # 核心的 markdown 系列端点（/posts/:id/raw、/raw/:topic_id/:post_number、
   # 修订历史）对“能看帖的用户”直接输出 post.raw,必须统一净化。
   module PostsControllerExtension
+    # 单帖 cooked 端点（/posts/:id/cooked,编辑器引用等场景使用）:
+    # 数据库 cooked 为空容器（无泄露）,此处补充权限注入与占位文案,
+    # 保证该出口与其他视角一致
+    def cooked
+      post = find_post_from_params
+      cooked = ::ReplyToView::CookedInjector.inject(post.cooked, post, guardian&.user)
+      render json: { cooked: cooked }
+    end
+
     # 单帖 raw 出口（/posts/:id/raw 与 /raw/:topic_id/:post_number 共用）
     def markdown(post)
       if post && guardian.can_see?(post)
